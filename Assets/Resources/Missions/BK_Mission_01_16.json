@@ -1,0 +1,30 @@
+{
+	"MissionCode": "MISSION_01_06",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Goalkeeper": 0.15 } 
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 100
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 200
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 300
+		},
+		{ "Type": "shooterWin",
+		  "Code": 4,
+		  "DescriptionID": "No falles ningún tiro",
+		  "winTarget": 5	  
+		}
+	]
+}

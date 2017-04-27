@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c2562d4004a334585d3e82661c6556, type: 3}
+  m_Name: Logros
+  m_EditorClassIdentifier: 
+  m_lista:
+  - m_name: Avispado
+    m_codigo: ACH_KICK_DES_01
+    m_descripcion: Consigue 25 despejes
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: Reflejos felinos
+    m_codigo: ACH_KICK_DES_02
+    m_descripcion: Consigue 100 despejes
+    m_premio: 100
+    m_desbloqueado: 0
+  - m_name: Muralla humana
+    m_codigo: ACH_KICK_DES_03
+    m_descripcion: Consigue 250 despejes
+    m_premio: 300
+    m_desbloqueado: 0
+  - m_name: Trofeo Zamora
+    m_codigo: ACH_KICK_DES_04
+    m_descripcion: Consigue 500 despejes
+    m_premio: 600
+    m_desbloqueado: 0
+  - m_name: Imbatible
+    m_codigo: ACH_KICK_DES_05
+    m_descripcion: Consigue 1000 despejes
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: Cancerbero
+    m_codigo: ACH_KICK_DES_06
+    m_descripcion: Consigue 2000 despejes
+    m_premio: 1500
+    m_desbloqueado: 0
+  - m_name: Seguridad plena
+    m_codigo: ACH_KICK_ATR_01
+    m_descripcion: Realiza 25 paradas
+    m_premio: 150
+    m_desbloqueado: 0
+  - m_name: La garra humana
+    m_codigo: ACH_KICK_ATR_02
+    m_descripcion: Realiza 100 paradas
+    m_premio: 400
+    m_desbloqueado: 0
+  - m_name: Guante de oro
+    m_codigo: ACH_KICK_ATR_03
+    m_descripcion: Realiza 500 paradas
+    m_premio: 700
+    m_desbloqueado: 0
+  - m_name: Sin resquicios
+    m_codigo: ACH_KICK_ATR_04
+    m_descripcion: Realiza 1000 paradas
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: "Porter\xEDa impenetrable"
+    m_codigo: ACH_KICK_ATR_05
+    m_descripcion: Realiza 3000 paradas
+    m_premio: 1500
+    m_desbloqueado: 0
+  - m_name: El Santo
+    m_codigo: ACH_KICK_ATR_06
+    m_descripcion: Realiza 5000 paradas
+    m_premio: 2000
+    m_desbloqueado: 0
+  - m_name: Aprendiz
+    m_codigo: ACH_KICK_PPU_01
+    m_descripcion: Acumula 5000 puntos en parada
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: Iniciado
+    m_codigo: ACH_KICK_PPU_02
+    m_descripcion: Acumula 10000 puntos en parada
+    m_premio: 200
+    m_desbloqueado: 0
+  - m_name: Pro
+    m_codigo: ACH_KICK_PPU_03
+    m_descripcion: Acumula 50000 puntos en parada
+    m_premio: 500
+    m_desbloqueado: 0
+  - m_name: Veterano
+    m_codigo: ACH_KICK_PPU_04
+    m_descripcion: Acumula 100000 puntos en parada
+    m_premio: 700
+    m_desbloqueado: 0
+  - m_name: "\xCDdolo"
+    m_codigo: ACH_KICK_PPU_05
+    m_descripcion: Acumula 500000 puntos en parada
+    m_premio: 800
+    m_desbloqueado: 0
+  - m_name: Estrella
+    m_codigo: ACH_KICK_PPU_06
+    m_descripcion: Acumula 700000 puntos en parada
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: "M\xEDtico"
+    m_codigo: ACH_KICK_PPU_07
+    m_descripcion: Acumula 1000000 puntos en parada
+    m_premio: 1200
+    m_desbloqueado: 0
+  - m_name: Legendario
+    m_codigo: ACH_KICK_PPU_08
+    m_descripcion: Acumula 1500000 puntos en parada
+    m_premio: 1300
+    m_desbloqueado: 0
+  - m_name: Goleador en ciernes
+    m_codigo: ACH_KICK_DIA_01
+    m_descripcion: Consigue 25 dianas
+    m_premio: 10
+    m_desbloqueado: 0
+  - m_name: Promesa
+    m_codigo: ACH_KICK_DIA_02
+    m_descripcion: Consigue 100 dianas
+    m_premio: 25
+    m_desbloqueado: 0
+  - m_name: "Ojo de halc\xF3n"
+    m_codigo: ACH_KICK_DIA_03
+    m_descripcion: Consigue 500 dianas
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: Goleador
+    m_codigo: ACH_KICK_DIA_04
+    m_descripcion: Consigue 1000 dianas
+    m_premio: 100
+    m_desbloqueado: 0
+  - m_name: Artillero
+    m_codigo: ACH_KICK_DIA_05
+    m_descripcion: Consigue 2000 dianas
+    m_premio: 200
+    m_desbloqueado: 0
+  - m_name: "Astro del bal\xF3n"
+    m_codigo: ACH_KICK_DIA_06
+    m_descripcion: Consigue 5000 dianas
+    m_premio: 500
+    m_desbloqueado: 0
+  - m_name: Bota de oro
+    m_codigo: ACH_KICK_DIA_07
+    m_descripcion: Consigue 7000 dianas
+    m_premio: 900
+    m_desbloqueado: 0
+  - m_name: Legendario
+    m_codigo: ACH_KICK_DIA_08
+    m_descripcion: Consigue 10000 dianas
+    m_premio: 1500
+    m_desbloqueado: 0
+  - m_name: Diploma
+    m_codigo: ACH_KICK_TPU_01
+    m_descripcion: "Acumula 10000 puntos en tiro a porter\xEDa"
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: Medalla
+    m_codigo: ACH_KICK_TPU_02
+    m_descripcion: "Acumula 50000 puntos en tiro a porter\xEDa"
+    m_premio: 100
+    m_desbloqueado: 0
+  - m_name: "T\xEDtulo"
+    m_codigo: ACH_KICK_TPU_03
+    m_descripcion: "Acumula 100000 puntos en tiro a porter\xEDa"
+    m_premio: 200
+    m_desbloqueado: 0
+  - m_name: "Galard\xF3n"
+    m_codigo: ACH_KICK_TPU_04
+    m_descripcion: "Acumula 500000 puntos en tiro a porter\xEDa"
+    m_premio: 300
+    m_desbloqueado: 0
+  - m_name: Trofeo
+    m_codigo: ACH_KICK_TPU_05
+    m_descripcion: "Acumula 700000 puntos en tiro a porter\xEDa"
+    m_premio: 400
+    m_desbloqueado: 0
+  - m_name: Copa
+    m_codigo: ACH_KICK_TPU_06
+    m_descripcion: "Acumula 900000 puntos en tiro a porter\xEDa"
+    m_premio: 600
+    m_desbloqueado: 0
+  - m_name: "S\xFAper Copa"
+    m_codigo: ACH_KICK_TPU_07
+    m_descripcion: "Acumula 1000000 puntos en tiro a porter\xEDa"
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: Hall of Fame
+    m_codigo: ACH_KICK_TPU_08
+    m_descripcion: "Acumula 1500000 puntos en tiro a porter\xEDa"
+    m_premio: 1200
+    m_desbloqueado: 0
+  - m_name: Aprende de tus fallos
+    m_codigo: ACH_KICK_TFA_01
+    m_descripcion: Falla 100 lanzamientos
+    m_premio: 10
+    m_desbloqueado: 0
+  - m_name: Mira desviada
+    m_codigo: ACH_KICK_TFA_02
+    m_descripcion: Falla 500 lanzamientos
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: Una mala tarde
+    m_codigo: ACH_KICK_TFA_03
+    m_descripcion: Falla 800 lanzamientos
+    m_premio: 100
+    m_desbloqueado: 0
+  - m_name: No pasa nada
+    m_codigo: ACH_KICK_TFA_04
+    m_descripcion: Falla 1000 lanzamientos
+    m_premio: 500
+    m_desbloqueado: 0
+  - m_name: "Ne\xF3fito"
+    m_codigo: ACH_KICK_MUL_DUEL_01
+    m_descripcion: Juega tu primer duelo
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: La docena
+    m_codigo: ACH_KICK_MUL_DUEL_02
+    m_descripcion: Juega 12 duelos
+    m_premio: 200
+    m_desbloqueado: 0
+  - m_name: Experimentado
+    m_codigo: ACH_KICK_MUL_DUEL_03
+    m_descripcion: Juega 100 duelos
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: Con buen pie
+    m_codigo: ACH_KICK_MUL_WON_01
+    m_descripcion: Vence tu primer duelo
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: "\xA1De 10!"
+    m_codigo: ACH_KICK_MUL_WON_02
+    m_descripcion: Gana 10 duelos
+    m_premio: 250
+    m_desbloqueado: 0
+  - m_name: Centenario
+    m_codigo: ACH_KICK_MUL_WON_03
+    m_descripcion: Vence en 100 duelos
+    m_premio: 1000
+    m_desbloqueado: 0
+  - m_name: La otra mejilla
+    m_codigo: ACH_KICK_MUL_LOST_01
+    m_descripcion: Pierde 10 duelos multijugador
+    m_premio: 50
+    m_desbloqueado: 0
+  - m_name: "Precisi\xF3n de cirujano"
+    m_codigo: ACH_KICK_MUL_PFCT_01
+    m_descripcion: Marca todos los goles en un duelo
+    m_premio: 100
+    m_desbloqueado: 0
+  - m_name: Infranqueable
+    m_codigo: ACH_KICK_MUL_PFCT_02
+    m_descripcion: Para o despeja todos los balones en un duelo
+    m_premio: 100
+    m_desbloqueado: 0

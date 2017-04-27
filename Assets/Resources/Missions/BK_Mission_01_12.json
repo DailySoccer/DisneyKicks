@@ -1,0 +1,42 @@
+{
+	"MissionCode": "MISSION_01_02",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.0, 
+		  "PopUp": "Traza una línea desde el portero al punto rojo para realizar una parada."		
+		},
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.0, 
+		  "PopUp": "Espera a que el balón esté a la distancia correcta. ¡No te adelantes!"		
+		},
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.0, 
+		  "PopUp": "Si consigues adivinar la posición exacta, lograrás un Perfecto."		
+		},
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.0, 
+		  "PopUp": "Cada parada Perfecta te otorgará una vida."		
+		},
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.0, 
+		  "PopUp": "En función de la precisión de la parada, recibirás diferente puntuación."		  
+		}
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 100
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 200
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 3,
+		  "winTarget": 3,
+		  "winType": "generic"
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 300
+		}
+	]
+}

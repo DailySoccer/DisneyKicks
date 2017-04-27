@@ -1,0 +1,34 @@
+var rotateSpeed = 30;
+var texture : Texture;
+
+function Start() {
+// Create a new material with a shader
+// that rotates the texture. Texture rotation
+// is performed with a _Rotation matrix.
+var m : Material = new Material (
+"Shader \"Rotating Texture\" {" +
+"Properties { _MainTex (\"Base\", 2D) = \"white\" {} }" +
+"SubShader {" +
+"Tags{\"Queue\"=\"Transparent\" \"RenderType\"=\"Transparent\" \"IgonoreProjector\"=\"True\"}"+
+"ZWrite Off"+
+" Pass {" +
+" Material { Diffuse (1,1,1,0) Ambient (1,1,1,0) }" +
+" Lighting On Blend SrcAlpha OneMinusSrcAlpha" +
+" SetTexture [_MainTex] {" +
+" matrix [_Rotation]" +
+" combine texture * primary double, texture" +
+" }" +
+" }" +
+"}" +
+"}"
+);
+m.mainTexture = texture;
+GetComponent.<Renderer>().material = m;
+}
+
+function Update() {
+// Construct a rotation matrix and set it for the shader
+var rot = Quaternion.Euler (0, 0, Time.time * rotateSpeed);
+var m = Matrix4x4.TRS (Vector3.zero, rot, Vector3(1,1,1) );
+GetComponent.<Renderer>().material.SetMatrix ("_Rotation", m);
+}

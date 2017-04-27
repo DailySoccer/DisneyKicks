@@ -1,0 +1,36 @@
+{
+	"MissionCode": "MISSION_05_02",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.50, "ShotRangeMin": 0.25, "ShotRangeMax": 0.35 }
+		},	
+		{ "Combo": 7,
+		  "ComboRound": { "ShotPosition": "medium", "Help": false, "BallEffect": 0.40, "ShotRangeMin": 0.25, "ShotRangeMax": 0.3, "PowerUp": "focus" }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Help": false, "BallEffect": 0.40, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4, "PowerUp": "flash" }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "life",
+		  "Code": 1,
+		  "lifeTarget": 3
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 1100
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 3,
+		  "winTarget": 2,
+		  "winType": "catched"
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 2750
+		}
+	]
+}

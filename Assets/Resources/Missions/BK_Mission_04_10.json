@@ -1,0 +1,47 @@
+{
+	"MissionCode": "MISSION_04_10",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Sheet": [ "L", "MM", "L" ], "Wall": 2 }
+		},		
+		{ "Combo": 4,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "medium", "YellowZone": "small" } }		  
+		},		
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Sheet": [ "MM", "blank", "M" ] }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "medium" } }		  
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.45, "Wall": 2 } 
+		},		
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small" } }		  
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 15,
+		  "isStreak": true
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 2500
+		},
+		{ "Type": "shooterWin",
+		  "Code": 3,
+		  "DescriptionID": "Aciértalo todo",
+		  "winTarget": 20,
+		  "isStreak": true
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 4,
+		  "bonusTarget": 20	  
+		}
+	]
+}

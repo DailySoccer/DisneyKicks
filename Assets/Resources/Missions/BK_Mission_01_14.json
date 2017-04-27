@@ -1,0 +1,43 @@
+{
+	"MissionCode": "MISSION_01_04",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.10, 
+		  "PopUp": "Los tiros incrementarán su dificultad durante el juego. ¡Prepárate para endiablados efectos!"		
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0, 
+		  "PopUp": "Ahora juegas sin ayuda. Utiliza lo aprendido para convertirte en una muralla."		
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0, 
+		  "PopUp": "Puedes ayudarte de power-ups para superar las rondas más difíciles. ¡Puedes usar uno por ronda!"		
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0,
+		  "PopUp": "Para usar un power-up, pincha sobre él en la barra superior antes de que se produzca el tiro."		
+		},		
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0,
+		  "PopUp": "¡Aprende las ventajas de los power-ups para sacarles el máximo partido!"		
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 150
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 250
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 3,
+		  "winTarget": 3,
+		  "winType": "generic"
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 4,
+		  "winTarget": 0,
+		  "winType": "received"
+		}
+	]
+}

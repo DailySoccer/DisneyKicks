@@ -1,0 +1,45 @@
+{
+	"MissionCode": "MISSION_06_10",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small", "YellowZone": "small", "StaticSize": false }, "Wall": 4 }		  
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Sheet": [ "S", "SS", "S" ], "Wall": 4 }	  	  
+		},		
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small", "YellowZone": "small" }, "Wall": 4 }	    
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "StaticPosition": false, "Size": "small" }, "Wall": 4 }	    
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.90, "Wall": 4 }		  
+		},				
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 25,
+		  "isStreak": true
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 8000
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 15,
+		  "isStreak": true
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 4,
+		  "bonusTarget": 25,
+		  "bonusType": "high",
+		  "isStreak": true
+		}
+	]
+}

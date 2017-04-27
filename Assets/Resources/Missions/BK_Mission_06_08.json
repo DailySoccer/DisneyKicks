@@ -1,0 +1,49 @@
+{
+	"MissionCode": "MISSION_06_08",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.25, "ShotRangeMax": 0.35, "PowerUp": "flash" }
+		},		
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.45, "ShotRangeMax": 0.45 }
+		},	
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4, "PowerUp": "phase" }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.00, "ShotRangeMin": 0.25, "ShotRangeMax": 0.4, "PowerUp": "focus" }
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.4, "ShotRangeMax": 0.5 }
+		},			
+		{ "Combo": 4,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.4, "ShotRangeMax": 0.45, "PowerUp": "focus" }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.80, "ShotRangeMin": 0.25, "ShotRangeMax": 0.35, "PowerUp": "greasy" }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "goalkeeperWin",
+		  "Code": 1,
+		  "winTarget": 15,
+		  "winType": "generic",
+		  "isStreak": true
+		},
+		{ "Type": "life",
+		  "Code": 2,
+		  "lifeTarget": 3
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 5000
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 8500
+		}
+	]
+}

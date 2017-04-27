@@ -1,0 +1,42 @@
+{
+	"MissionCode": "MISSION_04_04",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "MM", "blank", "L" ] }
+		},
+		{ "Combo": 4,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "large", "YellowZone": "medium" }, "Wall": 2 }
+		},	
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "blank", "M", "M" ], "Wall": 2 }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "large", "YellowZone": "medium" }, "Wall": 2 }
+		},	
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.40, "Wall": 2 } 
+		}		
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 8,
+		  "isStreak": true
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 2,
+		  "bonusTarget": 8
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 2500
+		},
+		{ "Type": "life",
+		  "Code": 4,
+		  "lifeTarget": 3
+		}
+	]
+}

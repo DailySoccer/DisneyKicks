@@ -1,0 +1,36 @@
+{
+	"MissionCode": "MISSION_04_05",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 10,
+		  "ComboRound": { "ShotPosition": "medium", "Help": false, "BallEffect": 0.40, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4 }
+		},		
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Help": false, "BallEffect": 0.35, "ShotRangeMin": 0.45, "ShotRangeMax": 0.45, "PowerUp": "focus" }
+		}				
+	],
+	"Achievements": 
+	[
+		{ "Type": "goalkeeperWin",
+		  "Code": 1,
+		  "winTarget": 5,
+		  "isStreak": true,
+		  "winType": "generic"
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 1500
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 2500
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 4,
+		  "winTarget": 2,
+		  "isStreak": true,
+		  "winType": "catched"
+		}
+	]
+}

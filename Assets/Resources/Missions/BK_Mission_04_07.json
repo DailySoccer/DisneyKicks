@@ -1,0 +1,53 @@
+{
+	"MissionCode": "MISSION_04_07",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "L", "L", "M" ], "Wall": 2 }
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.45, "Wall": 2 } 
+		},
+		{ "Combo": 1,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.45 } 
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.45, "Wall": 2 } 
+		},				
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "MM", "blank", "M" ] }
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small" } }
+		}			
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Sheet": [ "MM", "M", "L" ] }
+		},
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "small" } }
+		}		
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 9,
+		  "isStreak": true
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 2,
+		  "bonusTarget": 10
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 3,
+		  "bonusTarget": 15
+		},
+		{ "Type": "shooterWin",
+		  "Code": 4,
+		  "DescriptionID": "Acierta todos los tiros",
+		  "winTarget": 20,
+		  "isStreak": true
+		}
+	]
+}

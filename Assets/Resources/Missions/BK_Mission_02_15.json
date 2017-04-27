@@ -1,0 +1,31 @@
+{
+	"MissionCode": "MISSION_02_05",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 10,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "large" } }
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 400
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 600
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 7
+		},
+		{ "Type": "shooterWin",
+		  "Code": 4,
+		  "winTarget": 10,
+		  "isStreak": false,
+		  "winAgainst": "target"		  
+		}
+	]
+}

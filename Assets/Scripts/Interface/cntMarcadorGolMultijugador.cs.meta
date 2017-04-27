@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: ee4a29c18ea65f44b982e7d64bef5ee5
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_texturaGolMarcado: {fileID: 2800000, guid: a223736f96584414890dff8ef1b264c9,
+      type: 3}
+  - m_texturaGolFallado: {fileID: 2800000, guid: 36ed7624428ef5c468f6b883af2d103f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

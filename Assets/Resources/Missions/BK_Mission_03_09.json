@@ -1,0 +1,40 @@
+{
+	"MissionCode": "MISSION_03_09",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.35 } 
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "large" } }
+		},		
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "L", "blank", "blank" ] }
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Sheet": [ "blank", "blank", "L" ] }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "perfect",
+		  "Code": 1,
+		  "perfectTarget": 3  
+		},
+		{ "Type": "shooterWin",
+		  "Code": 2,
+		  "winTarget": 10,
+		  "isStreak": true,
+		  "winAgainst": "sheet"
+		},		
+		{ "Type": "life",
+		  "Code": 3,
+		  "lifeTarget": 3
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 2750
+		}
+	]
+}

@@ -1,0 +1,37 @@
+{
+	"MissionCode": "MISSION_05_03",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "MM", "MM", "MM" ], "Wall": 2 }
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.50 } 
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "medium" }, "Wall": 2 }		  
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterEffectBonus",
+		  "Code": 1,
+		  "bonusTarget": 10
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 1550
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 5
+		},		
+		{ "Type": "shooterWin",
+		  "Code": 4,
+		  "DescriptionID": "Aciértalo todo",
+		  "winTarget": 15,
+		  "isStreak": true
+		}
+	]
+}

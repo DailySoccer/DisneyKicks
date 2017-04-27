@@ -1,0 +1,31 @@
+{
+	"MissionCode": "MISSION_01_09",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 10,
+		  "ComboRound": { "ShotPosition": "far", "Help": false, "BallEffect": 0.15 }
+		}		
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 400
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 2,
+		  "winTarget": 5,
+		  "isStreak": true,
+		  "winType": "generic"
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 1000
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 1400
+		}
+	]
+}

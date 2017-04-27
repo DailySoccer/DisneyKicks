@@ -1,0 +1,46 @@
+{
+	"MissionCode": "MISSION_04_09",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "medium", "Help": false, "BallEffect": 0.45, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4 }
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.45, "ShotRangeMin": 0.4, "ShotRangeMax": 0.45 }
+		},	
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.50, "ShotRangeMin": 0.4, "ShotRangeMax": 0.4 }
+		},	
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.45, "ShotRangeMin": 0.4, "ShotRangeMax": 0.45 }
+		},	
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.35, "ShotRangeMin": 0.2, "ShotRangeMax": 0.25, "PowerUp": "focus" }
+		},			
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "medium", "Help": false, "BallEffect": 0.40, "ShotRangeMin": 0.3, "ShotRangeMax": 0.35, "PowerUp": "focus" }
+		}				
+	],
+	"Achievements": 
+	[
+		{ "Type": "goalkeeperWin",
+		  "Code": 1,
+		  "winTarget": 10,
+		  "winType": "generic",
+		  "isStreak": true
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 1850
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 2650
+		},
+		{ "Type": "life",
+		  "Code": 4,
+		  "lifeTarget": 3
+		}
+	]
+}

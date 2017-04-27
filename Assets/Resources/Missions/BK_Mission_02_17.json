@@ -1,0 +1,35 @@
+{
+	"MissionCode": "MISSION_02_07",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "large" } }
+		},	
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" } }
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "perfect",
+		  "Code": 1,
+		  "perfectTarget": 5
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 850
+		},
+		{ "Type": "shooterWin",
+		  "Code": 3,
+		  "DescriptionID": "Golpea todas las dianas",
+		  "winTarget": 10,
+		  "isStreak": false,
+		  "winAgainst": "target"	
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 1750
+		}
+	]
+}

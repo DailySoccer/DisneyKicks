@@ -1,0 +1,35 @@
+{
+	"MissionCode": "MISSION_04_01",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "medium" } }
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Goalkeeper": 0.35 } 
+		},				
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Sheet": [ "L", "M", "L" ] }
+		}		
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 10
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 1400
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 3,
+		  "bonusTarget": 8
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 4,
+		  "bonusTarget": 14
+		}
+	]
+}

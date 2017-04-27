@@ -1,0 +1,302 @@
+diff a/Assets/Scripts/Interface/Interfaz.cs b/Assets/Scripts/Interface/Interfaz.cs	(rejected hunks)
+@@ -85,282 +85,300 @@
+      };
+  
+      public enum ResultType {
+          encaja = 0,
+          atrapa = 1,
+          despeja = 2,
+          fuera = 3,
+          target = 4
+      };    
+  
+      public static Interfaz instance { get; private set; }
+  
+++<<<<<<< HEAD
+ +    public static string authCode = "1111111112";
+ +    public static int m_ts = 0;
+++=======
++ 	public static string authCode = "8b3f26afc980c3677161064553cbb9ec";
++ 	public static int m_ts = 0;
+++>>>>>>> 846be98... - nuevo sistema de getservers
+      public static string m_uid = "";
+      public static string m_uname = "";
+      public GameObject m_cortinillaPrefab;
+  
+      static bool m_wsReady = false;
+      public static string paramURL = "";
+  
+      public progress m_asThrower;
+      public progress m_asKeeper;
+      public int m_time = 147;
+      public static int m_ranking;
+ -    public int m_duelWon = 0;
+ -    public int m_duelLost = 0;
+ -    public int m_duelLevel = 0;
+  
+ -    public bool m_interfaceReady = false;
+ +    public List<string> progressLogros;
+ +    public static List<string> lastProgressLogros;
+ +
+ +
+ +    /// <summary>
+ +    /// Dinero SOFT del usuario
+ +    /// </summary>
+ +    public static int m_monedasSoft = 0;
+  
+      /// <summary>
+ -    /// Dinero del usuario
+ +    /// Dinero HARD del usuario
+      /// </summary>
+ -    public static int m_monedas = 0;
+ +    public static int m_monedasHard = 0;
+  
+      /// <summary>
+      /// Indica si este jugador tiene pendiente pagar algun duelo
+      /// </summary>
+      public static bool m_tegoQuePagarDuelo = false;
+  
+ -    public static string gameUrl = ""; // Bt
+ -	public static string baseUrl = "https://kickswsdesa.bitoon.com";//"https://kicksws.bitoon.mad";//"192.168.1.224";
+ -	//public static string baseUrl = "https://kicksws.bitoon.mad";//"192.168.1.224";
+ -    //public static string baseUrl = "https://wspre.ligabbvagame.com";//"https://ws.ligabbvagame.com";
+ +    // URL de los servicios web
+ +    public static string baseUrl = "https://kicksws.bitoon.mad"; // <== URL desarrollo
+ +    //public static string baseUrl = "";//"https://ws.ligabbvagame.com"; // <= URL produccion BBVA
+ +
+ +    // directorio de la aplicacion
+ +    public static string gameUrl = "bkicks"; // Bt
+  
+      public static int m_eqCasillas = 0; // TODO 
+      public static int m_eqIniesta = 0;
+      public static int m_achievements = 0;
+      public static int m_achievementsTotal = 0;
+      public static int m_partidas = 5;
+      public static int m_nextTryIn = 0;
+      public static int m_nextTryTime = 0;
+  
+      public GameObject[] goalkeepers;
+      public GameObject[] throwers;
+  
+      public GameObject goalkeeperModel;
+      public GameObject throwerModel;
+  
+ -    int m_goalKeeper = 0;
+ -    int m_thrower = 1;
+ +    public Vector3 m_posicionInstancioacionLanzador;   // posicion donde se ha creado la instancia del lanzador
+ +    public Vector3 m_posicionInstanciacionPortero;    // posicion donde se ha creado la instancia del portero
+ +
+ +    public Jugador m_goalKeeper;
+ +    public Jugador m_thrower;
+  
+      public int Goalkeeper
+      {
+ -      get{return m_goalKeeper;}
+ +        get{return m_goalKeeper.index;}
+ +
+ +        set {
+ +            int modu = InfoJugadores.instance.numPorteros; // (goalkeepers.Length); // + 1);
+ +            m_goalKeeper = InfoJugadores.instance.GetPortero(((value % modu) + modu) % modu);
+ +            FieldControl.localGoalkeeper = m_goalKeeper;
+ +
+ +            string name = "P_IdleInterface_01";
+ +            float time = 0f;
+ +            int index = 0;
+ +            if (goalkeeperModel != null) {
+ +                name = goalkeeperModel.GetComponent<CicleAnimations>().GetAnim();
+ +                index = goalkeeperModel.GetComponent<CicleAnimations>().index;
+ +                time = goalkeeperModel.animation[name].time;
+ +            }
+ +            PlayerPrefs.SetString("selectedGoalkeeper", m_goalKeeper.assetName);
+  
+ -      set
+ -      {
+ -        int modu = (goalkeepers.Length + 1);
+ -        m_goalKeeper = ((value % modu) + modu) % modu ;
+ -        FieldControl.goalkeeperInd = m_goalKeeper;
+ -        if(m_goalKeeper != goalkeepers.Length) //si no es la interfaz de encuesta...
+ -        {
+ -          PlayerPrefs.SetInt("goalKeeperInd", m_goalKeeper);
+ -          float time = 0f;
+ -          if(goalkeeperModel != null)
+ -          {
+ -            time = goalkeeperModel.animation[goalkeeperModel.animation.clip.name].time;
+ -            Destroy (goalkeeperModel);
+ -          }
+ +            Jugador infoJugador = m_goalKeeper;
+ +            GameObject aux = InstantiatePlayerAtScreenRelative(new Vector3(0.42f, 0.225f, 0f), true, infoJugador.idModelo); //vector es posicion del control, ajustada
+  
+ -          GameObject aux = InstantiatePlayerAtScreenRelative(new Vector3(0.44f, 0.225f, 0f), true, m_goalKeeper); //vector es posicion del control, ajustada
+ -          goalkeeperModel = aux;
+ -          goalkeeperModel.animation[goalkeeperModel.animation.clip.name].time = time;
+ -        }
+ -        else
+ -        {
+ -          goalkeeperModel.SetActive(false);
+ +            Destroy(goalkeeperModel);
+ +            goalkeeperModel = aux;
+ +            goalkeeperModel.GetComponent<CicleAnimations>().index = index;
+ +            goalkeeperModel.animation.Play(name, PlayMode.StopAll);
+ +            goalkeeperModel.animation[name].time = time;
+ +
+ +            // asignar la equipacion que corresponda al portero
+ +            EquipacionManager.instance.CambiarEquipacionPortero();
+          }
+ -      }
+      }
+  
+      public int Thrower
+      {
+ -      get{return m_thrower;}
+ +        get{return m_thrower.index;}
+ +
+ +        set {
+ +            int modu = InfoJugadores.instance.numLanzadores; //(throwers.Length); // + 1);
+ +            m_thrower = InfoJugadores.instance.GetTirador (((value % modu) + modu) % modu);
+ +            FieldControl.localThrower = m_thrower;
+ +
+ +            float time = 0f;
+ +            string name = "IdleInterface_01";
+ +            int index = 0;
+ +            if (throwerModel != null) {
+ +                name = throwerModel.GetComponent<CicleAnimations>().GetAnim();
+ +                index = throwerModel.GetComponent<CicleAnimations>().index;
+ +                time = throwerModel.animation[name].time;
+ +            }
+ +            PlayerPrefs.SetString("selectedThrower", m_thrower.assetName);
+  
+ -      set
+ -      {
+ -        int modu = (throwers.Length + 1);
+ -        m_thrower = ((value % modu) + modu) % modu ;
+ -        FieldControl.throwerInd = m_thrower;
+ -        if(m_thrower != throwers.Length) //si no es la interfaz de encuesta...
+ -        {
+ -          PlayerPrefs.SetInt("throwerInd", m_thrower);
+ -          float time = 0f;
+ -          if(throwerModel != null)
+ -          {
+ -            time = throwerModel.animation[throwerModel.animation.clip.name].time;
+ -            Destroy (throwerModel);
+ -          }
+ +            Jugador infoJugador = m_thrower;
+ +            GameObject aux = InstantiatePlayerAtScreenRelative(new Vector3(0.15f, 0.225f, 0f), false, infoJugador.idModelo); //vector es posicion del control, ajustada
+ +
+ +            Destroy(throwerModel);
+ +            throwerModel = aux;
+ +            throwerModel.GetComponent<CicleAnimations>().index = index;
+ +            throwerModel.animation.Play(name, PlayMode.StopAll);
+ +            throwerModel.animation[name].time = time;
+ +
+ +            // asignar la equipacion que corresponda al lanzador
+ +            EquipacionManager.instance.CambiarEquipacionLanzador();
+  
+ -          GameObject aux = InstantiatePlayerAtScreenRelative(new Vector3(0.15f, 0.225f, 0f), false, m_thrower); //vector es posicion del control, ajustada
+ -          throwerModel = aux;
+ -          throwerModel.animation[throwerModel.animation.clip.name].time = time;
+          }
+ -        else throwerModel.SetActive(false);
+ -      }
+      }
+  
+      public static bool m_firstTime = true;
+      bool m_firstFrame = true;
+  
+      string ParseParam(string _paramName)
+      {
+ -#if UNITY_WEBPLAYER
+        string param = Application.srcValue;
+ -#else
+ -      string param = paramURL;
+ -#endif
+        int firstChar = param.IndexOf(_paramName);
+        if(firstChar == -1)
+        {
+ +        //Debug.LogError("WebPlayer parameter not found: " + _paramName);
+          return null;
+        }
+        else
+        {
+ -		#if UNITY_WEBPLAYER
+ -			firstChar += _paramName.Length +2;
+ -		#else
+ -			firstChar += _paramName.Length +1;
+ -		#endif
+ +        firstChar += _paramName.Length +2;
+        }
+ -
+        int lastChar = param.IndexOf('\'', firstChar);
+ -      if(lastChar == -1)
+ -      {
+ -        lastChar = param.Length;
+ -      }
+        param = param.Substring(firstChar, lastChar - firstChar);
+        return param;
+      }
+  
+      void GetToken(string _url)
+      {
+          paramURL = _url;
+ -        authCode = ParseParam("authcode");
+ +        authCode = ParseParam("authCode");
+          m_wsReady = true;
+      }
+  
+++<<<<<<< HEAD
+++=======
++     public static void ResetResolution(int _width, int _height)
++     {
++         ifcBase.scaleFactor = (float)_height / (float)705;
++         ifcBase.scaleWFactor = (float)_width / (float)940;
++         ifcBase.Scale(instance.gameObject);
++         ifcBase.Scale(Cortinilla.instance.gameObject);
++         ifcBase.Scale(ifcDialogBox.instance.gameObject);
++         ifcBase.prevScaleFactor = ifcBase.scaleFactor;
++     }
++ 
+++>>>>>>> 846be98... - nuevo sistema de getservers
+      void Awake() {
+ -    instance = this;
+ -
+ +        instance = this;
+ +#if DEBUG_KICKS
+ +        m_wsReady = true;
+ +#endif
+          //Debug.Log (Security.PrefetchSocketPolicy("http://biservicesdev.bitoon.mad:8080/", 843, 10000));
+ -        ResetResolution(Screen.width, Screen.height);
+ -/*#if !UNITY_ANDROID && !UNITY_IPHONE
+ +        ifcBase.scaleFactor = (float)Screen.height / (float)705;
+ +        ifcBase.scaleWFactor = (float)Screen.width / (float)940;
+ +        ifcBase.Scale(this.gameObject);
+ +        ifcBase.Scale(Cortinilla.instance.gameObject);
+ +#if !UNITY_ANDROID && !UNITY_IPHONE
+          //Screen.SetResolution(940, 705, false);
+ -#endif*/
+ +#endif
+  
+          if (Application.isWebPlayer) {
+            authCode = ParseParam("authCode");
+            string sv1 = ParseParam("biwsURL");
+            if(sv1 != null) BI.baseURL = WWW.UnEscapeURL(sv1) + "/biservicerest/rest/biservice";
+            string sv2 = ParseParam("kwsURL");
+            if(sv2 != null)
+            {
+              baseUrl = WWW.UnEscapeURL(sv2);
+ -            //DownloadDaemon.baseURL = WWW.UnEscapeURL(sv2);
+ +            DownloadDaemon.baseURL = WWW.UnEscapeURL(sv2);
+              DownloadDaemon.mediaURL = WWW.UnEscapeURL(sv2);
+  
+ -            //DownloadDaemonJSON.baseURL = WWW.UnEscapeURL(sv2);
+ +            DownloadDaemonJSON.baseURL = WWW.UnEscapeURL(sv2);
+              DownloadDaemonJSON.mediaURL = WWW.UnEscapeURL(sv2);
+              m_wsReady = true;
+            }
+          }
+          else
+          {
+  #if UNITY_ANDROID || UNITY_IPHONE
+              m_wsReady = false;
+  #else
+              m_wsReady = true;
+  #endif
+          }

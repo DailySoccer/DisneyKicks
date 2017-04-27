@@ -1,0 +1,46 @@
+{
+	"MissionCode": "MISSION_01_03",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "ShotPosition": "near", 
+		  "PopUp": "¡Una prueba distinta de Lanzador! Ahora tienes que acertar en la diana o en la zona amarilla.",
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": "Procura llegar al final de la fase con al menos una vida, ¡o serás eliminado!",
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": "Obtendrás diferente puntuación en función del tipo de objetivo sobre el que aciertes.",
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": "Supera los 4 retos de habilidad propuestos en cada fase para conseguir primas. ¡Monedas!",
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": "Desbloquea elementos del vestuario y misiones llegando al final de las fases con 1 vida o más.",
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 75
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 100
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 1
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 150
+		}
+	]
+}

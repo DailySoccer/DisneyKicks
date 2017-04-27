@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 9986019fdc3b1044ebbd951f1e35bfeb
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - prefInfoJugadorDisponible: {fileID: 100008, guid: 84ea5969f9f4e04488e18ae39140dc12,
+      type: 2}
+  - m_shaderDiffuseBw: {instanceID: 0}
+  - m_shaderDiffuseDetailBw: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

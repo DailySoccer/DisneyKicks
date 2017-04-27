@@ -1,0 +1,34 @@
+{
+	"MissionCode": "MISSION_03_02",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "medium" } }
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Goalkeeper": 0.25 } 
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 500
+		},
+		{ "Type": "shooterWin",
+		  "Code": 2,
+		  "winTarget": 3,
+		  "isStreak": false,
+		  "winAgainst": "goalkeeper"	
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 4
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 1800
+		}
+	]
+}

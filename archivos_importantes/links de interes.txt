@@ -1,0 +1,35 @@
+credenciales Facebook:
+======================
+facebookdev@bitoon.net
+devel@btn@91500
+
+
+Link a la app de facebook
+=========================
+https://apps.facebook.com/bitoon_kicks/
+
+
+FTP:
+====
+Host: soccerpre.bitoon.com
+Puerto: 22
+Protocolo: SSH
+User: webdev
+Passwd: c4mb14m3
+Ruta: /home/webdev/soccer_client
+URL: "https://soccerpre.bitoon.com/client/xxxx.xxx"
+
+
+UNITY FACEBOOK SDK
+====================
+ANDROID:
+https://developers.facebook.com/docs/android/getting-started
+
+http://www.slideshare.net/mitsubuchi/facebook-unity-sdk
+http://www.paladinstudios.com/2011/11/15/facebook-and-unity-tutorial-part-one/
+
+https://developers.facebook.com/docs/unity/
+https://developers.facebook.com/docs/unity/getting-started/canvas
+
+LOGIN
+https://developers.facebook.com/docs/facebook-login/overview/

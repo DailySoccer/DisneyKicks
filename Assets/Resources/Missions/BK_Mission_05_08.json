@@ -1,0 +1,40 @@
+{
+	"MissionCode": "MISSION_05_08",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Sheet": [ "S", "MS", "M" ] }		  
+		},			
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Sheet": [ "S", "L", "M" ], "Wall": 3 }  
+		},				
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small", "YellowZone": "small", "StaticSize": false } }		
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small" } }		  
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 8,
+		  "winAgainst": "sheet"
+		},
+		{ "Type": "shooterWin",
+		  "Code": 2,
+		  "winTarget": 15,
+		  "isStreak": true
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 5
+		},		
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 5000
+		}
+	]
+}

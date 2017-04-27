@@ -1,0 +1,5 @@
+clave de la KeyStore:
+bitoon
+
+
+Al buildear para iOS hay que poner la librería  UIKit.framework como opcional: https://prime31.com/docs#iosEtc

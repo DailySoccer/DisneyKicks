@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  - 82: {fileID: 8200000}
+  m_Layer: 0
+  m_Name: GeneralAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 82: {fileID: 8200002}
+  m_Layer: 0
+  m_Name: parallelAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.172587395, y: -.00307779014, z: -37.5846672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400002}
+  m_Father: {fileID: 0}
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.08465767, y: -5.89167166, z: -45.9525871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: be20513c8072b764c97026dbbce5a301, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .150000006
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233f9de21f45b4044a191b52fba1609d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallelAudio: {fileID: 8200002}
+  perfectClip: {fileID: 8300000, guid: 6169e306efd7a704f924ba19d21b033c, type: 3}
+  perfectBullseyeClip: {fileID: 8300000, guid: 77cf2f9432b60784abebf0ff07990e84, type: 3}
+  chutClip:
+  - {fileID: 8300000, guid: d17065a0823e0c742a8f16c2cafaca80, type: 3}
+  - {fileID: 8300000, guid: 54b3dd2df03f80b48bc2f35258b0179f, type: 3}
+  - {fileID: 8300000, guid: f430bdd51bea05b4c9e5a589732560cc, type: 3}
+  errorClip: {fileID: 8300000, guid: 2676897e161605040b65fb514f78ecb2, type: 3}
+  gameOverClip: {fileID: 8300000, guid: ba9d9a33bc32b2646a54b0c6326fef03, type: 3}
+  cheerClip:
+  - {fileID: 8300000, guid: 4d2980dff49c88045b0bb7481620f3cd, type: 3}
+  - {fileID: 8300000, guid: 651a81c4e6e31da40936021339dedbca, type: 3}
+  booClip:
+  - {fileID: 8300000, guid: 6a7cc19ba48c5c44e95291d2cc120d54, type: 3}
+  - {fileID: 8300000, guid: 66c6e89edc6b7ca4bbd215468eba722b, type: 3}
+  reboundClips:
+  - {fileID: 8300000, guid: dbfbb821dfcb4ed46bd0ffad2563ff08, type: 3}
+  - {fileID: 8300000, guid: bea1d296616888145b281519ac1389e5, type: 3}
+  miniHitClip:
+  - {fileID: 8300000, guid: 022a9cb916f955a4dadbea09363034f2, type: 3}
+  - {fileID: 8300000, guid: 569e26ffd9400b24bab82c7f3ede7a81, type: 3}
+  puntosClip: {fileID: 8300000, guid: 761b085d0eb80e94d8348d25bc36f4ee, type: 3}
+  cortinillaInClip: {fileID: 8300000, guid: cba718b6d75e2d8488349743cb6ec712, type: 3}
+  cortinillaOutClip: {fileID: 8300000, guid: 0ecffee671b6a1c4bb9247bfb8c4fc1e, type: 3}
+  bullseyeClip: {fileID: 8300000, guid: c48e3c9cfd22b884f93850313452dad9, type: 3}
+  inicioClip: {fileID: 8300000, guid: 02c02dfc37b6d12458e5753d484e5769, type: 3}
+  warningClip: {fileID: 8300000, guid: 20bbe60a70831fc43a42cb4d09495541, type: 3}
+  posteClip: {fileID: 8300000, guid: bea1d296616888145b281519ac1389e5, type: 3}
+  vidaClip: {fileID: 8300000, guid: 7a4bcb3d863d07249bd68269069baedc, type: 3}
+  redClip: {fileID: 8300000, guid: ab43d6d56c25bbc448a39fbec3958d12, type: 3}
+  logroClip: {fileID: 8300000, guid: bd8a9d376ac2e6f4d9909e4d5b5a85b9, type: 3}
+  botonClip: {fileID: 8300000, guid: c28e3453f816cb7478bb374fd3590421, type: 3}
+  chronoBeatClip: {fileID: 8300000, guid: b44c92624a63886449b0bf0fcf163115, type: 3}
+  yellowZoneClip: {fileID: 8300000, guid: 577a11318eb653545be54ffd2c789895, type: 3}
+  goalKeeperGoalClip: {fileID: 8300000, guid: 175409d8877c084409e470c34b334cff, type: 3}
+  lonaGoalClip: {fileID: 8300000, guid: 972e3933fbd0cf441a47d08546849170, type: 3}
+  normalGoalClip: {fileID: 8300000, guid: b00809f17e76b8447b26d7c360cc765a, type: 3}
+  barreraClip: {fileID: 8300000, guid: 86d11928556b18348b65132e034b4c59, type: 3}
+  outOfRangeClip: {fileID: 8300000, guid: 603efb51d38ce944f978de3c0abcfae0, type: 3}
+  goalkeeperStoppedClip: {fileID: 8300000, guid: 94071729c6b6a3d409441faf73c9e9a6,
+    type: 3}
+  goalkeeperSuccessClip: {fileID: 8300000, guid: 713fcd85ab8ee574bb9c24b12a284c1c,
+    type: 3}
+  unlockClip: {fileID: 8300000, guid: 0ccc05984d3b7ab40970bfb66eb81f11, type: 3}
+  primaClip: {fileID: 8300000, guid: 1deba91e61064454eae3647ec9d86ebc, type: 3}
+  powerupBarOnClip: {fileID: 8300000, guid: 86ac21b4102847c458ba93021118510c, type: 3}
+  powerupBarOffClip: {fileID: 8300000, guid: 2f28f5fbe48e7fe488e64d0e3f3d9d31, type: 3}
+  usePowerupClip: {fileID: 8300000, guid: 5bf5c8e3318bc0547ab094d217ad2092, type: 3}
+  pausaClip: {fileID: 8300000, guid: 3d5695e64d74a6042af9cbb1695297c5, type: 3}
+  continuarClip: {fileID: 8300000, guid: d6642cd92d3ad3c49b6bc7bb5ee06bfe, type: 3}
+  victoriaClip: {fileID: 8300000, guid: 05f34da1f25340249b139b9da362740b, type: 3}
+  derrotaClip: {fileID: 8300000, guid: 414d4e0e23ffbcc409ff687108d42225, type: 3}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

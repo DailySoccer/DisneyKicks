@@ -1,0 +1,29 @@
+{
+	"MissionCode": "MISSION_02_01",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Goalkeeper": 0.20 } 
+		}		
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 100
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 250
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 400
+		},
+		{ "Type": "shooterWin",
+		  "Code": 4,
+		  "winTarget": 5
+		}
+	]
+}

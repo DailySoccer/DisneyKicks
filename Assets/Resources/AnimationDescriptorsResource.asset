@@ -1,0 +1,444 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc6e997f01dd9944970b886045d139c, type: 3}
+  m_Name: AnimationDescriptorsResource
+  m_EditorClassIdentifier: 
+  m_descriptors:
+  - m_name: P_DpjA4_01
+    m_velocity: {x: 0.51506615, y: 0, z: 0.27760768}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -0.0070501463, y: 1.9464002, z: 0.5811471}
+  - m_name: P_DpjM1_01
+    m_velocity: {x: 1.1569189, y: 0, z: 0.15981768}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.0365334, y: 1.1832963, z: 0.69603515}
+  - m_name: P_DpjM6_01
+    m_velocity: {x: -0.98387253, y: 0, z: 0.15877524}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.0393434, y: 1.2001923, z: 0.79680765}
+  - m_name: P_DpjB6_01
+    m_velocity: {x: -0.95927566, y: 0, z: 0.45427796}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.0393434, y: 0.3901497, z: 0.69603497}
+  - m_name: P_DpjB4_01
+    m_velocity: {x: -0.12790464, y: 0, z: 0.19657166}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -0.013195294, y: 0.39014977, z: 0.7198111}
+  - m_name: P_DpjA2_01
+    m_velocity: {x: 1.2028039, y: 0, z: 0.20322911}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0389998, y: 1.9318215, z: 0.5938674}
+  - m_name: P_DpjM7_01
+    m_velocity: {x: -2.1242933, y: 0, z: 0.3212255}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -3.070541, y: 1.2717456, z: 0.69603515}
+  - m_name: P_DpjA3_01
+    m_velocity: {x: 0.5764102, y: 0, z: 0.11777223}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 1.0053823, y: 1.9318216, z: 0.56910944}
+  - m_name: P_DpjA6_01
+    m_velocity: {x: -1.2058918, y: 0, z: 0.20322911}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.039343, y: 1.9318216, z: 0.5938674}
+  - m_name: P_DpjA7_01
+    m_velocity: {x: -2.438213, y: 0, z: 0.60004187}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -3.070541, y: 1.9450562, z: 0.69603527}
+  - m_name: P_DpjB3_01
+    m_velocity: {x: -0.0019196427, y: 0, z: 0.033655316}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 0.9973741, y: 0.39014977, z: 0.6514484}
+  - m_name: P_DpjB5_01
+    m_velocity: {x: -0.0018691259, y: 0, z: 0.03276965}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.0264293, y: 0.39014983, z: 0.6514484}
+  - m_name: P_DpjB1_01
+    m_velocity: {x: 1.530166, y: 0, z: 0.4313934}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.0240335, y: 0.15694964, z: 0.53760993}
+  - m_name: P_DpjM2_01
+    m_velocity: {x: 1.0788443, y: 0, z: 0.10202103}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0521078, y: 1.1938835, z: 0.5584146}
+  - m_name: P_DpjA5_01
+    m_velocity: {x: -0.53964937, y: 0, z: 0.42089453}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.0264298, y: 1.9318216, z: 0.59386754}
+  - m_name: P_DpjM5_01
+    m_velocity: {x: -0.39706597, y: 0, z: 0.19178398}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.0264293, y: 1.2053924, z: 0.6514484}
+  - m_name: P_IdleDef01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_DpjA1_01
+    m_velocity: {x: 2.172347, y: 0, z: 0.02707058}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.1335254, y: 2.0176778, z: 0.084985495}
+  - m_name: P_DpjM3_01
+    m_velocity: {x: 0.75562906, y: 0, z: 0.10202103}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 1.033617, y: 1.1938834, z: 0.5584145}
+  - m_name: P_DpjM4_01
+    m_velocity: {x: 0.7500969, y: 0, z: 0.22667618}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 0.0003288258, y: 1.2000024, z: 1.0987886}
+  - m_name: P_DpjB7_01
+    m_velocity: {x: -1.5411301, y: 0, z: 0.26102304}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -3.286024, y: 0.26974404, z: 0.69603515}
+  - m_name: P_DpjB2_01
+    m_velocity: {x: 0.67107016, y: 0, z: 0.033655316}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0640965, y: 0.3901497, z: 0.5584146}
+  - m_name: P_Idle01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_ParB6
+    m_velocity: {x: -0.27475476, y: 0, z: 0.09732944}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: -2.0276885, y: 0.41025755, z: 0.7228061}
+  - m_name: P_ParB3
+    m_velocity: {x: 0.5770485, y: 0, z: 0.22701506}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 1.0240009, y: 0.41025755, z: 0.72280157}
+  - m_name: P_ParB1
+    m_velocity: {x: 1.2578248, y: 0, z: 0.20575614}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 3.0490005, y: 0.41025755, z: 0.58376163}
+  - m_name: P_ParM3
+    m_velocity: {x: 0.35111576, y: 0, z: 0.20240977}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 1.0211053, y: 1.2028573, z: 0.72280157}
+  - m_name: P_ParB4
+    m_velocity: {x: 0.22864833, y: 0, z: 0.12288014}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.0000014249235, y: 0.41025755, z: 0.8974846}
+  - m_name: P_ParB2
+    m_velocity: {x: 0.7637445, y: 0, z: 0.19499551}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 2.057963, y: 0.41025755, z: 0.7228}
+  - m_name: P_ParB7
+    m_velocity: {x: -1.3087566, y: 0, z: 0.033290148}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: -3.0488834, y: 0.41025755, z: 0.5837707}
+  - m_name: P_ParB5
+    m_velocity: {x: -0.3927489, y: 0, z: 0.033290148}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: -1.0239438, y: 0.41025755, z: 0.7228046}
+  - m_name: Idle01CB
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: -0.000059901653, y: 0.110287786, z: 0.44421557}
+  - m_name: P_ParB1_01
+    m_velocity: {x: 1.2578248, y: 0, z: 0.20575614}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.0489995, y: 0.41025752, z: 0.583766}
+  - m_name: P_ParB2_01
+    m_velocity: {x: 0.7637445, y: 0, z: 0.19499551}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0579617, y: 0.41025752, z: 0.722803}
+  - m_name: P_ParB3_01
+    m_velocity: {x: 0.5770485, y: 0, z: 0.22701506}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 1.0239998, y: 0.41025752, z: 0.72280306}
+  - m_name: P_ParB4_01
+    m_velocity: {x: 0.22864833, y: 0, z: 0.12288014}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 0.00000005401671, y: 0.41025755, z: 0.8974846}
+  - m_name: P_ParB5_01
+    m_velocity: {x: -0.3927489, y: 0, z: 0.033290148}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.023945, y: 0.41025752, z: 0.7228031}
+  - m_name: P_ParB6_01
+    m_velocity: {x: -0.27475476, y: 0, z: 0.09732944}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.0276897, y: 0.41025752, z: 0.72280324}
+  - m_name: P_ParB7_01
+    m_velocity: {x: -1.3087566, y: 0, z: 0.033290148}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -3.0488844, y: 0.41025752, z: 0.58376634}
+  - m_name: P_ParM3_01
+    m_velocity: {x: 0.35111576, y: 0, z: 0.20240977}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 1.0211042, y: 1.2028573, z: 0.72280306}
+  - m_name: P_Idle01CB
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: -0.000059901653, y: 0.110287786, z: 0.44421557}
+  - m_name: P_IdleCB01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: -7.5493745e-10, y: 1.1265345, z: 0.3070581}
+  - m_name: Idle01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: TiroFalta02
+    m_velocity: {x: 0.3845567, y: 0, z: 2.8589475}
+    m_group: 0
+    m_grabTime: 1.36
+    m_grabDiff: {x: 1.3185135, y: 0.113301635, z: 5.2162375}
+  - m_name: TiroFalta01
+    m_velocity: {x: 0.57544637, y: 0, z: 2.8589475}
+    m_group: 0
+    m_grabTime: 1.36
+    m_grabDiff: {x: 1.3185135, y: 0.113301635, z: 5.2162375}
+  - m_name: TiroPenalti01
+    m_velocity: {x: 0.43339837, y: 0, z: 2.8958}
+    m_group: 0
+    m_grabTime: 1.36
+    m_grabDiff: {x: 1.3185135, y: 0.113301635, z: 5.2162375}
+  - m_name: IdleTiroPenalti01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_ParM2_01
+    m_velocity: {x: 0.67902374, y: 0, z: 0.06409398}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0629096, y: 1.2028575, z: 0.7228029}
+  - m_name: P_ParM4_01
+    m_velocity: {x: -0.0014704571, y: 0, z: 0.92525464}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 0.0000000949949, y: 1.2028573, z: 1.2050616}
+  - m_name: P_ParM5_01
+    m_velocity: {x: -0.17549008, y: 0, z: 0.1758995}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.0209998, y: 1.2028573, z: 0.7228031}
+  - m_name: P_ParM6_01
+    m_velocity: {x: -0.9100912, y: 0, z: 0.17353047}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.0456629, y: 1.1864545, z: 0.7228032}
+  - m_name: P_Celebracion_02
+    m_velocity: {x: 1.1103623, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_Celebracion_01
+    m_velocity: {x: -1.192427, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: Celebracion_01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: Celebracion_02
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_Celebracion_03
+    m_velocity: {x: -0.09259258, y: 0, z: 1.2360986}
+    m_group: 0
+    m_grabTime: 0.92
+    m_grabDiff: {x: -0.000000019828235, y: 1.1265345, z: 0.30705822}
+  - m_name: Fallo_01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_Fallo_01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: IdleInterface_01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.07320836, y: 0.1024158, z: 0.60443807}
+  - m_name: P_IdleInterface_01
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.28579342, y: 0.946911, z: -0.0064194268}
+  - m_name: P_IdleInterface_02
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.2857934, y: 0.946911, z: -0.006419434}
+  - m_name: IdleInterface_02
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.07320836, y: 0.10241568, z: 0.604438}
+  - m_name: P_Celebracion_04
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0.0010021012, y: 1.1259888, z: 0.30396146}
+  - m_name: FalloFinal
+    m_velocity: {x: 0, y: 0, z: 0.6146513}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_IdleCelebracionFinal
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_CelebracionFinal
+    m_velocity: {x: -0.012676967, y: 0, z: 0.11770058}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: CelebracionFinal
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: IdleFalloFinal
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_IdleFalloFinal
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_FalloFinal
+    m_velocity: {x: -0.010285136, y: 0, z: 0.08142874}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: IdleCelebracionFinal
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: 0
+    m_grabDiff: {x: 0, y: 0, z: 0}
+  - m_name: P_IdleInterface_03
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.2812961, y: 0.946911, z: -0.008593543}
+  - m_name: P_IdleInterface_04
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.2812961, y: 0.946911, z: -0.008593543}
+  - m_name: P_IdleInterface_05
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.2812961, y: 0.946911, z: -0.008593543}
+  - m_name: P_IdleInterface_06
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.2812961, y: 0.946911, z: -0.008593543}
+  - m_name: P_ParM7_01
+    m_velocity: {x: -1.3195739, y: 0, z: 0.17353047}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.9956625, y: 1.1864545, z: 0.72280335}
+  - m_name: P_ParA3_01
+    m_velocity: {x: 0.576408, y: 0, z: 0.11777657}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 0.9941031, y: 1.9556569, z: 0.57539976}
+  - m_name: P_ParA4_01
+    m_velocity: {x: 0.51506346, y: 0, z: 0.27742076}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -0.001065285, y: 1.9466053, z: 0.5959307}
+  - m_name: P_ParA1_01
+    m_velocity: {x: 2.0818536, y: 0, z: 0.02594264}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.1335254, y: 2.0176778, z: 0.084985495}
+  - m_name: P_ParM1_01
+    m_velocity: {x: 0.82867646, y: 0, z: 0.06409398}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 3.0431929, y: 1.2028575, z: 0.7228029}
+  - m_name: P_ParA5_01
+    m_velocity: {x: -0.5509589, y: 0, z: 0.42958847}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -1.0223917, y: 1.9575111, z: 0.58049715}
+  - m_name: P_ParA2_01
+    m_velocity: {x: 1.2028589, y: 0, z: 0.20315756}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: 2.0542238, y: 1.9278914, z: 0.54451776}
+  - m_name: P_ParA6_01
+    m_velocity: {x: -1.2059288, y: 0, z: 0.20323096}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -2.0453777, y: 1.9066834, z: 0.5914227}
+  - m_name: P_ParA7_01
+    m_velocity: {x: -1.5239031, y: 0, z: 0.17058928}
+    m_group: 0
+    m_grabTime: 0.36
+    m_grabDiff: {x: -3.0306625, y: 1.9234545, z: 0.7228032}
+  - m_name: IdleInterface_03
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.07320836, y: 0.10241568, z: 0.604438}
+  - m_name: IdleInterface_04
+    m_velocity: {x: 0, y: 0, z: 0}
+    m_group: 0
+    m_grabTime: -0.04
+    m_grabDiff: {x: 0.07320841, y: 0.10241568, z: 0.604438}

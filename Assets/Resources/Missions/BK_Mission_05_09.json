@@ -1,0 +1,41 @@
+{
+	"MissionCode": "MISSION_05_09",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small" }, "Wall": 3 }	  
+		},	
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.70, "Wall": 3 }  
+		},			
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Bullseye": { "Static": true, "Size": "small", "StaticSize": false }, "Wall": 3 }		  
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.75, "Wall": 3 }  	  
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 8,
+		  "winAgainst": "goalkeeper"
+		},
+		{ "Type": "shooterWin",
+		  "Code": 2,
+		  "winTarget": 20,
+		  "isStreak": true
+		},
+		{ "Type": "score",
+		  "Code": 3,
+		  "scoreTarget": 5500
+		},
+		{ "Type": "shooterEffectBonus",
+		  "Code": 4,
+		  "bonusTarget": 18,
+		  "bonusType": "high"
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"MissionCode": "MISSION_05_05",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "small", "YellowZone": "small", "StaticSize": false } }
+		},			
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "far", "Goalkeeper": 0.50 } 
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "medium", "Bullseye": { "Static": true, "Size": "medium"}, "Wall": 3 }		  
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "perfect",
+		  "Code": 1,
+		  "perfectTarget": 7
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 3000
+		},
+		{ "Type": "shooterWin",
+		  "Code": 3,
+		  "winTarget": 15,
+		  "isStreak": true
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 5000
+		}
+	]
+}

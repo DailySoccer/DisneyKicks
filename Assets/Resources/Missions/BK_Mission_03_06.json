@@ -1,0 +1,36 @@
+{
+	"MissionCode": "MISSION_03_06",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Sheet": [ "L", "blank", "L" ] }
+		},
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Bullseye": { "Static": true, "Size": "medium", "YellowZone": "large" } }
+		},		
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Sheet": [ "L", "L", "blank" ] }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "shooterWin",
+		  "Code": 1,
+		  "winTarget": 6,
+		  "winAgainst": "sheet"		  
+		},
+		{ "Type": "perfect",
+		  "Code": 2,
+		  "perfectTarget": 5
+		},			
+		{ "Type": "shooterWin",
+		  "Code": 3,
+		  "winTarget": 15
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 2150
+		}		
+	]
+}

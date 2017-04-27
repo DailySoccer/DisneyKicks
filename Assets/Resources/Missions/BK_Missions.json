@@ -1,0 +1,52 @@
+{
+	"Levels":[
+		{
+			"LevelName": "Level 01",
+			"LevelNumber": 0,
+			"LevelMissions": [
+				"BK_Mission_01_01", "BK_Mission_01_02", "BK_Mission_01_03", "BK_Mission_01_04", "BK_Mission_01_05",
+				"BK_Mission_01_06", "BK_Mission_01_07", "BK_Mission_01_08", "BK_Mission_01_09", "BK_Mission_01_10"
+			]
+		},
+		{
+			"LevelName": "Level 02",
+			"LevelNumber": 1,
+			"LevelMissions": [
+				"BK_Mission_02_01", "BK_Mission_02_02", "BK_Mission_02_03", "BK_Mission_02_04", "BK_Mission_02_05",
+				"BK_Mission_02_06", "BK_Mission_02_07", "BK_Mission_02_08", "BK_Mission_02_09", "BK_Mission_02_10"
+			]
+		},
+		{
+			"LevelName": "Level 03",
+			"LevelNumber": 2,
+			"LevelMissions": [
+				"BK_Mission_03_01", "BK_Mission_03_02", "BK_Mission_03_03", "BK_Mission_03_04", "BK_Mission_03_05",
+				"BK_Mission_03_06", "BK_Mission_03_07", "BK_Mission_03_08", "BK_Mission_03_09", "BK_Mission_03_10"
+			]
+		},
+		{
+			"LevelName": "Level 04",
+			"LevelNumber": 3,
+			"LevelMissions": [
+				"BK_Mission_04_01", "BK_Mission_04_02", "BK_Mission_04_03", "BK_Mission_04_04", "BK_Mission_04_05",
+				"BK_Mission_04_06", "BK_Mission_04_07", "BK_Mission_04_08", "BK_Mission_04_09", "BK_Mission_04_10"
+			]
+		},
+		{
+			"LevelName": "Level 05",
+			"LevelNumber": 4,
+			"LevelMissions": [
+				"BK_Mission_05_01", "BK_Mission_05_02", "BK_Mission_05_03", "BK_Mission_05_04", "BK_Mission_05_05",
+				"BK_Mission_05_06", "BK_Mission_05_07", "BK_Mission_05_08", "BK_Mission_05_09", "BK_Mission_05_10"
+			]
+		},
+		{
+			"LevelName": "Level 06",
+			"LevelNumber": 5,
+			"LevelMissions": [
+				"BK_Mission_06_01", "BK_Mission_06_02", "BK_Mission_06_03", "BK_Mission_06_04", "BK_Mission_06_05",
+				"BK_Mission_06_06", "BK_Mission_06_07", "BK_Mission_06_08", "BK_Mission_06_09", "BK_Mission_06_10"
+			]
+		}		
+	] 
+}

@@ -1,0 +1,43 @@
+{
+	"MissionCode": "MISSION_01_04",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "ShotPosition": "far", "Help": true, "BallEffect": 0.10,  "ShotRangeMin": 0.3, "ShotRangeMax": 0.4,
+		  "PopUp": 15
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0,  "ShotRangeMin": 0.3, "ShotRangeMax": 0.4,
+		  "PopUp": 16
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0,  "ShotRangeMin": 0.3, "ShotRangeMax": 0.4,
+		  "PopUp": 17
+		},
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4,
+		  "PopUp": 18
+		},		
+		{ "ShotPosition": "far", "Help": false, "BallEffect": 0.0, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4,
+		  "PopUp": 19
+		}	
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 150
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 250
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 3,
+		  "winTarget": 3,
+		  "winType": "generic"
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 4,
+		  "winTarget": 0,
+		  "winType": "received"
+		}
+	]
+}

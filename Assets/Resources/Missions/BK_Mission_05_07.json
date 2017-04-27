@@ -1,0 +1,44 @@
+{
+	"MissionCode": "MISSION_05_07",
+	"PlayerType": "Goalkeeper",
+	"Rounds": 
+	[
+		{ "Combo": 5,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.65, "ShotRangeMin": 0.35, "ShotRangeMax": 0.45 }
+		},	
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.60, "ShotRangeMin": 0.3, "ShotRangeMax": 0.35, "PowerUp": "focus" }
+		},
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.65, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4, "PowerUp": "flash" }
+		},	
+		{ "Combo": 2,
+		  "ComboRound": { "ShotPosition": "medium", "Help": false, "BallEffect": 0.65, "ShotRangeMin": 0.25, "ShotRangeMax": 0.3, "PowerUp": "focus" }
+		},		
+		{ "Combo": 3,
+		  "ComboRound": { "ShotPosition": "near", "Help": false, "BallEffect": 0.65, "ShotRangeMin": 0.3, "ShotRangeMax": 0.4, "PowerUp": "greasy" }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 3000
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 4500
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 3,
+		  "winTarget": 0,
+		  "winType": "received"	
+		},
+		{ "Type": "goalkeeperWin",
+		  "Code": 4,
+		  "winTarget": 3,
+		  "isStreak": true,
+		  "winType": "catched"
+		}
+	]
+}

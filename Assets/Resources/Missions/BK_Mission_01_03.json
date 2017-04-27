@@ -1,0 +1,46 @@
+{
+	"MissionCode": "MISSION_01_03",
+	"PlayerType": "Shooter",
+	"Rounds": 
+	[
+		{ "ShotPosition": "near", 
+		  "PopUp": 10,
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": 11,
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": 12,
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": 13,
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		},
+		{ "ShotPosition": "near", 
+		  "PopUp": 14,
+		  "Bullseye": { "Static": true, "Size": "large", "YellowZone": "large" }
+		}			
+	],
+	"Achievements": 
+	[
+		{ "Type": "score",
+		  "Code": 1,
+		  "scoreTarget": 75
+		},
+		{ "Type": "score",
+		  "Code": 2,
+		  "scoreTarget": 100
+		},
+		{ "Type": "perfect",
+		  "Code": 3,
+		  "perfectTarget": 1
+		},
+		{ "Type": "score",
+		  "Code": 4,
+		  "scoreTarget": 150
+		}
+	]
+}

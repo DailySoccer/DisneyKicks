@@ -1367,6 +1367,16 @@ public class Interfaz : MonoBehaviour
     /// <param name="_uid"></param>
     public void getServerIP(string _tipo, int _zona)
     {
+        // HACK: Acceso al servidor "directamente" sin el servicio Web (del que no disponemos del código fuente)
+        string ip = "95.215.60.186";
+        int port = 5555;
+
+        Shark.instance.m_URL = ip;
+        Shark.instance.m_Port = port;
+        ifcVestuario.instance.GoDuelo();
+        Debug.Log("SERVIDOR ENCONTRADO: " + ip + ":" + port);
+
+        /*
         DownloadDaemonJSON.instance.callWS(
             // URL del servicio
             baseUrl + "/gameserver-manager/rest/servers/get",
@@ -1420,6 +1430,7 @@ public class Interfaz : MonoBehaviour
 
             ("{\"tipo\":\"" + _tipo + "\",\"zona\":" + _zona.ToString() + ",\"version\":\"" + Stats.version + "\"}")
         );
+        */
     }
 
 

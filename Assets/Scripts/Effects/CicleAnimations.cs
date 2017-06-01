@@ -30,7 +30,8 @@ public class CicleAnimations : MonoBehaviour {
 
     void Update ()
     {
-        if(GetComponent<Animation>()[animationStates[index]].time >= GetComponent<Animation>()[animationStates[index]].length)
+        AnimationState state = GetComponent<Animation>()[animationStates[index]];
+        if(!state.enabled || state.time >= state.length)
         {
             index = Random.Range(0, animationStates.Length);
             GetComponent<Animation>().Play(animationStates[index], PlayMode.StopAll);

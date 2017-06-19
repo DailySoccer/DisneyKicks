@@ -76,12 +76,6 @@ public class Jugador {
     private int m_precioHard;
 
     /// <summary>
-    /// dinero HARD que vale el jugador si se quiere comprar antes de haber sido desbloqueado
-    /// </summary>
-    public int precioEarlyBuy { get { return m_precioEarlyBuy; } set { m_precioEarlyBuy = value; } }
-    private int m_precioEarlyBuy;
-
-    /// <summary>
     /// devuelve la posicion del jugador en su correspondiente array (de tirador o portero)
     /// </summary>
     public int index {
@@ -182,7 +176,6 @@ public class Jugador {
         info += "   pais=" + m_pais;
         info += "   precioSoft=" + m_precioSoft;
         info += "   precioHard=" + m_precioHard;
-        info += "   precioEarlyBuy=" + m_precioEarlyBuy;
         info += "   quality=" + m_quality.ToString();
         info += "   nivel=" + m_nivel.ToString();
         info += "   cards=" + m_cartas.ToString();

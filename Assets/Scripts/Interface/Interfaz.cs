@@ -1048,6 +1048,8 @@ public class Interfaz : MonoBehaviour
     /// <param name="_jugador"></param>
     public void comprarJugador(Jugador _jugador, TipoPago _tipoPago)
     {
+        // XIMO: 19/06/2017: Actualmente no queremos un sistema de "Compra de Jugadores"
+        /*
         if (_jugador == null || _jugador.estado == Jugador.Estado.ADQUIRIDO)
             return;
 
@@ -1102,6 +1104,7 @@ public class Interfaz : MonoBehaviour
 
         if (goalkeeperModel.activeSelf == true) Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
         if (throwerModel.activeSelf == true) Interfaz.instance.Thrower = Interfaz.instance.Thrower;
+        */
     }
 
 

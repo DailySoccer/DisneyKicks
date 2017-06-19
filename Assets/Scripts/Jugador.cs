@@ -64,18 +64,6 @@ public class Jugador {
     private Estado m_estado;
 
     /// <summary>
-    /// dinero SOFT con el que se desbloquea este jugador
-    /// </summary>
-    public int precioSoft { get { return m_precioSoft; } set { m_precioSoft = value; } }
-    private int m_precioSoft;
-
-    /// <summary>
-    /// dinero HARD con el que se desbloquea este jugador
-    /// </summary>
-    public int precioHard { get { return m_precioHard; } set { m_precioHard = value; }}
-    private int m_precioHard;
-
-    /// <summary>
     /// devuelve la posicion del jugador en su correspondiente array (de tirador o portero)
     /// </summary>
     public int index {
@@ -174,8 +162,6 @@ public class Jugador {
         info += "   assetName=" + m_assetName;
         info += "   nombre=" + m_nombre;
         info += "   pais=" + m_pais;
-        info += "   precioSoft=" + m_precioSoft;
-        info += "   precioHard=" + m_precioHard;
         info += "   quality=" + m_quality.ToString();
         info += "   nivel=" + m_nivel.ToString();
         info += "   cards=" + m_cartas.ToString();

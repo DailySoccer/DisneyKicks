@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Clase para representar a un jugador (tirador, portero...) de este juego
 /// </summary>
 public class Jugador {
-
+    public const string KEY_ID = "id";
 
     // ------------------------------------------------------------------------------
     // ---  ENUMERADOS  ------------------------------------------------------------
@@ -22,6 +24,10 @@ public class Jugador {
     // ------------------------------------------------------------------------------
     // ---  PROPIEDADES  ------------------------------------------------------------
     // ------------------------------------------------------------------------------
+
+    public string ID {
+        get { return assetName; }
+    }
 
     /// <summary>
     /// id del modelo (indica la posicion del modelo de este jugador dentro de los arrays "m_Goalkeepers" y "m_Throwers" de "Interfaz") que sera que el modelo ingame
@@ -58,12 +64,6 @@ public class Jugador {
     private string m_pais;
 
     /// <summary>
-    /// estado en el que se encuentra el jugador para el usuario de la aplicacion
-    /// </summary>
-    public Estado estado { get { return m_estado; } set { m_estado = value; } }
-    private Estado m_estado;
-
-    /// <summary>
     /// devuelve la posicion del jugador en su correspondiente array (de tirador o portero)
     /// </summary>
     public int index {
@@ -88,6 +88,20 @@ public class Jugador {
     public CardQuality quality { get { return m_quality; } set { m_quality = value; } }
     private CardQuality m_quality;
 
+    // Powerups de este jugador
+    public Powerup[] powerups { get { return m_powerups; } set { m_powerups = value; } }
+    private Powerup[] m_powerups;
+
+    /*
+     * DATOS A REGISTRAR EN PREFS
+     */
+
+    /// <summary>
+    /// estado en el que se encuentra el jugador para el usuario de la aplicacion
+    /// </summary>
+    public Estado estado { get { return m_estado; } set { m_estado = value; } }
+    private Estado m_estado;
+
     /// <summary>
     /// Nivel alcanzado del jugador
     /// </summary>
@@ -100,9 +114,24 @@ public class Jugador {
     public int cartas { get { return m_cartas; } set { m_cartas = value; } }
     private int m_cartas;
 
-    // Powerups de este jugador
-    public Powerup[] powerups { get { return m_powerups; } set { m_powerups = value; } }
-    private Powerup[] m_powerups;
+
+    public Dictionary<string, object> SaveData {
+        get {
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add(KEY_ID, ID);
+            data.Add("estado", estado);
+            data.Add("nivel", nivel);
+            data.Add("cartas", cartas);
+            return data;
+        }
+
+        set {
+            Debug.Assert(value[KEY_ID].ToString() == assetName, string.Format("SaveData: {0} != {1}", value[KEY_ID].ToString(), assetName));
+            estado = value.ContainsKey("estado") ? (Estado) Enum.Parse(typeof(Estado), value["estado"].ToString()) : Estado.BLOQUEADO;
+            nivel = value.ContainsKey("nivel") ? int.Parse(value["nivel"].ToString()) : 0;
+            cartas = value.ContainsKey("cartas") ? int.Parse(value["cartas"].ToString()) : 0;
+        }
+    }
 
     // ------------------------------------------------------------------------------
     // ---  CONSTRUCTOR  ------------------------------------------------------------
@@ -187,6 +216,8 @@ public class Jugador {
 /// </summary>
 public class InfoJugadores {
 
+    const string KEY_PORTEROS = "porteros";
+    const string KEY_TIRADORES = "tiradores";
 
     // ------------------------------------------------------------------------------
     // ---  PROPIEDADES  ------------------------------------------------------------
@@ -228,15 +259,58 @@ public class InfoJugadores {
 
 
     public InfoJugadores() {
+        // F4KE: Crear la lista de porteros a cholon
+        m_listaPorteros = new List<Jugador>();
+        m_listaPorteros.AddRange( JugadorData.Porteros );
+
         // F4KE: crear la lista de lanzadores a cholon
         m_listaTiradores = new List<Jugador>();
         m_listaTiradores.AddRange( JugadorData.Tiradores );
 
-        // F4KE: Crear la lista de porteros a cholon
-        m_listaPorteros = new List<Jugador>();
-        m_listaPorteros.AddRange( JugadorData.Porteros );
+        string dataBefore = SaveData;
+        Debug.Log("SaveData BEFORE: " + dataBefore);
+        SaveData = dataBefore;
+        Debug.Log("SaveData SAVED: " + SaveData);
+        string dataRestored = SaveData;
+        Debug.Log("SaveData RESTORED: " + dataRestored);
+        Debug.Assert(dataBefore == dataRestored, "SaveData ERROR");
     }
 
+    public string SaveData {
+        get {
+            Dictionary<string, List<Dictionary<string, object>>> data = new Dictionary<string, List<Dictionary<string, object>>>();
+            data.Add(KEY_PORTEROS, SaveDataFromList(m_listaPorteros));
+            data.Add(KEY_TIRADORES, SaveDataFromList(m_listaTiradores));
+            return MiniJSON.Json.Serialize(data);
+        }
+
+        set {
+            Dictionary<string, object> data = (Dictionary<string, object>) MiniJSON.Json.Deserialize(value);
+            SaveDataToList(data[KEY_PORTEROS] as List<object>, m_listaPorteros);
+            SaveDataToList(data[KEY_TIRADORES] as List<object>, m_listaTiradores);
+        }
+    }
+
+    private List<Dictionary<string, object>> SaveDataFromList(List<Jugador> lista) {
+        List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+        foreach(Jugador jugador in lista) {
+            result.Add( jugador.SaveData );
+        }
+        return result;
+    }
+
+    private void SaveDataToList(List<object> data, List<Jugador> lista) {
+        foreach(object jugadorSaved in data) {
+            Dictionary<string, object> saveData = jugadorSaved as Dictionary<string, object>;
+            Jugador jugador = lista.Find( el => el.ID == saveData[Jugador.KEY_ID].ToString() );
+            if (jugador != null) {
+                jugador.SaveData = saveData;
+            }
+            else {
+                Debug.LogError("SaveDataToList: Not Exists " + saveData["id"]);
+            }
+        }
+    }
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------

@@ -273,15 +273,6 @@ public class Player : IPlayerService, IDisposable
             // persistir la mision que se acaba de superar
             PersistenciaManager.instance.ActualizarUltimoNivelDesbloqueado(mission.indexMision + 1);
 
-
-            // comprobar si la en mision que se acaba de superar desbloquea algun jugador
-            Jugador jugadorDesbloqueado = InfoJugadores.instance.GetJugadorDesbloqueableEnFase(mission.indexMision);
-            if (jugadorDesbloqueado != null) {
-                // registrar el dialogo para mostrar el aviso de que se ha obtenido un nuevo jugador y actualizar su estado
-                jugadorDesbloqueado.estado = Jugador.Estado.DISPONIBLE;
-                DialogManager.instance.RegistrarDialogo(new DialogDefinition(DialogDefinition.TipoDialogo.JUGADOR_DESBLOQUEADO, jugadorDesbloqueado));
-            }
-            
             // comprobar si en la mision que se acaba de superar se desbloquea alguna equipacion
             Equipacion equipacionDesbloqueada = EquipacionManager.instance.GetEquipacionDesbloqueableEnFase(mission.indexMision);
             if (equipacionDesbloqueada != null) {

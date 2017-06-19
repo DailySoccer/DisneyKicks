@@ -23,29 +23,41 @@ public class Jugador {
     // ---  PROPIEDADES  ------------------------------------------------------------
     // ------------------------------------------------------------------------------
 
-
     /// <summary>
     /// id del modelo (indica la posicion del modelo de este jugador dentro de los arrays "m_Goalkeepers" y "m_Throwers" de "Interfaz") que sera que el modelo ingame
     /// </summary>
-    public int idModelo { get { return m_idModelo; } }
-    private int m_idModelo;
+    public int idModelo { 
+        get { 
+            if (m_idModelo == -1) {
+                m_idModelo = Interfaz.instance.GetPositionInGoalkeepers(assetName);
+                if (m_idModelo == -1) {
+                    m_idModelo = Interfaz.instance.GetPositionInThrowers(assetName);
+                }
+            }
+            Debug.Assert(m_idModelo == m_idModeloOld, string.Format("idModelo: {0} != {1}", m_idModelo, m_idModeloOld));
+            return m_idModelo; 
+        } 
+        set { m_idModeloOld = value; } 
+    }
+    private int m_idModeloOld = -1;
+    private int m_idModelo = -1;
 
     /// <summary>
     /// nombre del asset del jugador (para su identificacion contra los servicios web o con arte)
     /// </summary>
-    public string assetName { get { return m_assetName; } }
+    public string assetName { get { return m_assetName; } set { m_assetName = value; } }
     private string m_assetName;
 
     /// <summary>
     /// nombre del jugador
     /// </summary>
-    public string nombre { get { return m_nombre; } }
+    public string nombre { get { return m_nombre; } set { m_nombre = value; } }
     private string m_nombre;
 
     /// <summary>
     /// Pais del jugador
     /// </summary>
-    public string pais { get { return m_pais; } }
+    public string pais { get { return m_pais; } set { m_pais = value; }}
     private string m_pais;
 
     /// <summary>
@@ -57,25 +69,19 @@ public class Jugador {
     /// <summary>
     /// dinero SOFT con el que se desbloquea este jugador
     /// </summary>
-    public int precioSoft { get { return m_precioSoft; } }
+    public int precioSoft { get { return m_precioSoft; } set { m_precioSoft = value; } }
     private int m_precioSoft;
 
     /// <summary>
     /// dinero HARD con el que se desbloquea este jugador
     /// </summary>
-    public int precioHard { get { return m_precioHard; } }
+    public int precioHard { get { return m_precioHard; } set { m_precioHard = value; }}
     private int m_precioHard;
-
-    /// <summary>
-    /// fase a partir de la cual se desbloquea el jugador
-    /// </summary>
-    public int faseDesbloqueo { get { return m_faseDesbloqueo; } }
-    private int m_faseDesbloqueo;
 
     /// <summary>
     /// dinero HARD que vale el jugador si se quiere comprar antes de haber sido desbloqueado
     /// </summary>
-    public int precioEarlyBuy { get { return m_precioEarlyBuy; } }
+    public int precioEarlyBuy { get { return m_precioEarlyBuy; } set { m_precioEarlyBuy = value; } }
     private int m_precioEarlyBuy;
 
     /// <summary>
@@ -87,17 +93,37 @@ public class Jugador {
         }
     }
 
-    
     /// <summary>
     /// Numero de camiseta de este jugador
     /// </summary>
-    public int numDorsal { get { return m_numDorsal; } }
+    public int numDorsal { get { return m_numDorsal; } set { m_numDorsal = value; } }
     private int m_numDorsal;
 
     // Habilidades de este jugador
-    public Habilidades.Skills[] habilidades { get { return m_habilidades; } }
+    public Habilidades.Skills[] habilidades { get { return m_habilidades; } set { m_habilidades = value; } }
     private Habilidades.Skills[] m_habilidades;
 
+    /// <summary>
+    /// Calidad del jugador (común, raro, épico)
+    /// </summary>
+    public CardQuality quality { get { return m_quality; } set { m_quality = value; } }
+    private CardQuality m_quality;
+
+    /// <summary>
+    /// Nivel alcanzado del jugador
+    /// </summary>
+    public int nivel { get { return m_nivel; } set { m_nivel = value; } }
+    private int m_nivel;
+
+    /// <summary>
+    /// Número de veces que se ha conseguido este jugador / carta
+    /// </summary>
+    public int cartas { get { return m_cartas; } set { m_cartas = value; } }
+    private int m_cartas;
+
+    // Powerups de este jugador
+    public Powerup[] powerups { get { return m_powerups; } set { m_powerups = value; } }
+    private Powerup[] m_powerups;
 
     // ------------------------------------------------------------------------------
     // ---  CONSTRUCTOR  ------------------------------------------------------------
@@ -118,20 +144,9 @@ public class Jugador {
     /// <param name="_numDorsal"></param>
     /// <param name="_habilidades">Habilidades de este jugador</param>
     /// <param name="_estado"></param>
-    public Jugador(int _idModelo, string _assetName, string _nombre, string _pais, int _precioSoft, int _precioHard, int _faseDesbloqueo = 0, int _precioEarlyBuy = 0, int _numDorsal = 7, Habilidades.Skills[] _habilidades = null, Estado _estado = Estado.BLOQUEADO) {
-        m_idModelo = _idModelo;
-        m_assetName = _assetName;
-        m_nombre = _nombre;
-        m_pais = _pais;
-        m_precioSoft = _precioSoft;
-        m_precioHard = _precioHard;
-        m_faseDesbloqueo = _faseDesbloqueo;
-        m_precioEarlyBuy = _precioEarlyBuy;
-        m_numDorsal = _numDorsal;
-        m_habilidades = _habilidades;
-        m_estado = _estado;
+    public Jugador() {
+        m_estado = Estado.BLOQUEADO;
     }
-
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
@@ -170,14 +185,22 @@ public class Jugador {
         info += "   pais=" + m_pais;
         info += "   precioSoft=" + m_precioSoft;
         info += "   precioHard=" + m_precioHard;
-        info += "   faseDesbloqueo=" + m_faseDesbloqueo;
         info += "   precioEarlyBuy=" + m_precioEarlyBuy;
+        info += "   quality=" + m_quality.ToString();
+        info += "   nivel=" + m_nivel.ToString();
+        info += "   cards=" + m_cartas.ToString();
         info += "   estado=" + m_estado;
 
         if (m_habilidades != null)
             info += "   habilidades=" + m_habilidades.Length;
         else
             info += "   habilidades=NULL";
+
+        if (m_powerups != null)
+            info += "   powerups=" + m_powerups.Length;
+        else
+            info += "   powerups=NULL";
+        
         return info;
     }
 }
@@ -229,33 +252,13 @@ public class InfoJugadores {
 
 
     public InfoJugadores() {
-        m_listaTiradores = new List<Jugador>();
-        m_listaPorteros = new List<Jugador>();
-
         // F4KE: crear la lista de lanzadores a cholon
-        m_listaTiradores.Add(new Jugador(2, "IT_PLY_ST_0003", "Vincent Lacombe", LocalizacionManager.instance.GetTexto(261), 0, 0, 0, 0, 4, null, Jugador.Estado.ADQUIRIDO));
-        m_listaTiradores.Add(new Jugador(3, "IT_PLY_ST_0004", "Mauro Tankara", LocalizacionManager.instance.GetTexto(262), 0, 0, 0, 0, 5, null, Jugador.Estado.ADQUIRIDO));
-        m_listaTiradores.Add(new Jugador(4, "IT_PLY_ST_0005", "Hans Fritzlang", LocalizacionManager.instance.GetTexto(263), 3750, 100, 3, 125, 6));
-        m_listaTiradores.Add(new Jugador(1, "IT_PLY_ST_0002", "Andrew Crowley", LocalizacionManager.instance.GetTexto(264), 8800, 200, 6, 420, 3, new Habilidades.Skills[] { Habilidades.Skills.Prima }));
-        m_listaTiradores.Add(new Jugador(0, "IT_PLY_ST_0001", "Manuel Villalba", LocalizacionManager.instance.GetTexto(265), 9000, 150, 8, 380, 2, new Habilidades.Skills[] { Habilidades.Skills.Vista_halcon }));
-        m_listaTiradores.Add(new Jugador(16, "IT_PLY_ST_0108", "Laszlo Pionescu", LocalizacionManager.instance.GetTexto(266), 11040, 220, 13, 500, 12, new Habilidades.Skills[] { Habilidades.Skills.Goleador }));
-        m_listaTiradores.Add(new Jugador(11, "IT_PLY_ST_0101", "Andre Van Der Moor", LocalizacionManager.instance.GetTexto(267), 10800, 220, 15, 550, 7, new Habilidades.Skills[] { Habilidades.Skills.Prima, Habilidades.Skills.Vista_halcon }));
-        m_listaTiradores.Add(new Jugador(19, "IT_PLY_ST_0111", "Olaf Larrson", LocalizacionManager.instance.GetTexto(268), 21000, 240, 19, 575, 15, new Habilidades.Skills[] { Habilidades.Skills.Prima, Habilidades.Skills.VIP }));
-        m_listaTiradores.Add(new Jugador(22, "IT_PLY_ST_0114", "Franz Raissenberg", LocalizacionManager.instance.GetTexto(269), 19250, 195, 24, 450, 2, new Habilidades.Skills[] { Habilidades.Skills.VIP, Habilidades.Skills.Vista_halcon }));
-        m_listaTiradores.Add(new Jugador(13, "IT_PLY_ST_0103", "Ben Massala", LocalizacionManager.instance.GetTexto(270), 27200, 210, 29, 480, 9, new Habilidades.Skills[] { Habilidades.Skills.Mago_balon }));
-        m_listaTiradores.Add(new Jugador(21, "IT_PLY_ST_0113", "Joao Soares", LocalizacionManager.instance.GetTexto(271), 33600, 250, 30, 600, 10, new Habilidades.Skills[] { Habilidades.Skills.Mago_balon, Habilidades.Skills.VIP }));
-        m_listaTiradores.Add(new Jugador(12, "IT_PLY_ST_0102", "Mario Barrenchi", LocalizacionManager.instance.GetTexto(272), 33745, 250, 37, 675, 8, new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.VIP }));
-        m_listaTiradores.Add(new Jugador(23, "IT_PLY_ST_0115", "Hassan Nagala", LocalizacionManager.instance.GetTexto(273), 59500, 550, 49, 900, 3, new Habilidades.Skills[] { Habilidades.Skills.Mago_balon, Habilidades.Skills.Goleador }));
-        m_listaTiradores.Add(new Jugador(15, "IT_PLY_ST_0105", "Yanis Paidopoulos", LocalizacionManager.instance.GetTexto(274), 56160, 500, 55, 1000, 11, new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.Prima }));
-        m_listaTiradores.Add(new Jugador(24, "IT_PLY_ST_0116", "Kurt Mulligan", LocalizacionManager.instance.GetTexto(275), 50040, 400, 57, 850, 4, new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.Vista_halcon }));
+        m_listaTiradores = new List<Jugador>();
+        m_listaTiradores.AddRange( JugadorData.Tiradores );
 
         // F4KE: Crear la lista de porteros a cholon
-        m_listaPorteros.Add(new Jugador(2, "IT_PLY_GK_0003", "Jack Donovan", LocalizacionManager.instance.GetTexto(276), 0, 0, 0, 0, 1, null, Jugador.Estado.ADQUIRIDO));
-        m_listaPorteros.Add(new Jugador(1, "IT_PLY_GK_0002", "Alfredo Del Valle", LocalizacionManager.instance.GetTexto(277), 3500, 75, 4, 100, 1));
-        m_listaPorteros.Add(new Jugador(5, "IT_PLY_GK_0103", "Santiago Resquicio", LocalizacionManager.instance.GetTexto(278), 5200, 120, 7, 225, 1, new Habilidades.Skills[] { Habilidades.Skills.Practico }));
-        m_listaPorteros.Add(new Jugador(4, "IT_PLY_GK_0102", "Pietro Capiente", LocalizacionManager.instance.GetTexto(279), 30600, 350, 35, 650, 1, new Habilidades.Skills[] { Habilidades.Skills.Practico, Habilidades.Skills.Barrera }));
-        m_listaPorteros.Add(new Jugador(3, "IT_PLY_GK_0101", "Matsuhiro Shintao", LocalizacionManager.instance.GetTexto(280), 56000, 600, 47, 1050, 1, new Habilidades.Skills[] { Habilidades.Skills.Premonicion }));
-        
+        m_listaPorteros = new List<Jugador>();
+        m_listaPorteros.AddRange( JugadorData.Porteros );
     }
 
 
@@ -384,59 +387,6 @@ public class InfoJugadores {
 
 
     /// <summary>
-    /// Metodo que en funcion de la "_ultimaFaseDesbloqueada" actualiza el estado de los jugadores para que pasen de "BLOQUEADO" a "DISPONIBLE" si procede
-    /// </summary>
-    /// <param name="_ultimaFaseDesbloqueada"></param>
-    public void RefreshJugadoresDesbloqueados(int _ultimaFaseDesbloqueada) {
-        // comprobar los lanzadores
-        if (m_listaTiradores != null) {
-            foreach (Jugador jugador in m_listaTiradores) {
-                if (jugador.estado == Jugador.Estado.BLOQUEADO && jugador.faseDesbloqueo <= _ultimaFaseDesbloqueada)
-                    jugador.estado = Jugador.Estado.DISPONIBLE;
-            }
-        }
-
-        // comprobar los porteros
-        if (m_listaPorteros != null) {
-            foreach (Jugador jugador in m_listaPorteros) {
-                if (jugador.estado == Jugador.Estado.BLOQUEADO && jugador.faseDesbloqueo <= _ultimaFaseDesbloqueada)
-                    jugador.estado = Jugador.Estado.DISPONIBLE;
-            }
-        }
-    }
-
-
-    /// <summary>
-    /// Devuelve el jugador que se desbloquea en la fase "_numFase"
-    /// NOTA: devuelve null si no se ha encontrado ningun jugador
-    /// </summary>
-    /// <param name="_numFaseSuperada"></param>
-    /// <returns></returns>
-    public Jugador GetJugadorDesbloqueableEnFase(int _numFaseSuperada) {
-        ++_numFaseSuperada; // <= se suma 1 por como se definen las fases de desbloqueo de los jugadores
-
-        // buscar en la lista de lanzadores
-        if (m_listaTiradores != null) {
-            for (int i = 0; i < m_listaTiradores.Count; ++i) {
-                if (m_listaTiradores[i].estado == Jugador.Estado.BLOQUEADO && m_listaTiradores[i].faseDesbloqueo == _numFaseSuperada)
-                    return m_listaTiradores[i];
-            }
-        }
-
-        // buscar en la lista de porteros
-        if (m_listaPorteros != null) {
-            for (int i = 0; i < m_listaPorteros.Count; ++i) {
-                if (m_listaPorteros[i].estado == Jugador.Estado.BLOQUEADO && m_listaPorteros[i].faseDesbloqueo == _numFaseSuperada)
-                    return m_listaPorteros[i];
-            }
-        }
-
-        // no se ha encontrado ningun jugador
-        return null;
-    }
-
-
-    /// <summary>
     /// Comprueba si un determinado jugador pertenece a la lista de lanzadores
     /// </summary>
     /// <param name="_assetName"></param>
@@ -485,5 +435,14 @@ public class InfoJugadores {
         return false;
     }
 
+    public void ChangeAllToState(Jugador.Estado estado) {
+        for (int i = 1; i < m_listaPorteros.Count; ++i) {
+            m_listaPorteros[i].estado = estado;
+        }
+
+        for (int i = 1; i < m_listaTiradores.Count; ++i) {
+            m_listaTiradores[i].estado = estado;
+        }
+    }
 
 }

@@ -605,6 +605,28 @@ public class Interfaz : MonoBehaviour
         else Goalkeeper = Goalkeeper;
     }
 
+    public int GetPositionInGoalkeepers(string key) {
+        int position = -1;
+        for (int i=0; i<goalkeepers.Length; i++) {
+            if (goalkeepers[i] != null && goalkeepers[i].name.Contains(key)) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int GetPositionInThrowers(string key) {
+        int position = -1;
+        for (int i=0; i<throwers.Length; i++) {
+            if (throwers[i] != null && throwers[i].name.Contains(key)) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
     /*void RepositionThrower()
     {
       Vector3 screenPosGK = Camera.main.WorldToScreenPoint(goalkeeperModel.transform.position);

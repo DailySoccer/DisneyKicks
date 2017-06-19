@@ -117,6 +117,10 @@ public class Jugador {
     public int cartas { get { return m_cartas; } set { m_cartas = value; } }
     private int m_cartas;
 
+    public void SubirNivel() {
+        m_nivel++;
+        PersistenciaManager.instance.SaveJugadores();
+    }
 
     public Dictionary<string, object> SaveData {
         get {
@@ -266,6 +270,8 @@ public class InfoJugadores {
         m_listaTiradores = new List<Jugador>();
         m_listaTiradores.AddRange( JugadorData.Tiradores );
 
+        // TEST SaveData --
+        /*
         string dataBefore = SaveData;
         Debug.Log("SaveData BEFORE: " + dataBefore);
         SaveData = dataBefore;
@@ -273,6 +279,7 @@ public class InfoJugadores {
         string dataRestored = SaveData;
         Debug.Log("SaveData RESTORED: " + dataRestored);
         Debug.Assert(dataBefore == dataRestored, "SaveData ERROR");
+        */
     }
 
     public string SaveData {

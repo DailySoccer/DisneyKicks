@@ -94,6 +94,18 @@ public class ifcVestuario : ifcBase {
     }
 
 
+    public void SubirNivelJugador() {
+        if (m_tipoVestuario == TipoVestuario.LANZADOR) {
+            Jugador jugador = InfoJugadores.instance.GetTirador(Interfaz.instance.Thrower);
+            jugador.SubirNivel();
+        }
+        else {
+            Jugador jugador = InfoJugadores.instance.GetPortero(Interfaz.instance.Goalkeeper);
+            jugador.SubirNivel();
+        }
+        RefreshInfo();
+    }
+
     /// <summary>
     /// Obtiene las referencias a los elementos de esta interfaz
     /// </summary>

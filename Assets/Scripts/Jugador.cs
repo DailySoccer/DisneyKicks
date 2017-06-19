@@ -34,12 +34,9 @@ public class Jugador {
                     m_idModelo = Interfaz.instance.GetPositionInThrowers(assetName);
                 }
             }
-            Debug.Assert(m_idModelo == m_idModeloOld, string.Format("idModelo: {0} != {1}", m_idModelo, m_idModeloOld));
             return m_idModelo; 
         } 
-        set { m_idModeloOld = value; } 
     }
-    private int m_idModeloOld = -1;
     private int m_idModelo = -1;
 
     /// <summary>

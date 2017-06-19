@@ -491,7 +491,7 @@ public class InfoJugadores {
         return false;
     }
 
-    public void ChangeAllToState(Jugador.Estado estado) {
+    public void CHEAT_ChangeAllToState(Jugador.Estado estado) {
         for (int i = 1; i < m_listaPorteros.Count; ++i) {
             m_listaPorteros[i].nivel = (estado == Jugador.Estado.ADQUIRIDO) ? 1 : 0;
         }

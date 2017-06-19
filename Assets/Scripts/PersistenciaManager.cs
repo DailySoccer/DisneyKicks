@@ -103,6 +103,7 @@ public class PersistenciaManager {
             // actualizar el estado de desbloqueo de los escudos en funcion de la ultima fase desbloqueada
             EscudosManager.instance.ActualizarEstadoDesbloqueoEscudos(Interfaz.ultimaMisionDesbloqueada);
 
+            /*
             // obtener los lanzadores comprados
             if (PlayerPrefs.HasKey("shootersComprados")) {
                 string strShootersComprados = EncryptedPlayerPrefs.GetString("shootersComprados");
@@ -134,6 +135,7 @@ public class PersistenciaManager {
                     }
                 }
             }
+            */
 
             // obtener equipaciones de lanzador compradas
             if (PlayerPrefs.HasKey("shooterEquipaciones")) {

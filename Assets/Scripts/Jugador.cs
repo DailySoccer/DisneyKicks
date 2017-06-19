@@ -99,8 +99,11 @@ public class Jugador {
     /// <summary>
     /// estado en el que se encuentra el jugador para el usuario de la aplicacion
     /// </summary>
-    public Estado estado { get { return m_estado; } set { m_estado = value; } }
-    private Estado m_estado;
+    public Estado estado { 
+        get { 
+            return (nivel > 0) ? Estado.ADQUIRIDO : Estado.BLOQUEADO;
+        } 
+    }
 
     /// <summary>
     /// Nivel alcanzado del jugador
@@ -119,7 +122,6 @@ public class Jugador {
         get {
             Dictionary<string, object> data = new Dictionary<string, object>();
             data.Add(KEY_ID, ID);
-            data.Add("estado", estado);
             data.Add("nivel", nivel);
             data.Add("cartas", cartas);
             return data;
@@ -127,7 +129,6 @@ public class Jugador {
 
         set {
             Debug.Assert(value[KEY_ID].ToString() == assetName, string.Format("SaveData: {0} != {1}", value[KEY_ID].ToString(), assetName));
-            estado = value.ContainsKey("estado") ? (Estado) Enum.Parse(typeof(Estado), value["estado"].ToString()) : Estado.BLOQUEADO;
             nivel = value.ContainsKey("nivel") ? int.Parse(value["nivel"].ToString()) : 0;
             cartas = value.ContainsKey("cartas") ? int.Parse(value["cartas"].ToString()) : 0;
         }
@@ -153,7 +154,6 @@ public class Jugador {
     /// <param name="_habilidades">Habilidades de este jugador</param>
     /// <param name="_estado"></param>
     public Jugador() {
-        m_estado = Estado.BLOQUEADO;
     }
 
     // ------------------------------------------------------------------------------
@@ -194,7 +194,6 @@ public class Jugador {
         info += "   quality=" + m_quality.ToString();
         info += "   nivel=" + m_nivel.ToString();
         info += "   cards=" + m_cartas.ToString();
-        info += "   estado=" + m_estado;
 
         if (m_habilidades != null)
             info += "   habilidades=" + m_habilidades.Length;
@@ -487,11 +486,11 @@ public class InfoJugadores {
 
     public void ChangeAllToState(Jugador.Estado estado) {
         for (int i = 1; i < m_listaPorteros.Count; ++i) {
-            m_listaPorteros[i].estado = estado;
+            m_listaPorteros[i].nivel = (estado == Jugador.Estado.ADQUIRIDO) ? 1 : 0;
         }
 
         for (int i = 1; i < m_listaTiradores.Count; ++i) {
-            m_listaTiradores[i].estado = estado;
+            m_listaTiradores[i].nivel = (estado == Jugador.Estado.ADQUIRIDO) ? 1 : 0;
         }
     }
 

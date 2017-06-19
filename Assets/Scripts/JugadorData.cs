@@ -17,7 +17,7 @@ public class JugadorData {
             habilidades     = null,
             powerups        = null,
             quality         = CardQuality.COMMON,
-            estado          = Jugador.Estado.ADQUIRIDO
+            nivel           = 1
         },
         new Jugador {
             assetName = "IT_PLY_ST_0004", 
@@ -160,7 +160,7 @@ public class JugadorData {
             habilidades = null,
             powerups = null,
             quality = CardQuality.COMMON,
-            estado = Jugador.Estado.ADQUIRIDO
+            nivel = 1
         },
         new Jugador {
             assetName = "IT_PLY_GK_0002", 

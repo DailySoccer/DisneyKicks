@@ -96,6 +96,14 @@ public class cntCompraItem: MonoBehaviour {
             m_btnCompra.GetComponent<GUITexture>().texture = texturaEscudo;
             m_btnCompra.m_current = texturaEscudo;
 
+            // boton
+            // XIMO: 19/06/2017: Hack para subir un nivel/adquirir un jugador
+            m_btnCompra.action = (_name) => {
+                Interfaz.ClickFX();
+                ifcVestuario.instance.SubirNivelJugador();
+            };
+
+            /*
             if (_escudo.faseDesbloqueo < Interfaz.ultimaMisionDesbloqueada) {
                 // boton
                 m_btnCompra.action = (_name) => {
@@ -114,6 +122,7 @@ public class cntCompraItem: MonoBehaviour {
                         LocalizacionManager.instance.GetTexto(45).ToUpper());
                 };
             }
+            */
         }
     }
 

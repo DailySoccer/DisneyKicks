@@ -605,6 +605,28 @@ public class Interfaz : MonoBehaviour
         else Goalkeeper = Goalkeeper;
     }
 
+    public int GetPositionInGoalkeepers(string key) {
+        int position = -1;
+        for (int i=0; i<goalkeepers.Length; i++) {
+            if (goalkeepers[i] != null && goalkeepers[i].name.Contains(key)) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int GetPositionInThrowers(string key) {
+        int position = -1;
+        for (int i=0; i<throwers.Length; i++) {
+            if (throwers[i] != null && throwers[i].name.Contains(key)) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
     /*void RepositionThrower()
     {
       Vector3 screenPosGK = Camera.main.WorldToScreenPoint(goalkeeperModel.transform.position);
@@ -1026,6 +1048,8 @@ public class Interfaz : MonoBehaviour
     /// <param name="_jugador"></param>
     public void comprarJugador(Jugador _jugador, TipoPago _tipoPago)
     {
+        // XIMO: 19/06/2017: Actualmente no queremos un sistema de "Compra de Jugadores"
+        /*
         if (_jugador == null || _jugador.estado == Jugador.Estado.ADQUIRIDO)
             return;
 
@@ -1080,6 +1104,7 @@ public class Interfaz : MonoBehaviour
 
         if (goalkeeperModel.activeSelf == true) Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
         if (throwerModel.activeSelf == true) Interfaz.instance.Thrower = Interfaz.instance.Thrower;
+        */
     }
 
 

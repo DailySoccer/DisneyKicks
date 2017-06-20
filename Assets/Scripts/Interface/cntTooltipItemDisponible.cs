@@ -59,8 +59,14 @@ public class cntTooltipItemDisponible: MonoBehaviour {
         else {
             switch (_jugador.estado) {
                 case Jugador.Estado.BLOQUEADO:
-                    ShowInfo(LocalizacionManager.instance.GetTexto(20), string.Format(LocalizacionManager.instance.GetTexto(21), "<color=#ddf108> " + _jugador.faseDesbloqueo + "</color>"), true, LocalizacionManager.instance.GetTexto(22), m_texturaFondoBloqueado,
+                    ShowInfo(
+                        LocalizacionManager.instance.GetTexto(20), 
+                        "", //string.Format(LocalizacionManager.instance.GetTexto(21), "<color=#ddf108> " + _jugador.faseDesbloqueo + "</color>"), 
+                        false, LocalizacionManager.instance.GetTexto(22), 
+                        m_texturaFondoBloqueado,
                         (_name) => {
+                            // XIMO: 19/06/2017: Actualmente no queremos un sistema de "Compra de Jugadores"
+                            /*
                             ifcDialogBox.instance.ShowOneButtonDialog(
                                 ifcDialogBox.OneButtonType.BITOONS,
                                 LocalizacionManager.instance.GetTexto(91).ToUpper(),
@@ -69,24 +75,8 @@ public class cntTooltipItemDisponible: MonoBehaviour {
                                 // callback si el usuario acepta comprar el jugador
                                 (_name1) => { Interfaz.instance.comprarJugador(_jugador, Interfaz.TipoPago.PRECOMPRA); },
                                 true);
+                            */
                         });
-                    break;
-
-                case Jugador.Estado.DISPONIBLE:
-                    ShowInfo(LocalizacionManager.instance.GetTexto(23), string.Format(LocalizacionManager.instance.GetTexto(24), "<color=#ddf108> " + _jugador.nombre + "</color>"), true, LocalizacionManager.instance.GetTexto(30), m_texturaFondoDisponible,
-                        (_name) => {
-                            ifcDialogBox.instance.ShowTwoButtonDialog(
-                            ifcDialogBox.TwoButtonType.COINS_BITOONS,
-                            LocalizacionManager.instance.GetTexto(91).ToUpper(),
-                            string.Format(LocalizacionManager.instance.GetTexto(93), "<color=#ddf108> " + _jugador.nombre + "</color>"),
-                            _jugador.precioSoft.ToString(),
-                            _jugador.precioHard.ToString(),
-                            // callback si el usuario acepta comprar el jugador con SOFT
-                            (_name1) => { Interfaz.instance.comprarJugador(_jugador, Interfaz.TipoPago.SOFT); },
-                            // callback si el usuario acepta comprar el jugador con HARD
-                            (_name1) => { Interfaz.instance.comprarJugador(_jugador, Interfaz.TipoPago.HARD); },
-                            true);
-                    });
                     break;
 
                 case Jugador.Estado.ADQUIRIDO:
@@ -109,7 +99,10 @@ public class cntTooltipItemDisponible: MonoBehaviour {
             switch (_equipacion.estado) {
                 case Equipacion.Estado.BLOQUEADA:
                     ShowInfo(
-                        LocalizacionManager.instance.GetTexto(26), string.Format(LocalizacionManager.instance.GetTexto(27), "<color=#ddf108> " + _equipacion.faseDesbloqueo + "</color>"), true, LocalizacionManager.instance.GetTexto(22), m_texturaFondoBloqueado,
+                        LocalizacionManager.instance.GetTexto(26), 
+                        "", // string.Format(LocalizacionManager.instance.GetTexto(27), "<color=#ddf108> " + _equipacion.faseDesbloqueo + "</color>"), 
+                        false, LocalizacionManager.instance.GetTexto(22), 
+                        m_texturaFondoBloqueado,
                         (_name) => {
                             ifcDialogBox.instance.ShowOneButtonDialog(
                                 ifcDialogBox.OneButtonType.BITOONS,
@@ -195,6 +188,7 @@ public class cntTooltipItemDisponible: MonoBehaviour {
             m_btnBoton.action = _onClickCallback;
         }
         m_btnBoton.SetEnabled(_mostrarboton);
+        m_btnBoton.gameObject.SetActive(_mostrarboton);
 
         // activar este control
         this.gameObject.SetActive(true);

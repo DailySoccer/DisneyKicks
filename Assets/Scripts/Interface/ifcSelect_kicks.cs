@@ -118,13 +118,6 @@ public class ifcSelect_kicks : ifcBase {
               case Jugador.Estado.ADQUIRIDO:
                   break;
 
-              case Jugador.Estado.DISPONIBLE:
-                  // pintar el jugador en blanco y negro
-                  DecolorarInstanciaJugador(Interfaz.instance.throwerModel.transform.FindChild("Body").GetComponent<SkinnedMeshRenderer>());
-                  DecolorarInstanciaJugador(Interfaz.instance.throwerModel.transform.FindChild("Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Head").GetComponent<MeshRenderer>());
-
-                  break;
-
               case Jugador.Estado.BLOQUEADO:
                   // pintar el jugador en blanco y negro
                   DecolorarInstanciaJugador(Interfaz.instance.throwerModel.transform.FindChild("Body").GetComponent<SkinnedMeshRenderer>());
@@ -160,13 +153,6 @@ public class ifcSelect_kicks : ifcBase {
           switch (portero.estado) {
               case Jugador.Estado.ADQUIRIDO:
                   break;
-
-              case Jugador.Estado.DISPONIBLE:
-
-                  // pintar el jugador en blanco y negro
-                  DecolorarInstanciaJugador(Interfaz.instance.goalkeeperModel.transform.FindChild("Body").GetComponent<SkinnedMeshRenderer>());
-                  DecolorarInstanciaJugador(Interfaz.instance.goalkeeperModel.transform.FindChild("Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 Head/Head").GetComponent<MeshRenderer>());
-                break;
 
               case Jugador.Estado.BLOQUEADO:
 

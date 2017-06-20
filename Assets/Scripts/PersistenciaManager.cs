@@ -103,6 +103,13 @@ public class PersistenciaManager {
             // actualizar el estado de desbloqueo de los escudos en funcion de la ultima fase desbloqueada
             EscudosManager.instance.ActualizarEstadoDesbloqueoEscudos(Interfaz.ultimaMisionDesbloqueada);
 
+            // Recuperar el estado actual de la lista de jugadores (nivel, nº de cartas)
+            if (PlayerPrefs.HasKey("jugadores")) {
+                InfoJugadores.instance.SaveData = EncryptedPlayerPrefs.GetString("jugadores");
+                Debug.Log("loading Jugadores << Prefs << " + InfoJugadores.instance.SaveData);
+            }
+
+            /*
             // obtener los lanzadores comprados
             if (PlayerPrefs.HasKey("shootersComprados")) {
                 string strShootersComprados = EncryptedPlayerPrefs.GetString("shootersComprados");
@@ -134,6 +141,7 @@ public class PersistenciaManager {
                     }
                 }
             }
+            */
 
             // obtener equipaciones de lanzador compradas
             if (PlayerPrefs.HasKey("shooterEquipaciones")) {
@@ -222,10 +230,7 @@ public class PersistenciaManager {
             // cargar el avance del jugador
             CargarObjetivosMision();
 
-
-
             // actualizar el estado de los jugadores
-            InfoJugadores.instance.RefreshJugadoresDesbloqueados(Interfaz.ultimaMisionDesbloqueada);
             EquipacionManager.instance.RefreshEquipacionesDesbloqueadas(Interfaz.ultimaMisionDesbloqueada);
 
             // indicar que la carga de datos ya se ha realizado una vez
@@ -320,6 +325,12 @@ public class PersistenciaManager {
         PlayerPrefs.Save();
     }
 
+
+    public void SaveJugadores() {
+        Debug.Log("saving Jugadores >> Prefs");
+        EncryptedPlayerPrefs.SetString("jugadores", InfoJugadores.instance.SaveData);
+        PlayerPrefs.Save();
+    }
 
     /// <summary>
     /// Almacena los jugadores adquiridos actualmente en las preferencias

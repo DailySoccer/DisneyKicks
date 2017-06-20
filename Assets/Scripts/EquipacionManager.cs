@@ -404,59 +404,6 @@ public class EquipacionManager: MonoBehaviour {
             return null; // <= valor por defecto
     }
 
-
-    /// <summary>
-    /// Metodo que en funcion de la "_ultimaFaseDesbloqueada" actualiza el estado de las equipaciones para que pasen de "BLOQUEADA" a "DISPONIBLE" si procede
-    /// </summary>
-    /// <param name="_ultimaFaseDesbloqueada"></param>
-    public void RefreshEquipacionesDesbloqueadas(int _ultimaFaseDesbloqueada) {
-        // comprobar las equipaciones de lanzador
-        if (m_equipacionesLanzador != null) {
-            foreach (Equipacion equipacion in m_equipacionesLanzador) {
-                if (equipacion.estado == Equipacion.Estado.BLOQUEADA && equipacion.faseDesbloqueo <= _ultimaFaseDesbloqueada)
-                    equipacion.estado = Equipacion.Estado.DISPONIBLE;
-            }
-        }
-
-        // comprobar las equipaciones de portero
-        if (m_equipacionesPortero != null) {
-            foreach (Equipacion equipacion in m_equipacionesPortero) {
-                if (equipacion.estado == Equipacion.Estado.BLOQUEADA && equipacion.faseDesbloqueo <= _ultimaFaseDesbloqueada)
-                    equipacion.estado = Equipacion.Estado.DISPONIBLE;
-            }
-        }
-    }
-
-
-    /// <summary>
-    /// Devuelve la equipacion que se desbloquea en la fase "_numFase"
-    /// NOTA: devuelve null si no se ha encontrado ninguna equipacion
-    /// </summary>
-    /// <param name="_numFaseSuperada"></param>
-    /// <returns></returns>
-    public Equipacion GetEquipacionDesbloqueableEnFase(int _numFaseSuperada) {
-        ++_numFaseSuperada; // <= se suma 1 por como se definen las fases de desbloqueo de las equipaciones
-
-        // buscar en las equipaciones de lanzador
-        if (m_equipacionesLanzador != null) {
-            for (int i = 0; i < m_equipacionesLanzador.Count; ++i) {
-                if (m_equipacionesLanzador[i].estado == Equipacion.Estado.BLOQUEADA && m_equipacionesLanzador[i].faseDesbloqueo == _numFaseSuperada)
-                    return m_equipacionesLanzador[i];
-            }
-        }
-
-        // buscar en las equipaciones de portero
-        if (m_equipacionesPortero != null) {
-            for (int i = 0; i < m_equipacionesPortero.Count; ++i) {
-                if (m_equipacionesPortero[i].estado == Equipacion.Estado.BLOQUEADA && m_equipacionesPortero[i].faseDesbloqueo == _numFaseSuperada)
-                    return m_equipacionesPortero[i];
-            }
-        }
-
-        return null;
-    }
-
-
     /// <summary>
     /// Comprueba si existe una equipacion de lanzador con un determinado "_assetName"
     /// </summary>

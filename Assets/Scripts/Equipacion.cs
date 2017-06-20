@@ -52,12 +52,6 @@ public class Equipacion {
     private int m_precioHard;
 
     /// <summary>
-    /// fase en la que, al conseguir los 4 objetivos, se desbloquea el jugador
-    /// </summary>
-    public int faseDesbloqueo { get { return m_faseDesbloqueo; } set { m_faseDesbloqueo = value; } }
-    private int m_faseDesbloqueo;
-
-    /// <summary>
     /// dinero HARD que vale el jugador si se quiere comprar antes de haber sido desbloqueado
     /// </summary>
     public int precioEarlyBuy { get { return m_precioEarlyBuy; } set { m_precioEarlyBuy = value; } }
@@ -69,6 +63,17 @@ public class Equipacion {
     public Color colorDorsal { get { return m_colorDorsal; } set { m_colorDorsal = value; } }
     private Color m_colorDorsal;
 
+    /// <summary>
+    /// Calidad de la equipación (común, raro, épico)
+    /// </summary>
+    public CardQuality quality { get { return m_quality; } set { m_quality = value; } }
+    private CardQuality m_quality;
+
+    /// <summary>
+    /// Liga en la que es posible recibir como recompensa la equipación
+    /// </summary>
+    public int liga { get { return m_liga; } set { m_liga = value; } }
+    private int m_liga;
 
     // ------------------------------------------------------------------------------
     // ---  CONSTRUCTOR  ------------------------------------------------------------
@@ -87,18 +92,6 @@ public class Equipacion {
     /// <param name="_estado"></param>
     public Equipacion() {
     }
-
-    public Equipacion(int _idTextura, string _assetName, int _precioSoft, int _precioHard, Color _colorDorsal, int _faseDesbloqueo = 0, int _precioEarlyBuy = 0, Estado _estado = Estado.BLOQUEADA) {
-        m_idTextura = _idTextura;
-        m_assetName = _assetName;
-        m_precioSoft = _precioSoft;
-        m_precioHard = _precioHard;
-        m_colorDorsal = _colorDorsal;
-        m_faseDesbloqueo = _faseDesbloqueo;
-        m_precioEarlyBuy = _precioEarlyBuy;
-        m_estado = _estado;
-    }
-
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------

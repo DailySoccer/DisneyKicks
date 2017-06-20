@@ -230,9 +230,6 @@ public class PersistenciaManager {
             // cargar el avance del jugador
             CargarObjetivosMision();
 
-            // actualizar el estado de los jugadores
-            EquipacionManager.instance.RefreshEquipacionesDesbloqueadas(Interfaz.ultimaMisionDesbloqueada);
-
             // indicar que la carga de datos ya se ha realizado una vez
             m_cargaDatosRealizada = true;
         }

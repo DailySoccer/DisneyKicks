@@ -16,7 +16,6 @@ public class EquipacionData {
             precioSoft = 0, 
             precioHard = 0, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 0, 
             precioEarlyBuy = 0, 
             estado = Equipacion.Estado.ADQUIRIDA
         },
@@ -26,7 +25,6 @@ public class EquipacionData {
             precioSoft = 0, 
             precioHard = 0, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 0, 
             precioEarlyBuy = 0, 
             estado = Equipacion.Estado.ADQUIRIDA
         },
@@ -36,7 +34,6 @@ public class EquipacionData {
             precioSoft = 0, 
             precioHard = 0, 
             colorDorsal = new Color(169.0f / 255.0f, 29.0f / 255.0f, 31.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 0, 
             precioEarlyBuy = 0, 
             estado = Equipacion.Estado.ADQUIRIDA
         },
@@ -46,7 +43,6 @@ public class EquipacionData {
             precioSoft = 4200, 
             precioHard = 120, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 10, 
             precioEarlyBuy = 195
         },
         new Equipacion {
@@ -55,7 +51,6 @@ public class EquipacionData {
             precioSoft = 3600, 
             precioHard = 100, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 11, 
             precioEarlyBuy = 180
         },
         new Equipacion {
@@ -64,7 +59,6 @@ public class EquipacionData {
             precioSoft = 5600, 
             precioHard = 180, 
             colorDorsal = new Color(64.0f / 255.0f, 83.0f / 255.0f, 18.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 17, 
             precioEarlyBuy = 325
         },
         new Equipacion {
@@ -73,7 +67,6 @@ public class EquipacionData {
             precioSoft = 6300, 
             precioHard = 180, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 22, 
             precioEarlyBuy = 310
         },
         new Equipacion {
@@ -82,7 +75,6 @@ public class EquipacionData {
             precioSoft = 8000, 
             precioHard = 190, 
             colorDorsal = new Color(10.0f / 255.0f, 10.0f / 255.0f, 10.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 26, 
             precioEarlyBuy = 300
         },
         new Equipacion {
@@ -91,7 +83,6 @@ public class EquipacionData {
             precioSoft = 8400, 
             precioHard = 200, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 31, 
             precioEarlyBuy = 400
         },
         new Equipacion {
@@ -100,7 +91,6 @@ public class EquipacionData {
             precioSoft = 9280, 
             precioHard = 200, 
             colorDorsal = new Color(80.0f / 255.0f, 0.0f / 255.0f, 0.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 32, 
             precioEarlyBuy = 250
         },
         new Equipacion {
@@ -109,7 +99,6 @@ public class EquipacionData {
             precioSoft = 10400, 
             precioHard = 210, 
             colorDorsal = new Color(160.0f / 255.0f, 122.0f / 255.0f, 3.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 34, 
             precioEarlyBuy = 360
         },
         new Equipacion {
@@ -118,7 +107,6 @@ public class EquipacionData {
             precioSoft = 12750, 
             precioHard = 210, 
             colorDorsal = new Color(10.0f / 255.0f, 10.0f / 255.0f, 10.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 40, 
             precioEarlyBuy = 350
         },
         new Equipacion {
@@ -127,7 +115,6 @@ public class EquipacionData {
             precioSoft = 14790, 
             precioHard = 250, 
             colorDorsal = new Color(64.0f / 255.0f, 83.0f / 255.0f, 18.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 43, 
             precioEarlyBuy = 425
         },
         new Equipacion {
@@ -136,7 +123,6 @@ public class EquipacionData {
             precioSoft = 18000, 
             precioHard = 200, 
             colorDorsal = new Color(8.0f / 255.0f, 105.0f / 255.0f, 169.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 52, 
             precioEarlyBuy = 400
         },
         new Equipacion {
@@ -145,7 +131,6 @@ public class EquipacionData {
             precioSoft = 16560, 
             precioHard = 250, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 60, 
             precioEarlyBuy = 600
         }
     };
@@ -164,7 +149,6 @@ public class EquipacionData {
             precioSoft = 0, 
             precioHard = 0, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 0, 
             precioEarlyBuy = 0, 
             estado = Equipacion.Estado.ADQUIRIDA
         },
@@ -174,7 +158,6 @@ public class EquipacionData {
             precioSoft = 0, 
             precioHard = 0, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 0, 
             precioEarlyBuy = 0, 
             estado = Equipacion.Estado.ADQUIRIDA
         },
@@ -184,7 +167,6 @@ public class EquipacionData {
             precioSoft = 2500, 
             precioHard = 75, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 2, 
             precioEarlyBuy = 100
         },
         new Equipacion {
@@ -193,7 +175,6 @@ public class EquipacionData {
             precioSoft = 7700, 
             precioHard = 175, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 25, 
             precioEarlyBuy = 275
         },
         new Equipacion {
@@ -202,7 +183,6 @@ public class EquipacionData {
             precioSoft = 15750, 
             precioHard = 275, 
             colorDorsal = new Color(221.0f / 255.0f, 217.0f / 255.0f, 221.0f / 255.0f, 1.0f), 
-            faseDesbloqueo = 50, 
             precioEarlyBuy = 375
         }
     };

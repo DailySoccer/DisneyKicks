@@ -13,7 +13,7 @@ public class Equipacion {
 
 
     // estados en los que puede estar la equipacion
-    public enum Estado { ADQUIRIDA, DISPONIBLE, BLOQUEADA };
+    public enum Estado { ADQUIRIDA, BLOQUEADA };
 
 
     // ------------------------------------------------------------------------------
@@ -38,24 +38,6 @@ public class Equipacion {
     /// </summary>
     public string assetName { get { return m_assetName; } set { m_assetName = value; } }
     private string m_assetName;
-
-    /// <summary>
-    /// dinero SOFT con el que se desbloquea esta equipacion
-    /// </summary>
-    public int precioSoft { get { return m_precioSoft; } set { m_precioSoft = value; } }
-    private int m_precioSoft;
-
-    /// <summary>
-    /// dinero HARD con el que se desbloquea esta equipacion
-    /// </summary>
-    public int precioHard { get { return m_precioHard; } set { m_precioHard = value; } }
-    private int m_precioHard;
-
-    /// <summary>
-    /// dinero HARD que vale el jugador si se quiere comprar antes de haber sido desbloqueado
-    /// </summary>
-    public int precioEarlyBuy { get { return m_precioEarlyBuy; } set { m_precioEarlyBuy = value; } }
-    private int m_precioEarlyBuy;
 
     /// <summary>
     /// color del dorsal que corresponde a esta equipacion
@@ -91,6 +73,7 @@ public class Equipacion {
     /// <param name="_precioEarlyBuy">Fase en la que, al conseguir los 4 objetivos, se desbloquea el jugador</param>
     /// <param name="_estado"></param>
     public Equipacion() {
+        estado = Estado.BLOQUEADA;
     }
 
     // ------------------------------------------------------------------------------

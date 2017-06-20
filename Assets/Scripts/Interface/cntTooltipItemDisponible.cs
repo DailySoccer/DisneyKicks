@@ -79,26 +79,6 @@ public class cntTooltipItemDisponible: MonoBehaviour {
                         });
                     break;
 
-                case Jugador.Estado.DISPONIBLE:
-                    ShowInfo(LocalizacionManager.instance.GetTexto(23), string.Format(LocalizacionManager.instance.GetTexto(24), "<color=#ddf108> " + _jugador.nombre + "</color>"), true, LocalizacionManager.instance.GetTexto(30), m_texturaFondoDisponible,
-                        (_name) => {
-                            // XIMO: 19/06/2017: Actualmente no queremos un sistema de "Compra de Jugadores"
-                            /*
-                            ifcDialogBox.instance.ShowTwoButtonDialog(
-                                ifcDialogBox.TwoButtonType.COINS_BITOONS,
-                                LocalizacionManager.instance.GetTexto(91).ToUpper(),
-                                string.Format(LocalizacionManager.instance.GetTexto(93), "<color=#ddf108> " + _jugador.nombre + "</color>"),
-                                _jugador.precioSoft.ToString(),
-                                _jugador.precioHard.ToString(),
-                                // callback si el usuario acepta comprar el jugador con SOFT
-                                (_name1) => { Interfaz.instance.comprarJugador(_jugador, Interfaz.TipoPago.SOFT); },
-                                // callback si el usuario acepta comprar el jugador con HARD
-                                (_name1) => { Interfaz.instance.comprarJugador(_jugador, Interfaz.TipoPago.HARD); },
-                                true);
-                            */
-                    });
-                    break;
-
                 case Jugador.Estado.ADQUIRIDO:
                     // oculto el control
                     transform.gameObject.SetActive(false);

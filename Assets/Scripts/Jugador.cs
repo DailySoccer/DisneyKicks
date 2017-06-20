@@ -18,7 +18,7 @@ public class Jugador {
     /// <summary>
     /// estados en los que puede estar el jugador para el usuario
     /// </summary>
-    public enum Estado { ADQUIRIDO, DISPONIBLE, BLOQUEADO };
+    public enum Estado { ADQUIRIDO, BLOQUEADO };
 
 
     // ------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ public class Jugador {
     /// </summary>
     public Estado estado { 
         get { 
-            return (nivel > 0) ? Estado.ADQUIRIDO : Estado.BLOQUEADO;
+            return (m_nivel > 0) ? Estado.ADQUIRIDO : Estado.BLOQUEADO;
         } 
     }
 
@@ -117,11 +117,30 @@ public class Jugador {
     public int cartas { get { return m_cartas; } set { m_cartas = value; } }
     private int m_cartas;
 
+    /// <summary>
+    /// Liga en la que aparece el jugador
+    /// </summary>
+    public int liga { get { return m_liga; } set { m_liga = value; } }
+    private int m_liga;
+
+    /// <summary>
+    /// Hack para subir de nivel un usuario (y probar el registrar sus datos en PlayerPrefs)
+    /// </summary>
     public void SubirNivel() {
         m_nivel++;
         PersistenciaManager.instance.SaveJugadores();
     }
 
+    /// <summary>
+    /// Un jugador estará disponible si el player está en una lista igual o superior
+    /// </summary>
+    public bool isDisponible(int playerLiga) {
+        return m_liga <= playerLiga;
+    }
+
+    /// <summary>
+    /// Información de un usuario para ser registrada (en PlayerPrefs) o recuperada (de PlayerPrefs)
+    /// </summary>
     public Dictionary<string, object> SaveData {
         get {
             Dictionary<string, object> data = new Dictionary<string, object>();

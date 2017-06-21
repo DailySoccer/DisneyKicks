@@ -72,6 +72,9 @@ public class PersistenciaManager {
             // obtener el tiempo de juego
             Interfaz.m_nextTryTime = (EncryptedPlayerPrefs.HasKey("nextTryTime")) ? EncryptedPlayerPrefs.GetInt("nextTryTime") : 0;
 
+            // obtener el skillLevel del usuario
+            Interfaz.SkillLevel = EncryptedPlayerPrefs.GetInt("skillLevel", 0);
+
             // obtener el avance como portero
             Interfaz.m_asKeeper.record = EncryptedPlayerPrefs.GetInt("goalkeeperRecord", 0);
             Interfaz.m_asKeeper.targets = EncryptedPlayerPrefs.GetInt("goalkeeperTargets", 0);
@@ -477,6 +480,9 @@ public class PersistenciaManager {
 
     public void GuardarPartidaMultiPlayer(bool _ganador, bool _perfect)
     {
+        // Registramos el skillLevel actual del Usuario
+        EncryptedPlayerPrefs.SetInt("skillLevel", Interfaz.SkillLevel);
+
         EncryptedPlayerPrefs.SetInt("duelsPlayed", PlayerPrefs.GetInt("duelsPlayed", 0) + 1);
         Interfaz.m_duelsPlayed++;
         if(_ganador)

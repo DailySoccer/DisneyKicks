@@ -60,6 +60,11 @@ public class Usuario {
     public bool yoRobot { get { return m_yoRobot; } set { m_yoRobot = value; } }
     private bool m_yoRobot;
 
+    /// <summary>
+    /// Skill del Usuario (se modifica según vaya ganando o perdiendo partidos)
+    /// </summary>
+    public int skillLevel { get; set; }
+
 
     // ------------------------------------------------------------------------------
     // ---  CONSTRUCTOR  ------------------------------------------------------------
@@ -91,6 +96,7 @@ public class Usuario {
         m_initMode = _usuario.initMode;
         m_charGoalkeeper = InfoJugadores.instance.GetJugador(_usuario.characterGoalkeeper);
         m_charThrower = InfoJugadores.instance.GetJugador(_usuario.characterThrower);
+        // skillLevel = _usuario.skillLevel;
     }
 
 

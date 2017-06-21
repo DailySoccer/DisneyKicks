@@ -159,7 +159,233 @@ public class JugadorData {
             powerups = new Powerup[] { Powerup.Resbaladiza, Powerup.Sharpshooter, Powerup.Destello, Powerup.Concentracion },
             quality = CardQuality.COMMON,
             liga = 4
-        }
+        },
+
+        /*
+         * NUEVOS
+         */
+        new Jugador {
+            assetName       = "IT_PLY_ST_0006",
+            nombre          = "Nuevo01",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0007",
+            nombre          = "Nuevo02",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0008",
+            nombre          = "Nuevo03",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0009",
+            nombre          = "Nuevo04",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0010",
+            nombre          = "Nuevo05",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0011",
+            nombre          = "Nuevo06",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0012",
+            nombre          = "Nuevo07",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0013",
+            nombre          = "Nuevo08",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0014",
+            nombre          = "Nuevo09",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0015",
+            nombre          = "Nuevo10",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0104",
+            nombre          = "Nuevo11",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0109",
+            nombre          = "Nuevo12",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0110",
+            nombre          = "Nuevo13",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0112",
+            nombre          = "Nuevo14",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0118",
+            nombre          = "Nuevo15",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0119",
+            nombre          = "Nuevo16",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0120",
+            nombre          = "Nuevo17",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0121",
+            nombre          = "Nuevo18",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0122",
+            nombre          = "Nuevo19",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+        new Jugador {
+            assetName       = "IT_PLY_ST_0123",
+            nombre          = "Nuevo20",
+            pais = LocalizacionManager.instance.GetTexto(261),
+            numDorsal       = 4,
+            habilidades     = null,
+            powerups        = null,
+            quality         = CardQuality.COMMON,
+            nivel           = 1,
+            liga            = 1
+        },
+
+
     };
 
     /*
@@ -217,6 +443,6 @@ public class JugadorData {
             powerups = new Powerup[] { Powerup.TiempoBala },
             quality = CardQuality.COMMON,
             liga = 4
-        }
+        },
     };
 }

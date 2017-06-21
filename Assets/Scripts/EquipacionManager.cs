@@ -8,6 +8,8 @@ using System.Collections.Generic;
 /// Clase para gestionar las equipaciones que llevan los jugadores
 /// </summary>
 public class EquipacionManager: MonoBehaviour {
+    const string KEY_PORTEROS = "porteros";
+    const string KEY_TIRADORES = "tiradores";
 
     // ------------------------------------------------------------------------------
     // ---  PROPIEDADES  ------------------------------------------------------------
@@ -90,6 +92,42 @@ public class EquipacionManager: MonoBehaviour {
     public int numEquipacionesPortero { get { return (m_equipacionesPortero == null) ? 0 : m_equipacionesPortero.Count; } }
 
 
+    public string SaveData {
+        get {
+            Dictionary<string, List<Dictionary<string, object>>> data = new Dictionary<string, List<Dictionary<string, object>>>();
+            data.Add(KEY_PORTEROS, SaveDataFromList(m_equipacionesPortero));
+            data.Add(KEY_TIRADORES, SaveDataFromList(m_equipacionesLanzador));
+            return MiniJSON.Json.Serialize(data);
+        }
+
+        set {
+            Dictionary<string, object> data = (Dictionary<string, object>) MiniJSON.Json.Deserialize(value);
+            SaveDataToList(data[KEY_PORTEROS] as List<object>, m_equipacionesPortero);
+            SaveDataToList(data[KEY_TIRADORES] as List<object>, m_equipacionesLanzador);
+        }
+    }
+
+    private List<Dictionary<string, object>> SaveDataFromList(List<Equipacion> lista) {
+        List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+        foreach(Equipacion equipacion in lista) {
+            result.Add( equipacion.SaveData );
+        }
+        return result;
+    }
+
+    private void SaveDataToList(List<object> data, List<Equipacion> lista) {
+        foreach(object equipacionSaved in data) {
+            Dictionary<string, object> saveData = equipacionSaved as Dictionary<string, object>;
+            Equipacion equipacion = lista.Find( el => el.ID == saveData[Equipacion.KEY_ID].ToString() );
+            if (equipacion != null) {
+                equipacion.SaveData = saveData;
+            }
+            else {
+                Debug.LogError("SaveDataToList: Not Exists " + saveData["id"]);
+            }
+        }
+    }
+
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
     // ----------------------------------------------------------------------------
@@ -123,6 +161,17 @@ public class EquipacionManager: MonoBehaviour {
             m_equipacionesLanzador.AddRange( EquipacionData.Tiradores );
 
             DontDestroyOnLoad(gameObject);
+
+            // TEST SaveData --
+            /*
+            string dataBefore = SaveData;
+            Debug.Log("SaveData BEFORE: " + dataBefore);
+            SaveData = dataBefore;
+            Debug.Log("SaveData SAVED: " + SaveData);
+            string dataRestored = SaveData;
+            Debug.Log("SaveData RESTORED: " + dataRestored);
+            Debug.Assert(dataBefore == dataRestored, "SaveData ERROR");
+            */
         }
         else
         {
@@ -443,5 +492,15 @@ public class EquipacionManager: MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void CHEAT_ChangeAllToState(Equipacion.Estado estado) {
+        for (int i = 1; i < m_equipacionesPortero.Count; ++i) {
+            m_equipacionesPortero[i].estado = estado;
+        }
+
+        for (int i = 1; i < m_equipacionesLanzador.Count; ++i) {
+            m_equipacionesLanzador[i].estado = estado;
+        }
     }
 }

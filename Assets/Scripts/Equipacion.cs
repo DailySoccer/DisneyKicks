@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ using UnityEngine;
 /// Clase para gestionar la informacion asociada a una equipacion
 /// </summary>
 public class Equipacion {
+
+    public const string KEY_ID = "id";
 
     // ------------------------------------------------------------------------------
     // ---  ENUMERADOS  ------------------------------------------------------------
@@ -20,6 +23,9 @@ public class Equipacion {
     // ---  PROPIEDADES  ------------------------------------------------------------
     // ------------------------------------------------------------------------------
 
+    public string ID {
+        get { return assetName; }
+    }
 
     /// <summary>
     /// id de textura (indica la posicion del modelo de este jugador dentro de los arrays "m_texturasLanzador" y "m_texturasPortero" del componente "Equipacion Manager" de "AnilloUnico")
@@ -66,6 +72,38 @@ public class Equipacion {
     /// </summary>
     public int liga { get { return m_liga; } set { m_liga = value; } }
     private int m_liga;
+
+    /// <summary>
+    /// Una equipación estará disponible si el player está en una liga igual o superior
+    /// </summary>
+    public bool isDisponible(int playerLiga) {
+        return m_liga <= playerLiga;
+    }
+
+    /// <summary>
+    /// Adquirir una equipación
+    /// </summary>
+    public void Adquirir() {
+        m_estado = Estado.ADQUIRIDA; 
+        PersistenciaManager.instance.SaveEquipaciones();
+    }
+
+    /// <summary>
+    /// Información de un usuario para ser registrada (en PlayerPrefs) o recuperada (de PlayerPrefs)
+    /// </summary>
+    public Dictionary<string, object> SaveData {
+        get {
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add(KEY_ID, ID);
+            data.Add("estado", m_estado.ToString());
+            return data;
+        }
+
+        set {
+            Debug.Assert(value[KEY_ID].ToString() == assetName, string.Format("SaveData: {0} != {1}", value[KEY_ID].ToString(), assetName));
+            estado = value.ContainsKey("estado") ? (Estado) Enum.Parse(typeof(Estado), value["estado"].ToString()) : 0;
+        }
+    }
 
     // ------------------------------------------------------------------------------
     // ---  CONSTRUCTOR  ------------------------------------------------------------

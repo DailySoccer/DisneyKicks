@@ -106,6 +106,16 @@ public class ifcVestuario : ifcBase {
         RefreshInfo();
     }
 
+    public void AdquirirEquipacion() {
+        if (m_tipoVestuario == TipoVestuario.LANZADOR) {
+            EquipacionManager.instance.GetEquipacionLanzadorSeleccionada().Adquirir();
+        }
+        else {
+            EquipacionManager.instance.GetEquipacionPorteroSeleccionada().Adquirir();
+        }
+        RefreshInfo();
+    }
+
     /// <summary>
     /// Obtiene las referencias a los elementos de esta interfaz
     /// </summary>

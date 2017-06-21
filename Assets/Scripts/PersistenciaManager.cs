@@ -109,68 +109,10 @@ public class PersistenciaManager {
                 Debug.Log("loading Jugadores << Prefs << " + InfoJugadores.instance.SaveData);
             }
 
-            /*
-            // obtener los lanzadores comprados
-            if (PlayerPrefs.HasKey("shootersComprados")) {
-                string strShootersComprados = EncryptedPlayerPrefs.GetString("shootersComprados");
-                if (strShootersComprados != null) {
-                    string[] shootersComprados = strShootersComprados.Split(separadores);
-                    if (shootersComprados != null) {
-                        for (int i = 0; i < shootersComprados.Length; ++i) {
-                            Jugador jugador = InfoJugadores.instance.GetJugador(shootersComprados[i]);
-                            if (jugador != null)
-                                jugador.estado = Jugador.Estado.ADQUIRIDO;
-                        }
-                    }
-                }
-            }
-
-            // obtener los porteros comprados
-            if (PlayerPrefs.HasKey("goalkeepersComprados")) {
-                string strGoalkeepersComprados = EncryptedPlayerPrefs.GetString("goalkeepersComprados");
-                if (strGoalkeepersComprados != null) {
-                    string[] goalkeepersComprados = strGoalkeepersComprados.Split(separadores);
-                    if (goalkeepersComprados != null) {
-                        for (int i = 0; i < goalkeepersComprados.Length; ++i) {
-                            Jugador jugador = InfoJugadores.instance.GetJugador(goalkeepersComprados[i]);
-                            if (jugador != null) {
-                                jugador.estado = Jugador.Estado.ADQUIRIDO;
-                                Debug.LogWarning(">>> El jugador " + jugador.nombre + " pasa a estar ADQUIRIDO");
-                            }
-                        }
-                    }
-                }
-            }
-            */
-
-            // obtener equipaciones de lanzador compradas
-            if (PlayerPrefs.HasKey("shooterEquipaciones")) {
-                string strEquipacionesLanzador = EncryptedPlayerPrefs.GetString("shooterEquipaciones");
-                if (strEquipacionesLanzador != null) {
-                    string[] equipacionesLanzador = strEquipacionesLanzador.Split(separadores);
-                    if (equipacionesLanzador != null) {
-                        for (int i = 0; i < equipacionesLanzador.Length; ++i) {
-                            Equipacion equipacion = EquipacionManager.instance.GetEquipacion(equipacionesLanzador[i]);
-                            if (equipacion != null)
-                                equipacion.estado = Equipacion.Estado.ADQUIRIDA;
-                        }
-                    }
-                }
-            }
-
-            // obtener equipaciones de portero compradas
-            if (PlayerPrefs.HasKey("goalkeeperEquipaciones")) {
-                string strEquipacionesPortero = EncryptedPlayerPrefs.GetString("goalkeeperEquipaciones");
-                if (strEquipacionesPortero != null) {
-                    string[] equipacionesPortero= strEquipacionesPortero.Split(separadores);
-                    if (equipacionesPortero != null) {
-                        for (int i = 0; i < equipacionesPortero.Length; ++i) {
-                            Equipacion equipacion = EquipacionManager.instance.GetEquipacion(equipacionesPortero[i]);
-                            if (equipacion != null)
-                                equipacion.estado = Equipacion.Estado.ADQUIRIDA;
-                        }
-                    }
-                }
+            // Recuperar el estado actual de la lista de equipaciones (adquiridas o no)
+            if (PlayerPrefs.HasKey("equipaciones")) {
+                EquipacionManager.instance.SaveData = EncryptedPlayerPrefs.GetString("equipaciones");
+                Debug.Log("loading Equipaciones << Prefs << " + EquipacionManager.instance.SaveData);
             }
 
             // obtener los powerups de lanzador comprados
@@ -329,78 +271,9 @@ public class PersistenciaManager {
         PlayerPrefs.Save();
     }
 
-    /// <summary>
-    /// Almacena los jugadores adquiridos actualmente en las preferencias
-    /// </summary>
-    public void SaveJugadoresComprados() {
-        Debug.Log(">>> GUARDAR JUGADORES");
-
-        // almacenar los lanzadores comprados
-        string strLanzadoresComprados = "";
-        for (int i = 0; i < InfoJugadores.instance.numLanzadores; ++i) {
-            Jugador jugador = InfoJugadores.instance.GetTirador(i);
-            if (jugador != null && jugador.estado == Jugador.Estado.ADQUIRIDO) {
-                // añadir el separador antes del id del jugador
-                if (strLanzadoresComprados != "")
-                    strLanzadoresComprados += separadores[0];
-
-                strLanzadoresComprados += jugador.assetName;
-            }
-        }
-        EncryptedPlayerPrefs.SetString("shootersComprados", strLanzadoresComprados);
-
-        // almacenar los porteros comprados
-        string strPorterosComprados = "";
-        for (int i = 0; i < InfoJugadores.instance.numPorteros; ++i) {
-            Jugador jugador = InfoJugadores.instance.GetPortero(i);
-            if (jugador != null && jugador.estado == Jugador.Estado.ADQUIRIDO) {
-                // añadir el separador antes del id del jugador
-                if (strPorterosComprados != "")
-                    strPorterosComprados += separadores[0];
-
-                strPorterosComprados += jugador.assetName;
-            }
-        }
-        EncryptedPlayerPrefs.SetString("goalkeepersComprados", strPorterosComprados);
-
-        PlayerPrefs.Save();
-    }
-
-
-    /// <summary>
-    /// Almacena las equipaciones adquiridas actualmente en las preferencias
-    /// </summary>
-    public void SaveEquipacionesCompradas() {
-        Debug.Log(">>> GUARDAR EQUIPACIONES");
-
-        // almacenar las equipaciones de lanzador compradas
-        string strEquipacionesLanzadorCompradas = "";
-        for (int i = 0; i < EquipacionManager.instance.numEquipacionesLanzador; ++i) {
-            Equipacion equipacion = EquipacionManager.instance.GetEquipacionLanzador(i);
-            if (equipacion != null && equipacion.estado == Equipacion.Estado.ADQUIRIDA) {
-                // añadir el separador antes del id de la equipacion
-                if (strEquipacionesLanzadorCompradas != "")
-                    strEquipacionesLanzadorCompradas += separadores[0];
-
-                strEquipacionesLanzadorCompradas += equipacion.assetName;
-            }
-        }
-        EncryptedPlayerPrefs.SetString("shooterEquipaciones", strEquipacionesLanzadorCompradas);
-
-        // almacenar las equipaciones de portero compradas
-        string strEquipacionesPorteroCompradas = "";
-        for (int i = 0; i < EquipacionManager.instance.numEquipacionesPortero; ++i) {
-            Equipacion equipacion = EquipacionManager.instance.GetEquipacionPortero(i);
-            if (equipacion != null && equipacion.estado == Equipacion.Estado.ADQUIRIDA) {
-                // añadir el separador antes del id de la equipacion
-                if (strEquipacionesPorteroCompradas != "")
-                    strEquipacionesPorteroCompradas += separadores[0];
-
-                strEquipacionesPorteroCompradas += equipacion.assetName;
-            }
-        }
-        EncryptedPlayerPrefs.SetString("goalkeeperEquipaciones", strEquipacionesPorteroCompradas);
-
+    public void SaveEquipaciones() {
+        Debug.Log("saving Equipaciones >> Prefs");
+        EncryptedPlayerPrefs.SetString("equipaciones", EquipacionManager.instance.SaveData);
         PlayerPrefs.Save();
     }
 

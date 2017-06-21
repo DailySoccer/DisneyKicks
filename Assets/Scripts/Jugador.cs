@@ -132,7 +132,7 @@ public class Jugador {
     }
 
     /// <summary>
-    /// Un jugador estará disponible si el player está en una lista igual o superior
+    /// Un jugador estará disponible si el player está en una liga igual o superior
     /// </summary>
     public bool isDisponible(int playerLiga) {
         return m_liga <= playerLiga;

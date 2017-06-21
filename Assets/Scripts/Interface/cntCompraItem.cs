@@ -97,10 +97,11 @@ public class cntCompraItem: MonoBehaviour {
             m_btnCompra.m_current = texturaEscudo;
 
             // boton
-            // XIMO: 19/06/2017: Hack para subir un nivel/adquirir un jugador
+            // XIMO: 19/06/2017: Hack para adquirir un jugador/equipación
             m_btnCompra.action = (_name) => {
                 Interfaz.ClickFX();
                 ifcVestuario.instance.SubirNivelJugador();
+                ifcVestuario.instance.AdquirirEquipacion();
             };
 
             /*

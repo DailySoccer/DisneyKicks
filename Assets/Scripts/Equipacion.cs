@@ -24,8 +24,18 @@ public class Equipacion {
     /// <summary>
     /// id de textura (indica la posicion del modelo de este jugador dentro de los arrays "m_texturasLanzador" y "m_texturasPortero" del componente "Equipacion Manager" de "AnilloUnico")
     /// </summary>
-    public int idTextura { get { return m_idTextura; } set { m_idTextura = value; } }
-    private int m_idTextura;
+    public int idTextura { 
+        get { 
+            if (m_idTextura == -1) {
+                m_idTextura = EquipacionManager.instance.GetPositionPortero(assetName);
+                if (m_idTextura == -1) {
+                    m_idTextura = EquipacionManager.instance.GetPositionLanzador(assetName);
+                }
+            }
+            return m_idTextura; 
+        } 
+    }
+    private int m_idTextura = -1;
 
     /// <summary>
     /// Estado en el que se encuentra esta equipacion

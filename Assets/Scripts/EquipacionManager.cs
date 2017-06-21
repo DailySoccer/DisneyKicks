@@ -391,6 +391,18 @@ public class EquipacionManager: MonoBehaviour {
             return null; // <= valor por defecto
     }
 
+    public int GetPositionLanzador(string key) {
+        int position = -1;
+        if (m_equipacionesLanzador != null) {
+            for (int i=0; i<m_texturasLanzador.Length; i++) {
+                if (m_texturasLanzador[i] != null && m_texturasLanzador[i].name.Contains(key)) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        return position;
+    }
 
     /// <summary>
     /// Devuelve la equipacion de portero que ocupa la posicion "_posicion"
@@ -402,6 +414,19 @@ public class EquipacionManager: MonoBehaviour {
             return m_equipacionesPortero[_posicion];
         else
             return null; // <= valor por defecto
+    }
+
+    public int GetPositionPortero(string key) {
+        int position = -1;
+        if (m_equipacionesPortero != null) {
+            for (int i=0; i<m_texturasPortero.Length; i++) {
+                if (m_texturasPortero[i] != null && m_texturasPortero[i].name.Contains(key)) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        return position;
     }
 
     /// <summary>

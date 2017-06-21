@@ -1115,6 +1115,9 @@ public class Interfaz : MonoBehaviour
     /// <param name="_tipoPago">Indica como se va a realizar el pago de la compra</param>
     public void comprarEquipacion(Equipacion _equipacion, TipoPago _tipoPago)
     {
+        // XIMO: 20/06/2017: Actualmente no queremos un sistema de "Compra de Equipaciones"
+        /*
+
         if (_equipacion == null || _equipacion.estado == Equipacion.Estado.ADQUIRIDA)
             return;
 
@@ -1170,6 +1173,7 @@ public class Interfaz : MonoBehaviour
         //equiparla de inmediato (estas asignaciones lo actualizaran)
         EquipacionManager.instance.idEquipacionPorteroSeleccionada = EquipacionManager.instance.idEquipacionPorteroSeleccionada;
         EquipacionManager.instance.idEquipacionLanzadorSeleccionada = EquipacionManager.instance.idEquipacionLanzadorSeleccionada;
+        */
     }
 
     /*

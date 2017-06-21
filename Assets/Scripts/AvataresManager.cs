@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class AvataresManager : MonoBehaviour {
 
@@ -235,11 +236,10 @@ public class AvataresManager : MonoBehaviour {
     /// </summary>
     /// <param name="_numEquipacion"></param>
     /// <returns></returns>
-    public Texture GetTexturaAvatarEquipacionesLanzador(int _numEquipacion) {
-        if (m_texturasAvatarEquipacionesLanzador != null && _numEquipacion >= 0 && _numEquipacion < m_texturasAvatarEquipacionesLanzador.Length) {
-            return m_texturasAvatarEquipacionesLanzador[_numEquipacion];
-        } else
-            return null;
+    public Texture GetTexturaAvatarEquipacionesLanzador(string key) {
+        return (m_texturasAvatarEquipacionesLanzador != null)
+            ? m_texturasAvatarEquipacionesLanzador.FirstOrDefault( textura => textura.name.Contains(key) )
+            : null;
     }
 
 
@@ -248,11 +248,10 @@ public class AvataresManager : MonoBehaviour {
     /// </summary>
     /// <param name="_numEquipacion"></param>
     /// <returns></returns>
-    public Texture GetTexturaAvatarEquipacionesPortero(int _numEquipacion) {
-        if (m_texturasAvatarEquipacionesPortero != null && _numEquipacion >= 0 && _numEquipacion < m_texturasAvatarEquipacionesPortero.Length) {
-            return m_texturasAvatarEquipacionesPortero[_numEquipacion];
-        } else
-            return null;
+    public Texture GetTexturaAvatarEquipacionesPortero(string key) {
+        return (m_texturasAvatarEquipacionesPortero != null)
+            ? m_texturasAvatarEquipacionesPortero.FirstOrDefault( textura => textura.name.Contains(key) )
+            : null;
     }
 
 }

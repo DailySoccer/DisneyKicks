@@ -11,24 +11,47 @@ public class Cheats : MonoBehaviour {
     }
     static private Cheats _instance;
 
-    [Header("Jugadores")]
+    [Header("[** Jugadores **]")]
     public bool UnlockAllJugadores = false;
     public bool DeleteSavedJugadores = false;
+
+    [Header("[** Equipaciones **]")]
+    public bool UnlockAllEquipaciones = false;
+    public bool DeleteSavedEquipaciones = false;
+
+    bool firstTime = true;
 
     void Awake () {
         if (_instance == null) {
             _instance = this;
         }
-    }
-
-	void Start () {
-        InfoJugadores.instance.CHEAT_ChangeAllToState( UnlockAllJugadores ? Jugador.Estado.ADQUIRIDO : Jugador.Estado.BLOQUEADO );
 
         if (DeleteSavedJugadores) {
             PlayerPrefs.DeleteKey("jugadores");
         }
-	}
+
+        if (DeleteSavedEquipaciones) {
+            PlayerPrefs.DeleteKey("equipaciones");
+        }
+    }
+
+    public void Unlock() {
+        if (UnlockAllJugadores) {
+            InfoJugadores.instance.CHEAT_ChangeAllToState( Jugador.Estado.ADQUIRIDO );
+        }
+
+        if (UnlockAllEquipaciones) {
+            EquipacionManager.instance.CHEAT_ChangeAllToState( Equipacion.Estado.ADQUIRIDA );
+        }
+    }
+
+	void Start () {
+    }
 	
 	void Update () {
+        if (firstTime) {
+            Unlock();
+            firstTime = false;
+        }
 	}
 }

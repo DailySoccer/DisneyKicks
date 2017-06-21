@@ -129,9 +129,9 @@ public class ifcItemRevealDialog : ifcBase {
 
         // textura de la equipacion
         if (EquipacionManager.instance.EsEquipacionDeLanzador(_equipacion.assetName))
-            m_imgAvatar.texture = AvataresManager.instance.GetTexturaAvatarEquipacionesLanzador(_equipacion.idTextura);
+            m_imgAvatar.texture = AvataresManager.instance.GetTexturaAvatarEquipacionesLanzador(_equipacion.assetName);
         else
-            m_imgAvatar.texture = AvataresManager.instance.GetTexturaAvatarEquipacionesPortero(_equipacion.idTextura);
+            m_imgAvatar.texture = AvataresManager.instance.GetTexturaAvatarEquipacionesPortero(_equipacion.assetName);
         ShowImagen(m_imgAvatar);
 
         // textos

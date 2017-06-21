@@ -104,6 +104,8 @@ public class cntTooltipItemDisponible: MonoBehaviour {
                         false, LocalizacionManager.instance.GetTexto(22), 
                         m_texturaFondoBloqueado,
                         (_name) => {
+                            // XIMO: 20/06/2017: Actualmente no queremos un sistema de "Compra de Equipaciones"
+                            /*
                             ifcDialogBox.instance.ShowOneButtonDialog(
                                 ifcDialogBox.OneButtonType.BITOONS,
                                 LocalizacionManager.instance.GetTexto(88).ToUpper(),
@@ -112,23 +114,7 @@ public class cntTooltipItemDisponible: MonoBehaviour {
                                 // callback para realizar la compra
                                 (_name1) => { Interfaz.instance.comprarEquipacion(_equipacion, Interfaz.TipoPago.PRECOMPRA); },
                                 true);
-                        });
-                    break;
-
-                case Equipacion.Estado.DISPONIBLE:
-                    ShowInfo(LocalizacionManager.instance.GetTexto(28), LocalizacionManager.instance.GetTexto(29), true, LocalizacionManager.instance.GetTexto(30), m_texturaFondoDisponible,
-                        (_name) => {
-                            ifcDialogBox.instance.ShowTwoButtonDialog(
-                                ifcDialogBox.TwoButtonType.COINS_BITOONS,
-                                LocalizacionManager.instance.GetTexto(88).ToUpper(),
-                                LocalizacionManager.instance.GetTexto(89),
-                                _equipacion.precioSoft.ToString(),
-                                _equipacion.precioHard.ToString(),
-                                // callback si el usuario acepta comprar la equipacion con dinero SOFT
-                                (_name1) => { Interfaz.instance.comprarEquipacion(_equipacion, Interfaz.TipoPago.SOFT); },
-                                // callback si el usuario acepta comprar la equipacion con dinero HARD
-                                (_name1) => { Interfaz.instance.comprarEquipacion(_equipacion, Interfaz.TipoPago.HARD); },
-                                true);
+                            */
                         });
                     break;
 

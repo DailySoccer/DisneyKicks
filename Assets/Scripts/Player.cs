@@ -273,14 +273,6 @@ public class Player : IPlayerService, IDisposable
             // persistir la mision que se acaba de superar
             PersistenciaManager.instance.ActualizarUltimoNivelDesbloqueado(mission.indexMision + 1);
 
-            // comprobar si en la mision que se acaba de superar se desbloquea alguna equipacion
-            Equipacion equipacionDesbloqueada = EquipacionManager.instance.GetEquipacionDesbloqueableEnFase(mission.indexMision);
-            if (equipacionDesbloqueada != null) {
-                // registrar el dialogo para mostrar el aviso de que se ha obtenido una nueva equipacion y actualizar su estado
-                equipacionDesbloqueada.estado = Equipacion.Estado.DISPONIBLE;
-                DialogManager.instance.RegistrarDialogo(new DialogDefinition(DialogDefinition.TipoDialogo.EQUIPACION_DESBLOQUEADA, equipacionDesbloqueada));
-            }
-            
             // comprobar si en la mision que se acaba de superar se ha desbloqueado algun escudo
             Debug.Log(">>> Compruebo escudo => fase ");
             Escudo escudoDesbloqueado = EscudosManager.instance.GetEscudoDesbloqueableEnFase(mission.indexMision);

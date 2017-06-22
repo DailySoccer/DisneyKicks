@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 11100000}
   - component: {fileID: 11400000}
   m_Layer: 11
-  m_Name: "IT_PLY_ST_0114_Frana\u0301ois"
+  m_Name: "IT_PLY_ST_0114_Fran\xE1ois"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  color: {r: .5, g: .5, b: .5, a: 1}
+  color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

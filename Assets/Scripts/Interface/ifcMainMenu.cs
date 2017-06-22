@@ -27,6 +27,9 @@ public class ifcMainMenu : ifcBase {
     private btnButton m_btnOpciones;
     private btnButton m_btnVelo;
 
+	//ADRIAN añado la funcionalidad del nuevo boton DueloPLay
+	private btnButton m_btnDueloPlay;
+
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
@@ -54,6 +57,72 @@ public class ifcMainMenu : ifcBase {
         transform.FindChild("botones/btnCarrera").GetComponent<btnButton>().action = OnCarrera;
         transform.FindChild("botones/btnDuelo").GetComponent<btnButton>().action = OnDuelo;
 
+		//ADRIAN nuevo boton DueloPlay
+		m_btnDueloPlay = transform.FindChild("btnDueloPLAY").GetComponent<btnButton>();
+
+		m_btnDueloPlay.action = (_name) => {
+
+			//ADRIAN Ocultar mainmenu y BottomBar
+			new SuperTweener.move (ifcMainMenu.instance.gameObject, 0.25f, new Vector3 (1.5f, 0f, 0.0f), SuperTweener.CubicOut, (_target) => {
+			});
+			new SuperTweener.move (ifcBottomBar.instance.gameObject, 0.25f, new Vector3 (0f, -0.2f, 0.0f), SuperTweener.CubicOut, (_target) => {
+			});
+
+			Debug.Log("VOY A JUGAR UN DUELO");
+			//ADRIAN variables necesarias para que funcione
+			ifcBase m_pantallaAnterior = ifcMainMenu.instance;
+			//
+			GeneralSounds_menu.instance.playOneShot(GeneralSounds_menu.instance.confirmClip);
+			bool estoyJugandoDuelo = (m_pantallaAnterior == ifcMainMenu.instance);
+			// si el usuario necesita al menos un lanzador para jugar => comprobar que lo tenga
+			if ((estoyJugandoDuelo || (!estoyJugandoDuelo && GameplayService.initialGameMode == GameMode.Shooter))
+				&& !InfoJugadores.instance.HayAlgunLanzadorAdquirido()) {
+
+				ifcDialogBox.instance.ShowOneButtonDialog(
+					ifcDialogBox.OneButtonType.POSITIVE,
+					LocalizacionManager.instance.GetTexto(84).ToUpper(),
+					LocalizacionManager.instance.GetTexto(94),
+					LocalizacionManager.instance.GetTexto(45).ToUpper());
+
+				return;
+			}
+
+			// si el usuario necesita al menos un portero para jugar => comprobar que lo tenga
+			if ((estoyJugandoDuelo || (!estoyJugandoDuelo && GameplayService.initialGameMode == GameMode.GoalKeeper))
+				&& !InfoJugadores.instance.HayAlgunPorteroAdquirido()) {
+
+				ifcDialogBox.instance.ShowOneButtonDialog(
+					ifcDialogBox.OneButtonType.POSITIVE,
+					LocalizacionManager.instance.GetTexto(84).ToUpper(),
+					LocalizacionManager.instance.GetTexto(95),
+					LocalizacionManager.instance.GetTexto(45).ToUpper());
+
+				return;
+			}
+
+			Interfaz.ClickFX();
+			//ADRIAN método necesario, lo tomamos de ifcVestuario
+			// al salir de esta pantalla verificar que los jugadores y las equipaciones seleccionadas estan adquiridas
+			ifcVestuario.instance.ComprobarJugadoresYEquipacionesAdquiridos();
+
+			// comprobar si se esta jugando en modo "single" o "multi"
+			if (m_pantallaAnterior == ifcMainMenu.instance) {
+				// estoy jugando Duelo => ir al "Lobby"
+
+				// ocultar la barra superior
+				//cntBarraSuperior.instance.SetVisible(false);
+				#if DEBUG_MULTI
+				GoDuelo();
+				#else
+				Interfaz.instance.getServerIP(Stats.tipo, Stats.zona);
+				#endif
+				ifcDialogBox.instance.ShowZeroButtonDialog(
+					LocalizacionManager.instance.GetTexto(96).ToUpper(),
+					LocalizacionManager.instance.GetTexto(97));
+				//ifcDialogBox.instance.Show(ifcDialogBox.TipoBotones.NONE, "Conectando...", "Por favor, espere.");
+
+			}
+		};
 
         // boton para mostrar las opciones
         m_btnOpciones = transform.FindChild("btnOpciones").GetComponent<btnButton>();
@@ -112,7 +181,9 @@ public class ifcMainMenu : ifcBase {
     }
 
    
-    private void OnDuelo (string _name) {
+	//ADRIAN hago esto void publica
+   // private void OnDuelo (string _name) {
+	public void OnDuelo (string _name) {
         ifcBase.activeIface = ifcVestuario.instance;
         Interfaz.ClickFX();
 

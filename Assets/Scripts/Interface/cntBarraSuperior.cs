@@ -209,7 +209,7 @@ public class cntBarraSuperior : MonoBehaviour {
     /// </summary>
     /// <param name="_pantallaDestino"></param>
     /// <param name="_posicionDestino"></param>
-    private void ShowPantalla(ifcBase _pantallaDestino, Vector3 _posicionDestino) {
+	public void ShowPantalla(ifcBase _pantallaDestino, Vector3 _posicionDestino) {
         // obtener la interfaz actual
         ifcBase interfazActual = ifcBase.activeIface;
 

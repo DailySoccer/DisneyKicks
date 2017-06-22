@@ -592,6 +592,9 @@ public class Interfaz : MonoBehaviour
 
         if (Cortinilla.instance == null)
             GameObject.Instantiate(m_cortinillaPrefab, new Vector3(-0.6f, 0.5f, 50), Quaternion.identity).name = "Cortinilla";
+
+        // TEST ELO
+        ClashRoyaleELO.TEST();
     }
 
     public static void ClickFX()

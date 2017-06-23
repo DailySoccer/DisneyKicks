@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ClashRoyaleELO {
-    static public int Result (int ownELO, int ownPoints, int opponentELO, int opponentPoints) {
+    static public int Result (int ownELO, int ownScore, int opponentELO, int opponentScore) {
         int result = 0;
 
         // GANAR
-        if (ownPoints > opponentPoints) {
+        if (ownScore > opponentScore) {
             result = Ganar(ownELO, opponentELO);
         }
         // PERDER
-        else if (ownPoints < opponentPoints) {
+        else if (ownScore < opponentScore) {
             result = Perder(ownELO, opponentELO);
         }
         // EMPATAR
@@ -20,8 +20,8 @@ public class ClashRoyaleELO {
         }
 
         Debug.Log(string.Format("ELO: {0} vs {1}: {2} = {3}", ownELO, opponentELO, 
-            (ownPoints > opponentPoints) ? "<color=green>GANAR</color>" : 
-            (ownPoints < opponentPoints) ? "<color=red>PERDER</color>":
+            (ownScore > opponentScore) ? "<color=green>GANAR</color>" : 
+            (ownScore < opponentScore) ? "<color=red>PERDER</color>":
             "EMPATAR",
             result));
 
@@ -45,12 +45,14 @@ public class ClashRoyaleELO {
     }
 
     static private float KPerder(int ownELO) {
-        return 59.0f;
-
         float K = 0;
-        if (ownELO > 30 && ownELO <= 1000) {
+        if (ownELO > 1000) {
+            K = 59.0f;
+        }
+        else if (ownELO > 30 && ownELO <= 1000) {
             K = Mathf.Round(ownELO/20.0f);
         }
+        Debug.Log("KPerder: " + K);
         return K;
     }
 

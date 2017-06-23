@@ -594,7 +594,7 @@ public class Interfaz : MonoBehaviour
             GameObject.Instantiate(m_cortinillaPrefab, new Vector3(-0.6f, 0.5f, 50), Quaternion.identity).name = "Cortinilla";
 
         // TEST ELO
-        ClashRoyaleELO.TEST();
+        // ClashRoyaleELO.TEST();
     }
 
     public static void ClickFX()
@@ -634,6 +634,16 @@ public class Interfaz : MonoBehaviour
             }
         }
         return position;
+    }
+
+    public static int MatchResult(int ownerELO, int ownerScore, int opponentELO, int opponentScore) {
+        Debug.Log("MatchResult");
+        int mod = ClashRoyaleELO.Result(ownerELO, ownerScore, opponentELO, opponentScore);
+        SkillLevel += mod;
+        SkillLevel = Mathf.Max(0, SkillLevel);
+
+        PersistenciaManager.instance.GuardarSkillLevel();
+        return mod;
     }
 
     /*void RepositionThrower()

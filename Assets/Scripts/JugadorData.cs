@@ -444,5 +444,16 @@ public class JugadorData {
             quality = CardQuality.COMMON,
             liga = 4
         },
+        new Jugador {
+            assetName = "IT_PLY_GK_0001", 
+            nombre = "Nuevo001", 
+            pais = LocalizacionManager.instance.GetTexto(276), 
+            numDorsal = 1, 
+            habilidades = null,
+            powerups = null,
+            quality = CardQuality.COMMON,
+            nivel = 1,
+            liga = 1
+        }
     };
 }

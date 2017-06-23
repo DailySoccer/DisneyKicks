@@ -56,7 +56,7 @@ public class ifcVestuario : ifcBase {
     private static ifcVestuario m_instance;
 
     // pantalla desde la que se ha llegado a esta interfaz (para saber cuando se ejecute un back a donde hay que volver)
-    private ifcBase m_pantallaAnterior;
+	private ifcBase m_pantallaAnterior;
 
     // referencias a elementos de esta interfaz
     private GameObject m_goJugadorLanzador;
@@ -302,7 +302,7 @@ public class ifcVestuario : ifcBase {
 
     void Update() {
         // el boton de "INFO" unicamente se muestra si esta interfaz esta en su posicion de reposo
-        m_btnInfo.transform.gameObject.SetActive(transform.position == POSICION_REPOSO);
+        // m_btnInfo.transform.gameObject.SetActive(transform.position == POSICION_REPOSO);
     }
 
 
@@ -458,6 +458,7 @@ public class ifcVestuario : ifcBase {
     /// </summary>
     /// <param name="_forzarRefresco">fuerza el refresco de los elementos de esta interfaz</param>
     public void ComprobarJugadoresYEquipacionesAdquiridos(bool _forzarRefresco = false) {
+
         bool actualizarLanzador = false;
         bool actualizadaEquipacionLanzador = false;
         bool actualizarPortero = false;
@@ -618,7 +619,11 @@ public class ifcVestuario : ifcBase {
             }
 
             new SuperTweener.move(gameObject, 0.25f, new Vector3(1.5f, 0.5f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
-            new SuperTweener.move(m_pantallaAnterior.gameObject, 0.25f, new Vector3(0.0f, 0.0f, 0.0f), SuperTweener.CubicOut);
+			//ADRIAN he duplicado y cambiado la frase de abajo poniendole las coordenadas de mi barra tambien he añadido otras dos frases para que los modelos vuelvan a aparecer
+            //new SuperTweener.move(m_pantallaAnterior.gameObject, 0.25f, new Vector3(0.0f, 0.0f, 0.0f), SuperTweener.CubicOut);
+			new SuperTweener.move(m_pantallaAnterior.gameObject, 0.25f, new Vector3(0.5f, 0.1f, 0.0f), SuperTweener.CubicOut);
+			Interfaz.instance.RefrescarModelosJugadores(true, true, true);
+			cntMenuDesplegableOpciones.instance.Plegar();
         }
     }
 

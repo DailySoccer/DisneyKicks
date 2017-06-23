@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ifcBottomBar : ifcBase {
+public class ifcBottomBar : MonoBehaviour {
 
 
 	//SINGLETON
@@ -105,7 +105,7 @@ public class ifcBottomBar : ifcBase {
 			m_btnEquipo.Select ();
 			ifcBase.activeIface = ifcVestuario.instance;
 			Interfaz.ClickFX();
-			ifcVestuario.instance.SetPantallaBack(this);
+			// ifcVestuario.instance.SetPantallaBack(this);
 			ifcVestuario.instance.SetVisible(true);
 			Interfaz.instance.RefrescarModelosJugadores(true, false);
 			ifcVestuario.instance.ShowAs(ifcVestuario.instance.m_tipoVestuario);

@@ -280,7 +280,7 @@ public class ifcVestuario : ifcBase {
 
     void Update() {
         // el boton de "INFO" unicamente se muestra si esta interfaz esta en su posicion de reposo
-        m_btnInfo.transform.gameObject.SetActive(transform.position == POSICION_REPOSO);
+        // m_btnInfo.transform.gameObject.SetActive(transform.position == POSICION_REPOSO);
     }
 
 

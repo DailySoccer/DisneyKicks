@@ -58,7 +58,7 @@ public class ifcMainMenu : ifcBase {
         transform.FindChild("botones/btnDuelo").GetComponent<btnButton>().action = OnDuelo;
 
 		//ADRIAN nuevo boton DueloPlay
-		m_btnDueloPlay = transform.FindChild("btnDueloPLAY").GetComponent<btnButton>();
+		m_btnDueloPlay = transform.FindChild("botones/btnDueloPLAY").GetComponent<btnButton>();
 
 		m_btnDueloPlay.action = (_name) => {
 

@@ -267,33 +267,53 @@ public class ifcDuelo : ifcBase {
         }
     }
 
+
     void Back(string _name = "") {
-        GeneralSounds_menu.instance.back();
 
+		//ADRIAN metodo para volver atrás desde el menú Duelo, comento lo que había y re-aprovecho lo que me interesa
+//        GeneralSounds_menu.instance.back();
+//
+//
+//        Shark.instance.Desconectar();
+//
+//        // mostrar de nuevo la barra de opciones
+//        cntBarraSuperior.instance.SetVisible(true);
+//
+//        ifcBase.activeIface = ifcVestuario.instance;
+//
+//        GameplayService.networked = false;
+//
+//        //revelar jugadores
+//        //Interfaz.instance.goalkeeperModel.SetActive(true);
+//        //Interfaz.instance.throwerModel.SetActive(true);
+//        Interfaz.instance.Thrower = Interfaz.instance.Thrower;
+//        Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
+//        
+//        foreach(cntInfoJugadorDuelo jugador in m_cntInfoJugadoresDuelo)
+//        {
+//            jugador.SetVisible(false);
+//        }
+//
+//        ifcVestuario.instance.SetVisible(true);
+//        new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
+//        new SuperTweener.move(ifcVestuario.instance.gameObject, 0.25f, new Vector3(0.5f, 0.5f, 0.0f), SuperTweener.CubicOut);
 
-        Shark.instance.Desconectar();
-
-        // mostrar de nuevo la barra de opciones
-        cntBarraSuperior.instance.SetVisible(true);
-
-        ifcBase.activeIface = ifcVestuario.instance;
-
-        GameplayService.networked = false;
-
-        //revelar jugadores
-        //Interfaz.instance.goalkeeperModel.SetActive(true);
-        //Interfaz.instance.throwerModel.SetActive(true);
-        Interfaz.instance.Thrower = Interfaz.instance.Thrower;
-        Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
-        
-        foreach(cntInfoJugadorDuelo jugador in m_cntInfoJugadoresDuelo)
-        {
-            jugador.SetVisible(false);
-        }
-
-        ifcVestuario.instance.SetVisible(true);
-        new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
-        new SuperTweener.move(ifcVestuario.instance.gameObject, 0.25f, new Vector3(0.5f, 0.5f, 0.0f), SuperTweener.CubicOut);
+		//ADRIAN esto es lo que me interesa
+		ifcBottomBar.instance.NumPantalla = 2;
+		ifcBottomBar.instance.MostrarEscenaNueva ();
+		new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
+		new SuperTweener.move(ifcBottomBar.instance.gameObject, 0.25f, new Vector3(0.5f, 0f, 0.0f), SuperTweener.CubicOut);
+		GeneralSounds_menu.instance.back();
+		Shark.instance.Desconectar();
+		// mostrar de nuevo la barra de opciones
+		cntBarraSuperior.instance.SetVisible(true);
+		GameplayService.networked = false;
+		Interfaz.instance.Thrower = Interfaz.instance.Thrower;
+		Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
+		foreach(cntInfoJugadorDuelo jugador in m_cntInfoJugadoresDuelo)
+		{
+			jugador.SetVisible(false);
+		}
     }
 
 

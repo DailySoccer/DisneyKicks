@@ -162,7 +162,7 @@ public class FieldControl : MonoBehaviour {
   void SpawnThrower()
   {
     Transform spawn = GameObject.Find("throwerSpawn").transform;
-    GameObject.Instantiate( throwerPrefab.First( prefab => prefab.name.Contains(ThrowerObject.assetName) ), spawn.position, spawn.rotation );
+    GameObject.Instantiate( throwerPrefab.First( prefab => prefab!=null && prefab.name.Contains(ThrowerObject.assetName) ), spawn.position, spawn.rotation );
   }
 
   void Start() {

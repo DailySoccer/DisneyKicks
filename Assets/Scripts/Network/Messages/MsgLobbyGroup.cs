@@ -11,6 +11,8 @@ public struct UsuarioNet {
     public string equipacionThrower;
     public string equipacionGoalkeeper;
     public bool isBot; //3 leyes de la robotica aplican
+
+    // public int skillLevel;
 }
 
 [NetMessage(MsgType.LobbyGroup)]
@@ -46,6 +48,7 @@ public class MsgLobbyGroup : MensajeBase
         user.yoRobot = _usuario.isBot;
         user.uid = _usuario.uid;
         user.alias = _usuario.alias;
+        // user.skillLevel = _usuario.skillLevel;
         return user;
     }
 }

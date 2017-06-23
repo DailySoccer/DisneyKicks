@@ -57,6 +57,17 @@ public class Player : IPlayerService, IDisposable
     ServiceLocator.Register<IPlayerService>( this );
     //ServiceLocator.Request<IShotResultService>().RegisterListener( TryShotResult );
     ////ServiceLocator.Request<IBullseyeService>().RegisterListener( TryBullEyeSuccess );
+
+    if (Cheats.Instance != null && Cheats.Instance.GameOver) {
+        serverState = new MatchState {
+                marker_1 = new int[] {1,0,0,0,0}, 
+                marker_2  = new int[]{0,0,0,0,0}, 
+                rounds = 5, 
+                score_1 = GameplayService.initialGameMode != GameMode.Shooter ? Cheats.Instance.OwnerScore : Cheats.Instance.OpponentScore, 
+                score_2 = GameplayService.initialGameMode != GameMode.Shooter ? Cheats.Instance.OpponentScore : Cheats.Instance.OwnerScore
+            };
+        SetGameOver();
+    }
   }
 
   public PlayerInfo GetPlayerInfo() {

@@ -349,7 +349,8 @@ public class LocalizacionManager : MonoBehaviour {
             "net",
             " in a row",
             "Successfully defend {0} times{1}",
-            "Stopped"
+            "Stopped",
+            "Balones de Oro",                               // id = 295
     };
 
         m_textos = textos;

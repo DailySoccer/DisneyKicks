@@ -302,7 +302,7 @@ public class ifcDuelo : ifcBase {
 		ifcBottomBar.instance.NumPantalla = 2;
 		ifcBottomBar.instance.MostrarEscenaNueva ();
 		new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
-		new SuperTweener.move(ifcBottomBar.instance.gameObject, 0.25f, new Vector3(0f, 0f, 0.0f), SuperTweener.CubicOut);
+		new SuperTweener.move(ifcBottomBar.instance.gameObject, 0.25f, new Vector3(0.5f, 0f, 0.0f), SuperTweener.CubicOut);
 		GeneralSounds_menu.instance.back();
 		Shark.instance.Desconectar();
 		// mostrar de nuevo la barra de opciones

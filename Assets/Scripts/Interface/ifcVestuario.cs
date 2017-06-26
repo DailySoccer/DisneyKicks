@@ -640,8 +640,6 @@ public class ifcVestuario : ifcBase {
     /// </summary>
     public void GoDuelo() {
 
-        ifcMainMenu.goDuelo = false;
-
         // indicar un modo de juego por defecto => (NOTA: es importante no usar un TIME_ATTACK porque afecta al gameplay)
         GameplayService.modoJuego = InfoModosJuego.instance.GetModoJuego("SHOOTER_NORMAL_MODE");
 

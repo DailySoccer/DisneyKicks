@@ -19,7 +19,10 @@ public class GeneralSounds_menu : MonoBehaviour {
 
   void Awake()
   {
-    instance = this;
+    // TODO: Se intenta inicializar varias veces (después de volver de un partido)
+    if (instance == null) {
+        instance = this;
+    }
     originalVolume = GetComponent<AudioSource>().volume;
   }
 

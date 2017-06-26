@@ -73,11 +73,13 @@ public class PersistenciaManager {
             Interfaz.m_nextTryTime = (EncryptedPlayerPrefs.HasKey("nextTryTime")) ? EncryptedPlayerPrefs.GetInt("nextTryTime") : 0;
 
             // obtener el skillLevel del usuario
+            // EncryptedPlayerPrefs.SetInt("skillLevel", 0);
             Interfaz.SkillLevel = EncryptedPlayerPrefs.GetInt("skillLevel", 0);
 
             if (Cheats.Instance != null && Cheats.Instance.OwnerELO != -1) {
                 Interfaz.SkillLevel = Cheats.Instance.OwnerELO;
             }
+            cntBarraSuperior.instance.ActualizaSkillLevel();
 
             // obtener el avance como portero
             Interfaz.m_asKeeper.record = EncryptedPlayerPrefs.GetInt("goalkeeperRecord", 0);
@@ -483,10 +485,11 @@ public class PersistenciaManager {
     }
 
     public void GuardarSkillLevel() {
-        Debug.Log("PersistenciaManager: SkillLevel: " + Interfaz.SkillLevel);
+        Debug.Log(string.Format("PersistenciaManager: SkillLevel: {0} Liga: {1}", Interfaz.SkillLevel, Interfaz.Liga));
 
-        // Registramos el skillLevel actual del Usuario
+        // Registramos el skillLevel y la liga actual del Usuario
         EncryptedPlayerPrefs.SetInt("skillLevel", Interfaz.SkillLevel);
+        EncryptedPlayerPrefs.SetInt("liga", Interfaz.Liga);
 
         // guardar las preferencias
         PlayerPrefs.Save();

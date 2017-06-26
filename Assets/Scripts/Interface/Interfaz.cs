@@ -137,8 +137,20 @@ public class Interfaz : MonoBehaviour
     /// <summary>
     /// Skill del Usuario (se modifica según vaya ganando o perdiendo partidos)
     /// </summary>
-    public static int SkillLevel { get { return m_skillLevel; } set { m_skillLevel = value; } }
+    public static int SkillLevel { 
+        get { 
+            return m_skillLevel; 
+        } 
+
+        set { 
+            m_skillLevel = value;
+            m_skillLevel = Mathf.Max(0, m_skillLevel);
+        } 
+    }
     static int m_skillLevel = 0;
+
+    public static int Liga { get { return m_liga; } private set { m_liga = value; }}
+    static int m_liga = 1;
 
     public static progress m_asThrower;
     public static progress m_asKeeper;
@@ -640,9 +652,11 @@ public class Interfaz : MonoBehaviour
         Debug.Log("MatchResult");
         int mod = ClashRoyaleELO.Result(ownerELO, ownerScore, opponentELO, opponentScore);
         SkillLevel += mod;
-        SkillLevel = Mathf.Max(0, SkillLevel);
+        Liga = LigaManager.instance.CalculateLiga(Liga, SkillLevel);
 
         PersistenciaManager.instance.GuardarSkillLevel();
+
+        LigaManager.instance.ChangeLiga(Liga);
         return mod;
     }
 

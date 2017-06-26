@@ -101,7 +101,7 @@ public class ifcGameOverMulti : ifcBase {
             m_goContinue = t.gameObject.GetComponent<btnButton>();
             m_goContinue.action = (_name) => {
                 Debug.Log( ">>> HAS PULSADO CONTINUAR" );
-                ifcMainMenu.goDuelo = true;
+                // ifcMainMenu.goDuelo = true;
                 GeneralSounds.instance.click();
                 FieldControl.instance.goToMenu();
             };

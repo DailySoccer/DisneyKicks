@@ -11,6 +11,7 @@ public class MsgLogin : MensajeBase
     public int m_version;
     public int m_duelosJugados;
     public int m_duelosGanados;
+    public int m_skillLevel;
 
     public MsgLogin()
     {

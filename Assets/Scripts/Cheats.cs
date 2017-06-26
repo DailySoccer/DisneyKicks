@@ -19,6 +19,13 @@ public class Cheats : MonoBehaviour {
     public bool UnlockAllEquipaciones = false;
     public bool DeleteSavedEquipaciones = false;
 
+    [Header("[** Partido **]")]
+    public bool GameOver = false;
+    public int OwnerScore = 0;
+    public int OpponentScore = 0;
+    public int OwnerELO = -1;
+    public int OpponentELOMod = 0;
+
     bool firstTime = true;
 
     void Awake () {

@@ -134,6 +134,12 @@ public class Interfaz : MonoBehaviour
     static bool m_wsReady = false;
     public static string paramURL = "";
 
+    /// <summary>
+    /// Skill del Usuario (se modifica según vaya ganando o perdiendo partidos)
+    /// </summary>
+    public static int SkillLevel { get { return m_skillLevel; } set { m_skillLevel = value; } }
+    static int m_skillLevel = 0;
+
     public static progress m_asThrower;
     public static progress m_asKeeper;
     public int m_time = 147;
@@ -586,6 +592,9 @@ public class Interfaz : MonoBehaviour
 
         if (Cortinilla.instance == null)
             GameObject.Instantiate(m_cortinillaPrefab, new Vector3(-0.6f, 0.5f, 50), Quaternion.identity).name = "Cortinilla";
+
+        // TEST ELO
+        // ClashRoyaleELO.TEST();
     }
 
     public static void ClickFX()
@@ -625,6 +634,16 @@ public class Interfaz : MonoBehaviour
             }
         }
         return position;
+    }
+
+    public static int MatchResult(int ownerELO, int ownerScore, int opponentELO, int opponentScore) {
+        Debug.Log("MatchResult");
+        int mod = ClashRoyaleELO.Result(ownerELO, ownerScore, opponentELO, opponentScore);
+        SkillLevel += mod;
+        SkillLevel = Mathf.Max(0, SkillLevel);
+
+        PersistenciaManager.instance.GuardarSkillLevel();
+        return mod;
     }
 
     /*void RepositionThrower()
@@ -678,6 +697,7 @@ public class Interfaz : MonoBehaviour
             msg.m_goalkeeperEquipacion = EquipacionManager.instance.GetEquipacionPorteroSeleccionada().assetName;
             msg.m_duelosJugados = Interfaz.m_duelsPlayed;
             msg.m_duelosGanados = Interfaz.m_duelsWon;
+            msg.m_skillLevel = Interfaz.SkillLevel;
             if (msg == null) Debug.Log("Error en MsgLogin");
             else msg.send();
         };

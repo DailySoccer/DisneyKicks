@@ -52,6 +52,7 @@ public class ifcGameOverMulti : ifcBase {
     private GameOverField m_scoredGoals;
     private GameOverField m_playerScore;
     private GameOverField m_playerReward;
+    private GameOverField m_playerSkillLevel;
 
 
     // ------------------------------------------------------------------------------
@@ -79,6 +80,10 @@ public class ifcGameOverMulti : ifcBase {
         m_playerReward = new GameOverField(
             transform.Find( "bloqueInfo2/recompensa/Nombre" ).gameObject.GetComponent<GUIText>(),
             transform.Find( "bloqueInfo2/recompensa/Valor" ).gameObject.GetComponent<GUIText>() );
+        
+        m_playerSkillLevel = new GameOverField(
+            transform.Find( "skillLevel/Nombre" ).gameObject.GetComponent<GUIText>(),
+            transform.Find( "skillLevel/Valor" ).gameObject.GetComponent<GUIText>() );
 
         Transform t = transform.Find("btnRepetir");
         m_imgFondo = transform.FindChild("Fondo").GetComponent<GUITexture>();
@@ -116,9 +121,14 @@ public class ifcGameOverMulti : ifcBase {
         m_stoppedShots.SetFieldData( LocalizacionManager.instance.GetTexto(190).ToUpper(), FieldControl.instance.GetDuelGameGoalkeeperStopStat() );
         m_scoredGoals.SetFieldData( LocalizacionManager.instance.GetTexto(191).ToUpper(), FieldControl.instance.GetDuelGameShooterGoalStat() );
         m_playerScore.SetFieldData( LocalizacionManager.instance.GetTexto(73).ToUpper(), localPlayerScore ); // TODO: calcular la puntuación correcta
-        m_playerReward.SetFieldData(LocalizacionManager.instance.GetTexto(187).ToUpper(), ((HasLocalPlayerWon) ? 500 : 250) + " ¤");      
+        m_playerReward.SetFieldData(LocalizacionManager.instance.GetTexto(187).ToUpper(), ((HasLocalPlayerWon) ? 500 : 250) + " ¤");
   
         // TODO: dar al jugador la recompensa que le corresponde
+
+        // TODO: El SkillLevel del Oponente es el del propio player "modificado" (hasta que nos
+        int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
+        int modSkillPlayer = Interfaz.MatchResult(Interfaz.SkillLevel, localPlayerScore, Interfaz.SkillLevel + modOpponent, remotePlayerScore);
+        m_playerSkillLevel.SetFieldData(LocalizacionManager.instance.GetTexto(295).ToUpper(), modSkillPlayer);
     }    
 
     void SetDuelResult (bool bVictory) {

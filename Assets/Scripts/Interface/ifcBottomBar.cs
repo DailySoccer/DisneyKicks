@@ -122,6 +122,7 @@ public class ifcBottomBar : MonoBehaviour {
 			//NUEVO
 			// al salir de esta pantalla verificar que los jugadores y las equipaciones seleccionadas estan adquiridas (sino cambiarlas)
 			//ComprobarJugadoresYEquipacionesAdquiridos();
+			Interfaz.ClickFX();
 			GeneralSounds_menu.instance.back ();
 			m_pantallaAnterior = ifcMainMenu.instance;
 			// si se ha especificado la pantalla que ha llamado a esta => volver a esa pantalla
@@ -143,6 +144,7 @@ public class ifcBottomBar : MonoBehaviour {
 			new SuperTweener.move (ifcPerfil.instance.gameObject, 0.25f, new Vector3 (0f, 0f, 0.0f), SuperTweener.CubicOut, (_target) => {
 			});
 			m_btnPerfil.Select ();
+			Interfaz.ClickFX();
 			// si ya se esta mostrando la pantalla de perfil => no hacer nada
 			if (ifcBase.activeIface == ifcPerfil.instance)
 				return;
@@ -156,6 +158,7 @@ public class ifcBottomBar : MonoBehaviour {
 		case 4:
 			Debug.Log ("Estoy en LEADERBOARD");
 			m_btnRanking.Select ();
+			Interfaz.ClickFX();
 			break;
 		}
 	}

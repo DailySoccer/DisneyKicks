@@ -30,6 +30,9 @@ public class ifcMainMenu : ifcBase {
 	//ADRIAN añado la funcionalidad del nuevo boton DueloPLay
 	private btnButton m_btnDueloPlay;
 
+	//ADRIAN añado funcionalidad de Logo Liga
+	private GUITexture ImagenLiga;
+
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
@@ -56,6 +59,9 @@ public class ifcMainMenu : ifcBase {
         // botones duelo y carrera
         transform.FindChild("botones/btnCarrera").GetComponent<btnButton>().action = OnCarrera;
         transform.FindChild("botones/btnDuelo").GetComponent<btnButton>().action = OnDuelo;
+
+		//ADRIAN Textura del Logo Liga
+		ImagenLiga = transform.FindChild("logo").GetComponent<GUITexture>();
 
 		//ADRIAN nuevo boton DueloPlay
 		m_btnDueloPlay = transform.FindChild("botones/btnDueloPLAY").GetComponent<btnButton>();
@@ -281,5 +287,11 @@ public class ifcMainMenu : ifcBase {
             SetVisible(true);
         }
     }
+
+	//ADRIAN metodo para actualizar el logo de la liga
+	public void ActualizarLogoLiga()
+	{
+		//ImagenLiga = blabla
+	}
 
 }

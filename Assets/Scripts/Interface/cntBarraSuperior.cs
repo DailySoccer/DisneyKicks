@@ -42,6 +42,8 @@ public class cntBarraSuperior : MonoBehaviour {
     private GUIText m_txtMonedaSoftSombra;
     private GUIText m_txtMonedaHard;
     private GUIText m_txtMonedaHardSombra;
+	private GUIText m_txtSkillLevel;
+	private GUIText m_txtSkillLevelSombra;
 
     //con esta variable se indica desde ingame que al volver al menu tendra que anuncuar nuevos logros
     public static bool flagNuevosLogros = false;
@@ -108,6 +110,9 @@ public class cntBarraSuperior : MonoBehaviour {
         // mostrar el dinero que el usuario tiene actualmente
         ActualizarDinero();
 
+		//mostrar el Skill Level del usuario
+		ActualizaSkillLevel();
+
         if(flagNuevosLogros)
         {
             flagNuevosLogros = false;
@@ -159,6 +164,22 @@ public class cntBarraSuperior : MonoBehaviour {
         m_txtMonedaHard.text = Interfaz.MonedasHard.ToString();
         m_txtMonedaHardSombra.text = Interfaz.MonedasHard.ToString();
     }
+
+	/// <summary>
+	/// Refresca el Skill Level mostrado en la barra superior
+	/// </summary>
+
+	public void ActualizaSkillLevel()
+	{
+		if (m_txtSkillLevel == null)
+			m_txtSkillLevel = transform.FindChild("btnPerfil/txtCantidad").GetComponent<GUIText>();
+
+		if (m_txtSkillLevelSombra == null)
+			m_txtSkillLevelSombra = transform.FindChild("btnPerfil/txtCantidadSombra").GetComponent<GUIText>();
+	
+		m_txtSkillLevel.text = "101";
+		m_txtSkillLevelSombra.text = "101";
+	}
 
 
     /// <summary>

@@ -1086,15 +1086,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.021397084
+      value: -0.021397084
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .0910592079
+      value: 0.09105921
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -.00707636401
+      value: -0.007076364
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1111,6 +1111,10 @@ Prefab:
     - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b9095687daf2cd4b94f2daca152ea79, type: 2}
@@ -1600,17 +1604,21 @@ MonoBehaviour:
   estadioModel: {fileID: 893755874}
   estadioModels:
   - {fileID: 100264, guid: 015d3928dd95eb94698a128fdb6185aa, type: 2}
+  - {fileID: 100264, guid: 015d3928dd95eb94698a128fdb6185aa, type: 2}
   - {fileID: 100184, guid: 189d70ad2285d0140bddd8cdbbe4d4b1, type: 2}
   - {fileID: 100222, guid: ed967bff5c7853d4f8900c607ed4a4bf, type: 2}
   fogs:
+  - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
   - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
   - {r: 0.32941177, g: 0.2901961, b: 0.4117647, a: 1}
   - {r: 0.2901961, g: 0.4117647, b: 0.42352942, a: 1}
   lights:
   - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
+  - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
   - {r: 0.6666667, g: 0.7529412, b: 0.827451, a: 1}
   - {r: 0.8392157, g: 0.4745098, b: 0.7019608, a: 1}
   fogDensity:
+  - 0.003
   - 0.003
   - 0.0075
   - 0.0075

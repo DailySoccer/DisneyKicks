@@ -875,6 +875,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &237457432 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: eb98c595000cfbc4596a8d535af0d899, type: 2}
+  m_PrefabInternal: {fileID: 2003725551}
+--- !u!114 &237457433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237457432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9be9c4f485aa45a2857f2ee0b970ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ligas:
+  - SkillLevelUp: 0
+    SkillLevelDown: -1
+  - SkillLevelUp: 70
+    SkillLevelDown: 50
+  - SkillLevelUp: 140
+    SkillLevelDown: 130
+  - SkillLevelUp: 200
+    SkillLevelDown: 190
+--- !u!114 &237457441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237457432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1797515bc24894b70aafc97f06cd5d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockAllJugadores: 0
+  DeleteSavedJugadores: 0
+  UnlockAllEquipaciones: 0
+  DeleteSavedEquipaciones: 0
+  GameOver: 1
+  OwnerScore: 1
+  OpponentScore: 0
+  OwnerELO: -1
+  OpponentELOMod: 50
 --- !u!1001 &249766562
 Prefab:
   m_ObjectHideFlags: 0
@@ -1578,7 +1622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &427890223
 Transform:
   m_ObjectHideFlags: 0
@@ -3018,17 +3062,21 @@ MonoBehaviour:
   estadioModel: {fileID: 579644439}
   estadioModels:
   - {fileID: 100016, guid: 721dc78da75d8e349a916ba16663fc35, type: 2}
+  - {fileID: 100016, guid: 721dc78da75d8e349a916ba16663fc35, type: 2}
   - {fileID: 100052, guid: 07c67b3942f23f74c982034b3493eebd, type: 2}
   - {fileID: 100236, guid: 98d5ff9711eafa54380ebebe77b45a09, type: 2}
   fogs:
+  - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
   - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
   - {r: 0.32941177, g: 0.2901961, b: 0.4117647, a: 1}
   - {r: 0.2901961, g: 0.4117647, b: 0.42352942, a: 1}
   lights:
   - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
+  - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
   - {r: 0.6666667, g: 0.7529412, b: 0.827451, a: 1}
   - {r: 0.8392157, g: 0.4745098, b: 0.7019608, a: 1}
   fogDensity:
+  - 0.003
   - 0.003
   - 0.0075
   - 0.0075
@@ -9526,6 +9574,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScale: 1
   currentWScale: 1
+  Escudos2D:
+  - {fileID: 2800000, guid: 08a541f67d19398448711d8a3675b78a, type: 3}
+  - {fileID: 2800000, guid: 12a90368cfa3d40969621deaf1c57e94, type: 3}
+  - {fileID: 2800000, guid: fdcd5475451ca4fa8a72e1e0450bff2d, type: 3}
+  - {fileID: 2800000, guid: 38279ab1696f542379643b2c5db51619, type: 3}
 --- !u!1 &1979062656
 GameObject:
   m_ObjectHideFlags: 0

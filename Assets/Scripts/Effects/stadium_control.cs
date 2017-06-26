@@ -11,15 +11,17 @@ public class stadium_control : MonoBehaviour
     public static int estadioIndex = 0;
     public static stadium_control instance;
 
-    void Awake()
-    {
+    void Awake() {
         instance = this;
+        RefreshScenario();
+    }
+
+    public void RefreshScenario() {
         estadioIndex = PlayerPrefs.GetInt("estadio", 0);
         SetScenario();
     }
 
-    public void SetScenario()
-    {
+    public void SetScenario() {
         PlayerPrefs.SetInt("estadio", estadioIndex);
         PlayerPrefs.Save();
         GameObject.Destroy(estadioModel);

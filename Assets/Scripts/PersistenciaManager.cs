@@ -489,7 +489,7 @@ public class PersistenciaManager {
 
         // Registramos el skillLevel y la liga actual del Usuario
         EncryptedPlayerPrefs.SetInt("skillLevel", Interfaz.SkillLevel);
-        EncryptedPlayerPrefs.SetInt("liga", Interfaz.Liga);
+        EncryptedPlayerPrefs.SetInt("estadio", Interfaz.Liga);
 
         // guardar las preferencias
         PlayerPrefs.Save();

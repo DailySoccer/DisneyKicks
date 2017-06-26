@@ -13,6 +13,8 @@ public class ifcMainMenu : ifcBase {
     // instancia de esta clase
     public static ifcMainMenu instance { get; protected set; }
 
+    public Texture2D[] Escudos2D;
+
     // variables para indicar que hay que pintar una determinada interfaz
     private static bool m_showCarrera = false;
     private static bool m_showDuelo = false;
@@ -123,12 +125,16 @@ public class ifcMainMenu : ifcBase {
         }
 
         if(Input.GetKeyUp("+")) {
-            Interfaz.MatchResult(Interfaz.SkillLevel, 1, Interfaz.SkillLevel+10, 0);
+            int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
+            Interfaz.MatchResult(Interfaz.SkillLevel, 1, Interfaz.SkillLevel+modOpponent, 0);
+            stadium_control.instance.RefreshScenario();
             ActualizarLogoLiga();
             cntBarraSuperior.instance.ActualizaSkillLevel();
         }
         if(Input.GetKeyUp("-")) {
-            Interfaz.MatchResult(Interfaz.SkillLevel, 0, Interfaz.SkillLevel+10, 1);
+            int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
+            Interfaz.MatchResult(Interfaz.SkillLevel, 0, Interfaz.SkillLevel+modOpponent, 1);
+            stadium_control.instance.RefreshScenario();
             ActualizarLogoLiga();
             cntBarraSuperior.instance.ActualizaSkillLevel();
         }
@@ -235,7 +241,8 @@ public class ifcMainMenu : ifcBase {
 
 	// metodo para actualizar el logo de la liga
     public void ActualizarLogoLiga() {
-        ImagenLiga.texture = LigaManager.instance.CurrentImageLiga;
+        int escudo = PlayerPrefs.GetInt("estadio", 0);
+        ImagenLiga.texture = Escudos2D[escudo];
 	}
 
 }

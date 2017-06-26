@@ -18,7 +18,7 @@ public class JugadorData {
             powerups        = null,
             quality         = CardQuality.COMMON,
             nivel           = 1,
-            liga            = 1
+            liga            = 0
         },
         new Jugador {
             assetName = "IT_PLY_ST_0004", 
@@ -28,7 +28,7 @@ public class JugadorData {
             habilidades = null,
             powerups = null,
             quality = CardQuality.COMMON,
-            liga = 1
+            liga = 0
         },
         new Jugador {
             assetName = "IT_PLY_ST_0005", 
@@ -38,7 +38,7 @@ public class JugadorData {
             habilidades = null,
             powerups = null,
             quality = CardQuality.COMMON,
-            liga = 1
+            liga = 0
         },
         new Jugador {
             assetName = "IT_PLY_ST_0002", 
@@ -48,7 +48,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Prima },
             powerups = new Powerup[] { Powerup.Concentracion },
             quality = CardQuality.COMMON,
-            liga = 1
+            liga = 0
         },
         new Jugador {
             assetName = "IT_PLY_ST_0001", 
@@ -58,7 +58,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Vista_halcon },
             powerups = new Powerup[] { Powerup.Destello },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         },
         new Jugador {
             assetName = "IT_PLY_ST_0108", 
@@ -68,7 +68,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Goleador },
             powerups = new Powerup[] { Powerup.Sharpshooter },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         },
         new Jugador {
             assetName = "IT_PLY_ST_0101", 
@@ -78,7 +78,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Prima, Habilidades.Skills.Vista_halcon },
             powerups = new Powerup[] { Powerup.Resbaladiza },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         }, 
         new Jugador {
             assetName = "IT_PLY_ST_0111", 
@@ -88,7 +88,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Prima, Habilidades.Skills.VIP },
             powerups = new Powerup[] { Powerup.Phase },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         },
         new Jugador {
             assetName = "IT_PLY_ST_0114", 
@@ -98,7 +98,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.VIP, Habilidades.Skills.Vista_halcon },
             powerups = new Powerup[] { Powerup.Concentracion, Powerup.Destello },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador {
             assetName = "IT_PLY_ST_0103", 
@@ -108,7 +108,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Mago_balon },
             powerups = new Powerup[] { Powerup.Sharpshooter, Powerup.Resbaladiza },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador {
             assetName = "IT_PLY_ST_0113", 
@@ -118,7 +118,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Mago_balon, Habilidades.Skills.VIP },
             powerups = new Powerup[] { Powerup.Phase, Powerup.Concentracion },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador {
             assetName = "IT_PLY_ST_0102", 
@@ -128,7 +128,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.VIP },
             powerups = new Powerup[] { Powerup.Destello, Powerup.Sharpshooter, Powerup.Resbaladiza },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador { 
             assetName = "IT_PLY_ST_0115", 
@@ -138,7 +138,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Mago_balon, Habilidades.Skills.Goleador },
             powerups = new Powerup[] { Powerup.Phase, Powerup.Sharpshooter, Powerup.Destello },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador {
             assetName = "IT_PLY_ST_0106", 
@@ -148,7 +148,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.Prima },
             powerups = new Powerup[] { Powerup.Phase, Powerup.Sharpshooter, Powerup.Destello, Powerup.Concentracion },
             quality = CardQuality.COMMON,
-            liga = 4
+            liga = 3
         },
         new Jugador {
             assetName = "IT_PLY_ST_0116", 
@@ -158,7 +158,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Goleador, Habilidades.Skills.Vista_halcon },
             powerups = new Powerup[] { Powerup.Resbaladiza, Powerup.Sharpshooter, Powerup.Destello, Powerup.Concentracion },
             quality = CardQuality.COMMON,
-            liga = 4
+            liga = 3
         }
     };
 
@@ -176,7 +176,7 @@ public class JugadorData {
             powerups = null,
             quality = CardQuality.COMMON,
             nivel = 1,
-            liga = 1
+            liga = 0
         },
         new Jugador {
             assetName = "IT_PLY_GK_0002", 
@@ -186,7 +186,7 @@ public class JugadorData {
             habilidades = null,
             powerups = new Powerup[] { Powerup.Intuicion },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         },
         new Jugador {
             assetName = "IT_PLY_GK_0103", 
@@ -196,7 +196,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Practico },
             powerups = new Powerup[] { Powerup.Manoplas },
             quality = CardQuality.COMMON,
-            liga = 2
+            liga = 1
         },
         new Jugador {
             assetName = "IT_PLY_GK_0102", 
@@ -206,7 +206,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Practico, Habilidades.Skills.Barrera },
             powerups = new Powerup[] { Powerup.Reflejo },
             quality = CardQuality.COMMON,
-            liga = 3
+            liga = 2
         },
         new Jugador {
             assetName = "IT_PLY_GK_0101", 
@@ -216,7 +216,7 @@ public class JugadorData {
             habilidades = new Habilidades.Skills[] { Habilidades.Skills.Premonicion },
             powerups = new Powerup[] { Powerup.TiempoBala },
             quality = CardQuality.COMMON,
-            liga = 4
+            liga = 3
         }
     };
 }

@@ -149,7 +149,7 @@ public class Interfaz : MonoBehaviour
     }
     static int m_skillLevel = 0;
 
-    public static int Liga { get { return m_liga; } private set { m_liga = value; }}
+    public static int Liga { get { return m_liga; } private set { m_liga = value; } }
     static int m_liga = 1;
 
     public static progress m_asThrower;
@@ -655,8 +655,6 @@ public class Interfaz : MonoBehaviour
         Liga = LigaManager.instance.CalculateLiga(Liga, SkillLevel);
 
         PersistenciaManager.instance.GuardarSkillLevel();
-
-        LigaManager.instance.ChangeLiga(Liga);
         return mod;
     }
 

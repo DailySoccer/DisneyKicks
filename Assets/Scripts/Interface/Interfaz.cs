@@ -149,8 +149,8 @@ public class Interfaz : MonoBehaviour
     }
     static int m_skillLevel = 0;
 
-    public static int Liga { get { return m_liga; } private set { m_liga = value; } }
-    static int m_liga = 1;
+    public static int Liga { get { return m_liga; } set { m_liga = value; } }
+    static int m_liga = 0;
 
     public static progress m_asThrower;
     public static progress m_asKeeper;

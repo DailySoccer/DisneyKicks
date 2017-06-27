@@ -17,13 +17,11 @@ public class stadium_control : MonoBehaviour
     }
 
     public void RefreshScenario() {
-        estadioIndex = PlayerPrefs.GetInt("estadio", 0);
+        estadioIndex = PlayerPrefs.GetInt("liga", 0);
         SetScenario();
     }
 
     public void SetScenario() {
-        PlayerPrefs.SetInt("estadio", estadioIndex);
-        PlayerPrefs.Save();
         GameObject.Destroy(estadioModel);
         RenderSettings.ambientLight = lights[estadioIndex];
         RenderSettings.fogDensity = fogDensity[estadioIndex];

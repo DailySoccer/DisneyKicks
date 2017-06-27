@@ -241,7 +241,7 @@ public class ifcMainMenu : ifcBase {
 
 	// metodo para actualizar el logo de la liga
     public void ActualizarLogoLiga() {
-        int escudo = PlayerPrefs.GetInt("estadio", 0);
+        int escudo = PlayerPrefs.GetInt("liga", 0);
         ImagenLiga.texture = Escudos2D[escudo];
 	}
 

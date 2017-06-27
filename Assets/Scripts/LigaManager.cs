@@ -6,7 +6,7 @@ public class LigaManager : MonoBehaviour {
 
     public static LigaManager instance;
 
-    public Liga[] Ligas;
+    public List<Liga> Ligas;
 
     /// <summary>
     /// Devuelve la liga correspondiente al skillLevel (teniendo en cuenta la liga actual)
@@ -16,16 +16,16 @@ public class LigaManager : MonoBehaviour {
     /// <param name="skillLevel">Skill level.</param>
     public int CalculateLiga(int currentLiga, int skillLevel) {
         int result = currentLiga;
-        // Comprobar si en la liga actual estamos para "bajar"
-        if (Ligas[currentLiga].SkillLevelDown > skillLevel) {
-            result = currentLiga - 1;
+
+        // Comprobar si bajamos de liga
+        while (result > 0 && Ligas[result].SkillLevelDown > skillLevel) {
+            result--;
         }
-        else if (currentLiga+1 < Ligas.Length) {
-            // Comprobar si en la liga siguiente estamos para "subir"
-            if (Ligas[currentLiga+1].SkillLevelUp <= skillLevel) {
-                result = currentLiga + 1;
-            }    
+        // Comprobar si subimos de liga
+        while (result+1 < Ligas.Count && Ligas[result+1].SkillLevelUp <= skillLevel) {
+            result++;
         }
+
         Debug.Log(string.Format("CalculateLiga: CurrentLiga: {0} SkillLevel: {1} => Liga: {2}", currentLiga, skillLevel, result));
         return result;
     }
@@ -34,6 +34,9 @@ public class LigaManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
         }
+
+        Ligas = new List<Liga>();
+        Ligas.AddRange( LigaData.SkillLevels );
     }
 
 	void Start () {

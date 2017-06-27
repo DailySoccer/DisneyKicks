@@ -81,6 +81,9 @@ public class PersistenciaManager {
             }
             cntBarraSuperior.instance.ActualizaSkillLevel();
 
+            // obtener la liga del usuario
+            Interfaz.Liga = EncryptedPlayerPrefs.GetInt("liga", 0);
+
             // obtener el avance como portero
             Interfaz.m_asKeeper.record = EncryptedPlayerPrefs.GetInt("goalkeeperRecord", 0);
             Interfaz.m_asKeeper.targets = EncryptedPlayerPrefs.GetInt("goalkeeperTargets", 0);
@@ -489,7 +492,7 @@ public class PersistenciaManager {
 
         // Registramos el skillLevel y la liga actual del Usuario
         EncryptedPlayerPrefs.SetInt("skillLevel", Interfaz.SkillLevel);
-        EncryptedPlayerPrefs.SetInt("estadio", Interfaz.Liga);
+        EncryptedPlayerPrefs.SetInt("liga", Interfaz.Liga);
 
         // guardar las preferencias
         PlayerPrefs.Save();

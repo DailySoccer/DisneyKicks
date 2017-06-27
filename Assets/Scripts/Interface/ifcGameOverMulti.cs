@@ -125,7 +125,7 @@ public class ifcGameOverMulti : ifcBase {
   
         // TODO: dar al jugador la recompensa que le corresponde
 
-        // TODO: El SkillLevel del Oponente es el del propio player "modificado" (hasta que nos
+        // TODO: El SkillLevel del Oponente es el del propio player "modificado"
         int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
         int modSkillPlayer = Interfaz.MatchResult(Interfaz.SkillLevel, localPlayerScore, Interfaz.SkillLevel + modOpponent, remotePlayerScore);
         m_playerSkillLevel.SetFieldData(LocalizacionManager.instance.GetTexto(295).ToUpper(), modSkillPlayer);

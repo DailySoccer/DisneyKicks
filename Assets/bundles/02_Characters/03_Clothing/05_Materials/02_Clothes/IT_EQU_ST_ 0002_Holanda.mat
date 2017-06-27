@@ -2,64 +2,96 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: IT_EQU_ST_ 0002_Holanda
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: []
+  m_Shader: {fileID: 4800000, guid: 17d156f6b6d41584d9179ee74e2d793e, type: 3}
+  m_ShaderKeywords: _MULTBASECOLOR_ON _USENM_ON
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 28a5db4ba66bb604c87023f8ea1e79b3, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Detail
-        second:
-          m_Texture: {fileID: 2800000, guid: 8bb987ffdd1cf064ea681bea6c6834da, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _COLOR_TEX
+      second:
+        m_Texture: {fileID: 2800000, guid: 28a5db4ba66bb604c87023f8ea1e79b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Detail
+      second:
+        m_Texture: {fileID: 2800000, guid: 8bb987ffdd1cf064ea681bea6c6834da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Illum
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _IrradianceMAP
+      second:
+        m_Texture: {fileID: 8900000, guid: cd5dd462b6e1c4d4d8aba7c2d2eda6a8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 28a5db4ba66bb604c87023f8ea1e79b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _NM_TEX
+      second:
+        m_Texture: {fileID: 2800000, guid: cbfdd2f779ff4cc42b6e3acaec33f869, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _Shininess
-        second: .078125
-      data:
-        first:
-          name: _EmissionLM
-        second: 0
+    - first:
+        name: _EmissionLM
+      second: 0
+    - first:
+        name: _FresnelINT
+      second: 0.5
+    - first:
+        name: _FrnlEXP
+      second: 2
+    - first:
+        name: _IrrINT
+      second: 0.1
+    - first:
+        name: _LightINT
+      second: 1
+    - first:
+        name: _MULTBASECOLOR
+      second: 1
+    - first:
+        name: _Shininess
+      second: 0.078125
+    - first:
+        name: _USENM
+      second: 1
     m_Colors:
-      data:
-        first:
-          name: _Color
-        second: {r: .501960814, g: .501960814, b: .501960814, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: .5, g: .5, b: .5, a: 1}
-      data:
-        first:
-          name: _Emission
-        second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _BaseCOLOR
+      second: {r: 0.378, g: 0.378, b: 0.378, a: 1}
+    - first:
+        name: _Color
+      second: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - first:
+        name: _Emission
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _SpecColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}

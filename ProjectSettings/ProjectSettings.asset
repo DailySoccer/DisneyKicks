@@ -146,7 +146,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 7.0
+  iOSTargetOSVersionString: 6.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
@@ -222,8 +222,8 @@ PlayerSettings:
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 406cd6805be820e409e866b1bd4101dc, type: 3}
-      m_Width: 128
-      m_Height: 128
+      m_Width: 61084
+      m_Height: 61084
   m_BuildTargetBatching:
   - m_BuildTarget: Android
     m_StaticBatching: 1
@@ -238,11 +238,7 @@ PlayerSettings:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 08000000
     m_Automatic: 0
-  m_BuildTargetVRSettings:
-  - m_BuildTarget: Android
-    m_Enabled: 0
-    m_Devices:
-    - split
+  m_BuildTargetVRSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   webPlayerTemplate: APPLICATION:Black Background
@@ -413,10 +409,16 @@ PlayerSettings:
   scriptingDefineSymbols:
     0: "J\x01"
     2: btnPlay
-  platformArchitecture: {}
+  platformArchitecture:
+    iOS: 2
   scriptingBackend:
-    Android: 1
-  incrementalIl2cppBuild: {}
+    Metro: 2
+    Standalone: 0
+    WP8: 2
+    WebGL: 1
+    iOS: 1
+  incrementalIl2cppBuild:
+    iOS: 0
   additionalIl2CppArgs: 
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
@@ -451,7 +453,7 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   tizenDeploymentTarget: 
-  tizenDeploymentTargetType: -131587
+  tizenDeploymentTargetType: -1
   tizenMinOSVersion: 1
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1

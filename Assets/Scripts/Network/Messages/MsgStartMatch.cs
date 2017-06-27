@@ -20,6 +20,7 @@ class MsgStartMatch : MensajeBase {
         if(!startsGoalkeeper) GameplayService.initialGameMode = GameMode.GoalKeeper;
         else GameplayService.initialGameMode = GameMode.Shooter;
 
-        ifcDuelo.instance.ShowVs(ifcDuelo.m_rival, false);
+        // ifcDuelo.instance.ShowVs(ifcDuelo.m_rival, false);
+		ifcDuelo.instance.DuelAccepted(ifcDuelo.m_rival);
     }
 }

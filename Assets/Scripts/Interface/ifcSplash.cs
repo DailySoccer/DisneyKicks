@@ -21,12 +21,10 @@ public class ifcSplash : ifcBase
         }
          */
 
-        transform.parent.Find("MainMenu/bitoon_logo").gameObject.GetComponent<GUITexture>().color = new Color(1, 1, 1, 0);
         if(Interfaz.m_firstTime)
         {
           new SuperTweener.none(gameObject, m_spalshTime, (_obj) => {
               new SuperTweener.move(gameObject, 0.25f, new Vector3(-1.4f, 0.0f, 0.0f), SuperTweener.CubicOut, (_target) => { gameObject.SetActive(false); });
-              new SuperTweener.GUItextureColor(transform.parent.Find("MainMenu/bitoon_logo").gameObject, 1.0f, Color.white, SuperTweener.CubicOut, (_target) => { });
               new SuperTweener.move(ifcMainMenu.instance.gameObject, 0.25f, new Vector3(0.0f, 0.0f, 0.0f),
                   SuperTweener.CubicOut, (_target) => {
                       // ocultar los elementos de interfaz
@@ -42,7 +40,6 @@ public class ifcSplash : ifcBase
           // mostrar los logros pendientes que pudiera haber
           DialogManager.instance.MostrarDialogosRegistradosPendientes(null);
           gameObject.transform.position = new Vector3(-1.4f, 0.0f, 0.0f);
-          GameObject.Find("bitoon_logo").gameObject.GetComponent<GUITexture>().color = Color.white;
           ifcMainMenu.instance.gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
           //cntMenuDesplegableOpciones.instance.Show();
         }      

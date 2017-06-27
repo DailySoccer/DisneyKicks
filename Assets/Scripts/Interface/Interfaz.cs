@@ -714,12 +714,6 @@ public class Interfaz : MonoBehaviour
         GameObject.Find("girarLanzador").transform.position = GetGroundScreenProjection(new Vector3(0.15f, 0.225f, 0f));
         GameObject.Find("girarPortero").transform.position = GetGroundScreenProjection(new Vector3(0.42f, 0.225f, 0f));
 
-        transform.Find("MainMenu/bitoon_logo").GetComponent<btnButton>().action = (_name) =>
-        {
-            BI.Publicidad(3, 3); // Logo de Bitoon 
-            Application.OpenURL("http://www.bitoon.com");
-        };
-
 #if UNITY_IPHONE
     EtceteraBinding.askForReview(2,72, "Please rate my app!", "It will really make me happy if you do...", "887914760");
 #elif UNITY_ANDROID

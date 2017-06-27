@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 
 /// <summary>
@@ -53,10 +54,14 @@ public class ifcDuelo : ifcBase {
     private cntInfoJugadorDuelo[] m_cntInfoJugadoresDuelo;
 
     // otros elementos de interfaz
-    private GameObject m_btnAtras;
     private GameObject m_imagenVs;
+	private GameObject PantallaBuscandoRival;
+	private GameObject OBJBarraBuscandoRival;
     private GUITexture m_barraProgreso;
     private GUITexture m_barraProgresoFondo;
+	private GUITexture m_barraProgresoBuscandoRival;
+	private GUITexture m_barraProgresoFondoBuscandoRival;
+
 
     // game objects para mostrar los jugadores secundarios
     private GameObject m_jugadorSecundarioLocal;
@@ -66,12 +71,18 @@ public class ifcDuelo : ifcBase {
     private bool m_modoVs = false;
     private float m_tiempoTranscurridoEnPantallaVs = 0.0f;
 
+	// variables para controlar el tiempo transcurrido en esta pantalla en modo BUSCANDO RIVAL (para saber cuando saltar a la siguiente)
+	private float m_tiempoTranscurridoEnPantallaBuscandoRival = 0.0f;
+
     // holder para guardar el rival del (posible) duelo
     public static Usuario m_rival;
 
     //indice de paginacion del lobby
     private int lobbyIndex = 0;
     private Usuario[] lastLobby;
+
+	//booleana para tiempo de espera en Buscar Rivales
+	private bool m_duelAccepted;
 
 
     // ------------------------------------------------------------------------------
@@ -87,7 +98,16 @@ public class ifcDuelo : ifcBase {
     // Use this for initialization
     void Start () {
         // obtener las referencias a algunos elementos de interfaz
-        m_btnAtras = transform.FindChild("btnAtras").gameObject;
+        //m_btnAtras = transform.FindChild("btnAtras").gameObject;
+
+		//interfaz BuscandoRival
+		PantallaBuscandoRival = transform.FindChild ("PantallaBuscandoRival").gameObject;
+		OBJBarraBuscandoRival = transform.FindChild ("BarraBuscandoRival").gameObject;
+		m_barraProgresoBuscandoRival = transform.FindChild("BarraBuscandoRival/barraProgreso").GetComponent<GUITexture>();
+		m_barraProgresoFondoBuscandoRival = transform.FindChild("BarraBuscandoRival/barraProgresoFake").GetComponent<GUITexture>();
+		m_tiempoTranscurridoEnPantallaBuscandoRival = 0.0f;
+		
+		//interfaz VS
         m_imagenVs = transform.FindChild("vs").gameObject;
         m_barraProgreso = transform.FindChild("vs/barraProgreso").GetComponent<GUITexture>();
         m_barraProgresoFondo = transform.FindChild("vs/barraProgresoFake").GetComponent<GUITexture>();
@@ -104,27 +124,8 @@ public class ifcDuelo : ifcBase {
                 m_cntInfoJugadoresDuelo[i].Inicializar(this.transform, "infoJugadorDuelo" + i, new Vector3(0.14f + (i * 0.24f), 0.185f, 0.0f));
             }
         }
-
-        getComponentByName("flecha_dcha").GetComponent<btnButton>().action = (_name) => {
-            lobbyIndex = (lobbyIndex + 1)%(NUM_JUGADORES_RIVALES / NUM_JUGADORES_PAGINA);
-            ShowRivales(lastLobby);
-        };
-
-        getComponentByName("flecha_izq").GetComponent<btnButton>().action = (_name) => {
-            lobbyIndex = (lobbyIndex - 1);
-            if(lobbyIndex < 0) lobbyIndex = (NUM_JUGADORES_RIVALES / NUM_JUGADORES_PAGINA) - 1;
-            ShowRivales(lastLobby);
-        };
-
+			
         ShowConectando();
-
-        // boton "atras"
-        getComponentByName("btnAtras").GetComponent<btnButton>().action = Back;
-
-        // reescalar los elementos creados dinamicamente de esta interfaz
-        for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
-            Scale(m_cntInfoJugadoresDuelo[i].gameObject, m_cntInfoJugadoresDuelo[i].currentScale);
-        }
   }
 
     /// <summary>
@@ -142,61 +143,47 @@ public class ifcDuelo : ifcBase {
 
         // ocultar la imagen de vs
         m_imagenVs.SetActive(false);
-
-        // mostrar el boton de atras
-        m_btnAtras.SetActive(true);
     }
 
 
     /// <summary>
     /// Mostrar la pantalla de duelo en modo "Mostrar Rivales"
     /// </summary>
-    public void ShowRivales(Usuario[] _clientes) {
+    public void AsignarRival(Usuario[] _clientes) {
+		
         cntBarraSuperior.instance.SetVisible(false);
 
         lastLobby = _clientes;
+
+		//TODO: coger el primer usuario humano de la lista y 
+		// m_rival = _clientes [0];
+		m_rival = _clientes.First( cliente => cliente.yoRobot );
 
         // indicar que la pantalla no esta en modo VS
         m_modoVs = false;
 
         // ocultar la imagen de vs
         m_imagenVs.SetActive(false);
+		m_tiempoTranscurridoEnPantallaBuscandoRival = 0.0f;
+		MensajeBase msg = Shark.instance.mensaje<MsgRequestDuel>();
+		(msg as MsgRequestDuel).m_challenge = m_rival.alias;
+		(msg as MsgRequestDuel).m_uid = m_rival.uid;
+		msg.send();
+     }
 
-        // mostrar el boton de atras
-        m_btnAtras.SetActive(true);
+	public void DuelAccepted(Usuario _usuarioRival) {
+		
+		m_duelAccepted = true;
+		OBJBarraBuscandoRival.SetActive (true);
 
-        for(int i = lobbyIndex * NUM_JUGADORES_PAGINA; (i < ((lobbyIndex * NUM_JUGADORES_PAGINA) + NUM_JUGADORES_PAGINA)); i++)
-        {
-            int iMod = i % NUM_JUGADORES_PAGINA;
-            if(i < _clientes.Length) {
-                m_cntInfoJugadoresDuelo[iMod].SetVisible(true);
-                m_cntInfoJugadoresDuelo[iMod].AsignarValores(_clientes[i]);
-            }
-            else {
-                m_cntInfoJugadoresDuelo[iMod].SetVisible(false);
-            }
-        }
-
-        // ocultar los jugadores secundarios
-        if (m_jugadorSecundarioLocal != null)
-            GameObject.Destroy(m_jugadorSecundarioLocal);
-        if (m_jugadorSecundarioRemoto != null)
-            GameObject.Destroy(m_jugadorSecundarioRemoto);
-    }
+	}
 
 
     /// <summary>
     /// Mostrar la pantalla de duelo en modo "VS"
     /// </summary>
     /// <param name="_usuarioRival"></param>
-    /// <param name="_habilitarBtnAddFavoritoRival"></param>
-    public void ShowVs(Usuario _usuarioRival, bool _habilitarBtnAddFavoritoRival) {
-        //para ocultar el pop up de "esperando"
-        ifcDialogBox.instance.Hide();
-
-        //desactivar el paginado
-        getComponentByName("flecha_dcha").SetActive(false);
-        getComponentByName("flecha_izq").SetActive(false);
+    public void ShowVs(Usuario _usuarioRival) {
 
         // ocultar la informacion de los jugadores (salvo la del primero y el ultimo)
         for (int i = 1; i < m_cntInfoJugadoresDuelo.Length - 1; ++i) {
@@ -219,9 +206,6 @@ public class ifcDuelo : ifcBase {
 
         // mostrar la imagen de vs
         m_imagenVs.SetActive(true);
-
-        // ocultar el boton de atras
-        m_btnAtras.SetActive(false);
 
         // indicar que la pantalla esta en modo VS
         m_modoVs = true;
@@ -248,8 +232,27 @@ public class ifcDuelo : ifcBase {
     }
 
     void Update() {
+		if (!m_modoVs) {
+			m_tiempoTranscurridoEnPantallaBuscandoRival = Mathf.Min(m_tiempoTranscurridoEnPantallaBuscandoRival + Time.deltaTime, Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_BUSCANDORIVAL);
+
+			// actualizar la barra de progreso
+			m_barraProgresoBuscandoRival.pixelInset = new Rect(
+				m_barraProgresoFondoBuscandoRival.pixelInset.xMin,
+				m_barraProgresoFondoBuscandoRival.pixelInset.yMin,
+				m_barraProgresoFondoBuscandoRival.pixelInset.width * (m_tiempoTranscurridoEnPantallaBuscandoRival / Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_BUSCANDORIVAL),
+				m_barraProgresoFondoBuscandoRival.pixelInset.height);
+
+			// comprobar si ya se ha superado el tiempo de espera y pasar a la siguiente pantalla
+			if (m_tiempoTranscurridoEnPantallaBuscandoRival >= Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_BUSCANDORIVAL && m_duelAccepted) {
+				Debug.Assert (m_duelAccepted, "m_duelAccepted == false!!!");
+				ShowVs (m_rival);
+			}
+		}
         // si la pantalla esta en modo VS
-        if (m_modoVs) {
+        else if (m_modoVs) {
+			// ocultar la pantalla buscando rival
+			PantallaBuscandoRival.SetActive (false);
+			OBJBarraBuscandoRival.SetActive (false);
             m_tiempoTranscurridoEnPantallaVs = Mathf.Min(m_tiempoTranscurridoEnPantallaVs + Time.deltaTime, Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS);
 
             // actualizar la barra de progreso

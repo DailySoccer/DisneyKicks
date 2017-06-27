@@ -619,7 +619,6 @@ public class ifcVestuario : ifcBase {
             }
 
             new SuperTweener.move(gameObject, 0.25f, new Vector3(1.5f, 0.5f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
-			//ADRIAN he duplicado y cambiado la frase de abajo poniendole las coordenadas de mi barra tambien he añadido otras dos frases para que los modelos vuelvan a aparecer
             //new SuperTweener.move(m_pantallaAnterior.gameObject, 0.25f, new Vector3(0.0f, 0.0f, 0.0f), SuperTweener.CubicOut);
 			new SuperTweener.move(m_pantallaAnterior.gameObject, 0.25f, new Vector3(0.5f, 0.1f, 0.0f), SuperTweener.CubicOut);
 			Interfaz.instance.RefrescarModelosJugadores(true, true, true);

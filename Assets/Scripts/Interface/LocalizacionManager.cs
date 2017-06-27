@@ -165,7 +165,7 @@ public class LocalizacionManager : MonoBehaviour {
             "{0} ({1} victories) challenges you to a duel.",
             "challenge!!",
             "duel accepted!!",
-            "loading...",                                       // id = 110
+            "Cargando...",                                       // id = 110
             "Score",    // se refiere a goles
             "Get",      // se refiere a puntos
             "repeat",                                           // id = 113     PANTALLA DE GAME OVER

@@ -2031,7 +2031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &427890223
 Transform:
   m_ObjectHideFlags: 0
@@ -3441,67 +3441,6 @@ GUITexture:
   m_RightBorder: 0
   m_TopBorder: 0
   m_BottomBorder: 0
---- !u!1 &803462880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 803462882}
-  - component: {fileID: 803462881}
-  m_Layer: 0
-  m_Name: estadio_control
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &803462881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 803462880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751b189a65a4526498be45d484944cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  estadioModel: {fileID: 579644439}
-  estadioModels:
-  - {fileID: 1379123623015116, guid: 31cc39c39d5ef4d408e31746913e9256, type: 2}
-  - {fileID: 100016, guid: 721dc78da75d8e349a916ba16663fc35, type: 2}
-  - {fileID: 100052, guid: 07c67b3942f23f74c982034b3493eebd, type: 2}
-  - {fileID: 100236, guid: 98d5ff9711eafa54380ebebe77b45a09, type: 2}
-  fogs:
-  - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
-  - {r: 0.7137255, g: 0.53333336, b: 0.4862745, a: 1}
-  - {r: 0.32941177, g: 0.2901961, b: 0.4117647, a: 1}
-  - {r: 0.2901961, g: 0.4117647, b: 0.42352942, a: 1}
-  lights:
-  - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
-  - {r: 0.6392157, g: 0.46666667, b: 0.83137256, a: 1}
-  - {r: 0.6666667, g: 0.7529412, b: 0.827451, a: 1}
-  - {r: 0.8392157, g: 0.4745098, b: 0.7019608, a: 1}
-  fogDensity:
-  - 0.003
-  - 0.003
-  - 0.0075
-  - 0.0075
---- !u!4 &803462882
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 803462880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.618239, y: 19.456997, z: -27.42273}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &809088776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6839,6 +6778,53 @@ MonoBehaviour:
   baseWidth: 0
   idTextoTraducido: 9
   mayusculas: 1
+--- !u!1001 &1453015661
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.618239
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 19.456997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -27.42273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547177359882338, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338004591035514, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9,
+        type: 2}
+      propertyPath: estadioModel
+      value: 
+      objectReference: {fileID: 579644439}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4b39e50a2d7334be4b3e55d04d1dd4f9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1457269146
 GameObject:
   m_ObjectHideFlags: 0

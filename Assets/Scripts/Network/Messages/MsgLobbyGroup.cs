@@ -22,7 +22,7 @@ public class MsgLobbyGroup : MensajeBase
     
     public override void process()
     {
-        ifcDuelo.instance.ShowRivales(NetToUsuario(m_clients));
+		ifcDuelo.instance.AsignarRival(NetToUsuario(m_clients));
     }
 
     public static Usuario[] NetToUsuario(UsuarioNet[] _usuarios)

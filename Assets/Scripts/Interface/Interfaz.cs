@@ -151,6 +151,11 @@ public class Interfaz : MonoBehaviour
 
     public static int Liga { get { return m_liga; } set { m_liga = value; } }
     static int m_liga = 0;
+    public static Liga LigaInfo {
+        get {
+            return LigaManager.instance.Ligas[m_liga];
+        }
+    }
 
     public static progress m_asThrower;
     public static progress m_asKeeper;

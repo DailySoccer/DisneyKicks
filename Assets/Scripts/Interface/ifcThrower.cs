@@ -74,8 +74,10 @@ public class ifcThrower : ifcBase {
         if(Input.GetKeyDown("9")) PowerupService.instance.UsePowerup((Powerup)8);
 #endif
 
+        // FIX XIMO: 27/06/2017: Esperamos a que FieldControl esté "listo"
         // comprobar si el balon esta en estado de espera
-        if (BallPhysics.instance.state == BallPhysics.BallState.Waiting &&
+        if (FieldControl.instance.playOnCourse &&
+            BallPhysics.instance.state == BallPhysics.BallState.Waiting &&
             (GameplayService.IsGoalkeeper() || (GoalCamera.instance.stateMachine.current == ThrowerCameraStates.Init.instance)) &&
             (!InputManager.instance.m_initializedGesture)) {
             // comprobar si la pastilla de powerups debe estar visible

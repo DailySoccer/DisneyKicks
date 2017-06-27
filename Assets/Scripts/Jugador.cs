@@ -92,6 +92,14 @@ public class Jugador {
     public Powerup[] powerups { get { return m_powerups; } set { m_powerups = value; } }
     private Powerup[] m_powerups;
 
+    public bool HasPowerup(Powerup powerup) {
+        return powerups.Any( el => el == powerup );
+    }
+
+    public bool HasPowerup(int powerupID) {
+        return powerups != null && powerups.Any( el => (int) el == powerupID );
+    }
+
     /*
      * DATOS A REGISTRAR EN PREFS
      */

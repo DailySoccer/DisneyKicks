@@ -135,16 +135,29 @@ public class cntPastillaPowerups : MonoBehaviour {
         int numPowerups = modoLanzador ? NUM_POWERUPS_LANZADOR : NUM_POWER_UPS_PORTERO;
         GameMode gameMode = modoLanzador ? GameMode.Shooter : GameMode.GoalKeeper;
         for (int i = 0; i < numPowerups; ++i) {
+            // Activamos o desactivamos los powerups dependiendo del tirador y portero actualmente seleccionados
             int cantidadPowerup = PowerupService.ownInventory.GetCantidadPowerUp(gameMode, i);
+            if (gameMode == GameMode.Shooter) {
+                cantidadPowerup = FieldControl.localThrower.HasPowerup(i) ? 10 : 0;
+            }
+            else {
+                cantidadPowerup = FieldControl.localGoalkeeper.HasPowerup((int)Powerup.Manoplas + i) ? 10 : 0;
+            }
             m_txtCantidadesPowerUp[i].text = cantidadPowerup.ToString();
             m_txtCantidadesPowerUpSombra[i].text = m_txtCantidadesPowerUp[i].text;
-            m_txtCantidadesPowerUp[i].gameObject.SetActive(true);
+
+            m_txtCantidadesPowerUpSombra[i].gameObject.SetActive(cantidadPowerup > 0);
+            m_txtCantidadesPowerUp[i].gameObject.SetActive(cantidadPowerup > 0);
 
             // comprobar si el boton debe estar habilitado o no
-            if (gameMode == GameMode.Shooter)
+            if (gameMode == GameMode.Shooter) {
                 m_btnPowerupLanzador[i].SetEnabled(cantidadPowerup > 0);
-            else
+                m_btnPowerupLanzador[i].gameObject.SetActive(cantidadPowerup > 0);
+            }
+            else {
                 m_btnPowerupPortero[i].SetEnabled(cantidadPowerup > 0);
+                m_btnPowerupPortero[i].gameObject.SetActive(cantidadPowerup > 0);
+            }
         }
         for (int i = numPowerups; i < m_txtCantidadesPowerUp.Length; ++i) {
             m_txtCantidadesPowerUp[i].gameObject.SetActive(false);

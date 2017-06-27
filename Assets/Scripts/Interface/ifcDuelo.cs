@@ -136,6 +136,8 @@ public class ifcDuelo : ifcBase {
         // indicar que la pantalla no esta en modo VS
         m_modoVs = false;
 
+        m_duelAccepted = false;
+
         // mostrar la informacion de todos los jugadores rivales
         for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
             m_cntInfoJugadoresDuelo[i].SetVisible(false);

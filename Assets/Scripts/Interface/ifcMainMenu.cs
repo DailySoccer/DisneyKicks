@@ -65,6 +65,12 @@ public class ifcMainMenu : ifcBase {
 
 		m_btnDueloPlay.action = (_name) => {
 
+            // pedir el alias al usuario
+            if (Interfaz.m_uname == "") {
+                PedirAlias(Interfaz.m_uname);
+                return;
+            }
+
 			// Ocultar mainmenu y BottomBar
 			new SuperTweener.move (ifcMainMenu.instance.gameObject, 0.25f, new Vector3 (1.5f, 0f, 0.0f), SuperTweener.CubicOut, (_target) => {
 			});
@@ -245,4 +251,31 @@ public class ifcMainMenu : ifcBase {
         ImagenLiga.texture = Escudos2D[escudo];
 	}
 
+    private void PedirAlias(string _aliasActual = "") {
+        ifcDialogBox.instance.ShowOneButtonDialog(
+            ifcDialogBox.OneButtonType.POSITIVE, 
+            LocalizacionManager.instance.GetTexto(283).ToUpper(),
+            LocalizacionManager.instance.GetTexto(284).ToUpper(),
+            LocalizacionManager.instance.GetTexto(45).ToUpper(),
+            (_name) => {
+                if(ifcDialogBox.instance.textoEditado.Length < 6)
+                {
+                    ifcDialogBox.instance.ShowOneButtonDialog(
+                        ifcDialogBox.OneButtonType.POSITIVE, 
+                        LocalizacionManager.instance.GetTexto(283).ToUpper(),
+                        LocalizacionManager.instance.GetTexto(285).ToUpper(),
+                        LocalizacionManager.instance.GetTexto(45).ToUpper(),
+                        (_name2) => {PedirAlias(ifcDialogBox.instance.textoEditado);}
+                    );
+                }
+                else
+                {
+                    PersistenciaManager.instance.SaveAlias(ifcDialogBox.instance.textoEditado);
+                    m_btnDueloPlay.action("");
+                }
+            }, 
+            true
+        );
+        ifcDialogBox.instance.ShowTextInput(_aliasActual);
+    }
 }

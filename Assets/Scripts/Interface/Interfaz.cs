@@ -1524,10 +1524,14 @@ public class Interfaz : MonoBehaviour
         Quaternion groundLookAt = Quaternion.LookRotation((cameraProjection - newPos).normalized);
         GameObject model = GameObject.Instantiate(_isGoalkeeper ? (goalkeepers[_index]) : (throwers[_index]), newPos, groundLookAt) as GameObject;
         model.GetComponent<Animation>()[model.GetComponent<Animation>().clip.name].normalizedTime = Random.Range(0f, 1f);
-        if (_equipacion != null)
-        {
+        if (_equipacion != null) {
+            Material[] mats = model.transform.FindChild("Body").gameObject.GetComponent<Renderer>().materials;
+            mats[0] = _isGoalkeeper ? EquipacionManager.instance.m_materialsPortero[_equipacion.idTextura] : EquipacionManager.instance.m_materialsLanzador[_equipacion.idTextura];
+            model.transform.FindChild("Body").gameObject.GetComponent<Renderer>().materials = mats;
+            /*
             model.transform.FindChild("Body").gameObject.GetComponent<Renderer>().materials[0].SetTexture("_MainTex", _isGoalkeeper ? EquipacionManager.instance.m_texturasPortero[_equipacion.idTextura] : EquipacionManager.instance.m_texturasLanzador[_equipacion.idTextura]);
             model.transform.FindChild("Body").gameObject.GetComponent<Renderer>().materials[0].color = Color.grey;
+            */
         }
         return (model);
     }

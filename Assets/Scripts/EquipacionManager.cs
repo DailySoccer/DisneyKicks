@@ -24,6 +24,8 @@ public class EquipacionManager: MonoBehaviour {
     // NOTA: asignar valor a estas propiedades desde la interfaz de Unity
     public Texture[] m_texturasLanzador;
     public Texture[] m_texturasPortero;
+    public Material[] m_materialsLanzador;
+    public Material[] m_materialsPortero;
 
     // informacion de las equipaciones de los jugadores
     private List<Equipacion> m_equipacionesLanzador;
@@ -236,8 +238,14 @@ public class EquipacionManager: MonoBehaviour {
         if (Interfaz.instance.throwerModel) {
             int idTextura = m_equipacionesLanzador[idEquipacionLanzadorSeleccionada].idTextura;
             GameObject bodyModeloJugador = Interfaz.instance.throwerModel.transform.FindChild("Body").gameObject;
+
+            Material[] mats = bodyModeloJugador.GetComponent<Renderer>().materials;
+            mats[0] = m_materialsLanzador[idTextura]; 
+            bodyModeloJugador.GetComponent<Renderer>().materials = mats;
+            /*
             bodyModeloJugador.GetComponent<Renderer>().materials[0].SetTexture("_MainTex", m_texturasLanzador[idTextura]);
             bodyModeloJugador.GetComponent<Renderer>().materials[0].color = Color.grey;
+            */
 
             // colorear el dorsal del jugador en funcion de la equipacion que lleve
             Color colorDorsal = Color.white;    // <= por defecto blanco
@@ -277,9 +285,15 @@ public class EquipacionManager: MonoBehaviour {
             int idTextura = m_equipacionesPortero[idEquipacionPorteroSeleccionada].idTextura;
 
             GameObject bodyModeloJugador = Interfaz.instance.goalkeeperModel.transform.FindChild("Body").gameObject;
+
+            Material[] mats = bodyModeloJugador.GetComponent<Renderer>().materials;
+            mats[0] = m_materialsPortero[idTextura]; 
+            bodyModeloJugador.GetComponent<Renderer>().materials = mats;
+            /*
+            bodyModeloJugador.GetComponent<Renderer>().materials[0] = m_materialsPortero[idTextura];
             bodyModeloJugador.GetComponent<Renderer>().materials[0].SetTexture("_MainTex", m_texturasPortero[idTextura]);
             bodyModeloJugador.GetComponent<Renderer>().materials[0].color = Color.grey;
-
+            */
 
             // colorear el dorsal del jugador en funcion de la equipacion que lleve
             Color colorDorsal = Color.white;    // <= por defecto blanco
@@ -349,8 +363,13 @@ public class EquipacionManager: MonoBehaviour {
         if(_portero)
         {
             GameObject bodyModeloJugador = _modelo.transform.FindChild("Body").gameObject;
+            Material[] mats = bodyModeloJugador.GetComponent<Renderer>().materials;
+            mats[0] = m_materialsPortero[idTextura]; 
+            bodyModeloJugador.GetComponent<Renderer>().materials = mats;
+            /*
             bodyModeloJugador.GetComponent<Renderer>().materials[0].SetTexture("_MainTex", m_texturasPortero[idTextura]);
             bodyModeloJugador.GetComponent<Renderer>().materials[0].color = Color.grey;
+            */
 
             // colorear el dorsal del jugador en funcion de la equipacion que lleve
             Color colorDorsal = Color.white;    // <= por defecto blanco
@@ -366,8 +385,13 @@ public class EquipacionManager: MonoBehaviour {
         else
         {
             GameObject bodyModeloJugador = _modelo.transform.FindChild("Body").gameObject;
+            Material[] mats = bodyModeloJugador.GetComponent<Renderer>().materials;
+            mats[0] = m_materialsLanzador[idTextura]; 
+            bodyModeloJugador.GetComponent<Renderer>().materials = mats;
+            /*
             bodyModeloJugador.GetComponent<Renderer>().materials[0].SetTexture("_MainTex", m_texturasLanzador[idTextura]);
             bodyModeloJugador.GetComponent<Renderer>().materials[0].color = Color.grey;
+            */
 
             // colorear el dorsal del jugador en funcion de la equipacion que lleve
             Color colorDorsal = Color.white;    // <= por defecto blanco

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#define MONEY_FREE
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -110,6 +112,18 @@ public class ifcBuyHardCashDialogBox: ifcBase {
             btn.GetComponent<GUITexture>().texture = (_showHardCoinPacks) ? m_texturaHardCoins : m_texturaSoftCoins;
             btn.m_current = (_showHardCoinPacks) ? m_texturaHardCoins : m_texturaSoftCoins;
             btn.action = (_name) => {
+#if MONEY_FREE
+                GeneralSounds_menu.instance.playOneShot(GeneralSounds_menu.instance.compraMonedaClip);
+                Debug.Log("Money free " + skuIndex);
+                // BillingManager.instance.purchaseProduct(PurchaseManager.skus[skuIndex]);
+
+                // incrementar los diferentes tipos de moneda
+                PurchaseManager.PerformPurchase(PurchaseManager.skus[skuIndex]);
+
+                // ocultar este control
+                this.gameObject.SetActive(false);
+                cntBarraSuperior.instance.ActualizarDinero();
+#else
                 GeneralSounds_menu.instance.playOneShot(GeneralSounds_menu.instance.compraMonedaClip);
                 Debug.Log("Comprar paquete " + skuIndex);
                 BillingManager.instance.purchaseProduct(PurchaseManager.skus[skuIndex]);
@@ -122,6 +136,7 @@ public class ifcBuyHardCashDialogBox: ifcBase {
                 // ocultar este control
                 //this.gameObject.SetActive(false);
                 //cntBarraSuperior.instance.ActualizarDinero();
+#endif
             };
 
             // actualizar el texto con la cantidad de moneda del pack

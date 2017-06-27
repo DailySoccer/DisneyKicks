@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#define MONEY_FREE
+
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -91,12 +93,26 @@ public class cntBarraSuperior : MonoBehaviour {
         m_btnMonedaHard.action = (_name) => {
             Interfaz.ClickFX();
             ifcBuyHardCashDialogBox.Instance.Show(true);
+
+            #if MONEY_FREE
+
+            PurchaseManager.PerformPurchase("com.bitoon.kicksfootballwarriors.gembooster.1");
+            ActualizarDinero();
+
+            #endif
         };
 
         // boton moneda soft
         m_btnMonedaSoft.action = (_name) => {
             Interfaz.ClickFX();
             ifcBuyHardCashDialogBox.Instance.Show(false);
+
+            #if MONEY_FREE
+
+            PurchaseManager.PerformPurchase("com.bitoon.kicksfootballwarriors.coinbooster.1");
+            ActualizarDinero();
+
+            #endif
         };
 
         // boton logros

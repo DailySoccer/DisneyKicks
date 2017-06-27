@@ -102,7 +102,7 @@ public class ifcGameOverSingle : ifcBase {
             m_goContinue = t.gameObject.GetComponent<btnButton>();
             m_goContinue.action = (_name) => {
                 GeneralSounds.instance.click();
-                ifcMainMenu.goCarrera = true;
+                // ifcMainMenu.goCarrera = true;
                 FieldControl.instance.goToMenu();
                 EscudosManager.instance.ComprobarEscudosConsumidos();
             };

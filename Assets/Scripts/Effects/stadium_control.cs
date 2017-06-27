@@ -11,17 +11,17 @@ public class stadium_control : MonoBehaviour
     public static int estadioIndex = 0;
     public static stadium_control instance;
 
-    void Awake()
-    {
+    void Awake() {
         instance = this;
-        estadioIndex = PlayerPrefs.GetInt("estadio", 0);
+        RefreshScenario();
+    }
+
+    public void RefreshScenario() {
+        estadioIndex = PlayerPrefs.GetInt("liga", 0);
         SetScenario();
     }
 
-    public void SetScenario()
-    {
-        PlayerPrefs.SetInt("estadio", estadioIndex);
-        PlayerPrefs.Save();
+    public void SetScenario() {
         GameObject.Destroy(estadioModel);
         RenderSettings.ambientLight = lights[estadioIndex];
         RenderSettings.fogDensity = fogDensity[estadioIndex];

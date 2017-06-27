@@ -177,8 +177,8 @@ public class cntBarraSuperior : MonoBehaviour {
 		if (m_txtSkillLevelSombra == null)
 			m_txtSkillLevelSombra = transform.FindChild("btnPerfil/txtCantidadSombra").GetComponent<GUIText>();
 	
-		m_txtSkillLevel.text = "101";
-		m_txtSkillLevelSombra.text = "101";
+        m_txtSkillLevel.text = Interfaz.SkillLevel.ToString();
+        m_txtSkillLevelSombra.text = Interfaz.SkillLevel.ToString();
 	}
 
 

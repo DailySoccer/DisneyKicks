@@ -13,11 +13,7 @@ public class ifcMainMenu : ifcBase {
     // instancia de esta clase
     public static ifcMainMenu instance { get; protected set; }
 
-    // para indicar si hay que saltar de esta interfaz a carrera (singleplayer) o a duelo (multiplayer)
-    public static bool goCarrera { set { m_goCarrera = value; if (value) m_showCarrera = value; } get { return m_goCarrera; } }
-    private static bool m_goCarrera = false;
-    public static bool goDuelo { set { m_goDuelo = value; if (value) m_showDuelo = value; } get { return m_goDuelo; } }
-    private static bool m_goDuelo = false;
+    public Texture2D[] Escudos2D;
 
     // variables para indicar que hay que pintar una determinada interfaz
     private static bool m_showCarrera = false;
@@ -27,10 +23,10 @@ public class ifcMainMenu : ifcBase {
     private btnButton m_btnOpciones;
     private btnButton m_btnVelo;
 
-	//ADRIAN añado la funcionalidad del nuevo boton DueloPLay
+	// añado la funcionalidad del nuevo boton DueloPLay
 	private btnButton m_btnDueloPlay;
 
-	//ADRIAN añado funcionalidad de Logo Liga
+	// añado funcionalidad de Logo Liga
 	private GUITexture ImagenLiga;
 
 
@@ -60,74 +56,31 @@ public class ifcMainMenu : ifcBase {
         transform.FindChild("botones/btnCarrera").GetComponent<btnButton>().action = OnCarrera;
         transform.FindChild("botones/btnDuelo").GetComponent<btnButton>().action = OnDuelo;
 
-		//ADRIAN Textura del Logo Liga
+		// Textura del Logo Liga
 		ImagenLiga = transform.FindChild("logo").GetComponent<GUITexture>();
+        ActualizarLogoLiga();
 
-		//ADRIAN nuevo boton DueloPlay
+		// nuevo boton DueloPlay
 		m_btnDueloPlay = transform.FindChild("botones/btnDueloPLAY").GetComponent<btnButton>();
 
 		m_btnDueloPlay.action = (_name) => {
 
-			//ADRIAN Ocultar mainmenu y BottomBar
+			// Ocultar mainmenu y BottomBar
 			new SuperTweener.move (ifcMainMenu.instance.gameObject, 0.25f, new Vector3 (1.5f, 0f, 0.0f), SuperTweener.CubicOut, (_target) => {
 			});
 			new SuperTweener.move (ifcBottomBar.instance.gameObject, 0.25f, new Vector3 (0f, -0.2f, 0.0f), SuperTweener.CubicOut, (_target) => {
 			});
 
-			Debug.Log("VOY A JUGAR UN DUELO");
-			//ADRIAN variables necesarias para que funcione
-			ifcBase m_pantallaAnterior = ifcMainMenu.instance;
-			//
 			GeneralSounds_menu.instance.playOneShot(GeneralSounds_menu.instance.confirmClip);
-			bool estoyJugandoDuelo = (m_pantallaAnterior == ifcMainMenu.instance);
-			// si el usuario necesita al menos un lanzador para jugar => comprobar que lo tenga
-			if ((estoyJugandoDuelo || (!estoyJugandoDuelo && GameplayService.initialGameMode == GameMode.Shooter))
-				&& !InfoJugadores.instance.HayAlgunLanzadorAdquirido()) {
-
-				ifcDialogBox.instance.ShowOneButtonDialog(
-					ifcDialogBox.OneButtonType.POSITIVE,
-					LocalizacionManager.instance.GetTexto(84).ToUpper(),
-					LocalizacionManager.instance.GetTexto(94),
-					LocalizacionManager.instance.GetTexto(45).ToUpper());
-
-				return;
-			}
-
-			// si el usuario necesita al menos un portero para jugar => comprobar que lo tenga
-			if ((estoyJugandoDuelo || (!estoyJugandoDuelo && GameplayService.initialGameMode == GameMode.GoalKeeper))
-				&& !InfoJugadores.instance.HayAlgunPorteroAdquirido()) {
-
-				ifcDialogBox.instance.ShowOneButtonDialog(
-					ifcDialogBox.OneButtonType.POSITIVE,
-					LocalizacionManager.instance.GetTexto(84).ToUpper(),
-					LocalizacionManager.instance.GetTexto(95),
-					LocalizacionManager.instance.GetTexto(45).ToUpper());
-
-				return;
-			}
-
 			Interfaz.ClickFX();
-			//ADRIAN método necesario, lo tomamos de ifcVestuario
-			// al salir de esta pantalla verificar que los jugadores y las equipaciones seleccionadas estan adquiridas
-			ifcVestuario.instance.ComprobarJugadoresYEquipacionesAdquiridos();
 
-			// comprobar si se esta jugando en modo "single" o "multi"
-			if (m_pantallaAnterior == ifcMainMenu.instance) {
-				// estoy jugando Duelo => ir al "Lobby"
-
-				// ocultar la barra superior
-				//cntBarraSuperior.instance.SetVisible(false);
-				#if DEBUG_MULTI
-				GoDuelo();
-				#else
-				Interfaz.instance.getServerIP(Stats.tipo, Stats.zona);
-				#endif
-				ifcDialogBox.instance.ShowZeroButtonDialog(
-					LocalizacionManager.instance.GetTexto(96).ToUpper(),
-					LocalizacionManager.instance.GetTexto(97));
-				//ifcDialogBox.instance.Show(ifcDialogBox.TipoBotones.NONE, "Conectando...", "Por favor, espere.");
-
-			}
+			// ocultar la barra superior
+			//cntBarraSuperior.instance.SetVisible(false);
+			Interfaz.instance.getServerIP(Stats.tipo, Stats.zona);
+			ifcDialogBox.instance.ShowZeroButtonDialog(
+				LocalizacionManager.instance.GetTexto(96).ToUpper(),
+				LocalizacionManager.instance.GetTexto(97));
+			//ifcDialogBox.instance.Show(ifcDialogBox.TipoBotones.NONE, "Conectando...", "Por favor, espere.");
 		};
 
         // boton para mostrar las opciones
@@ -170,26 +123,25 @@ public class ifcMainMenu : ifcBase {
                 ifcBase.activeIface.m_backMethod("");
             }
         }
+
+        if(Input.GetKeyUp("+")) {
+            int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
+            Interfaz.MatchResult(Interfaz.SkillLevel, 1, Interfaz.SkillLevel+modOpponent, 0);
+            stadium_control.instance.RefreshScenario();
+            ActualizarLogoLiga();
+            cntBarraSuperior.instance.ActualizaSkillLevel();
+        }
+        if(Input.GetKeyUp("-")) {
+            int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
+            Interfaz.MatchResult(Interfaz.SkillLevel, 0, Interfaz.SkillLevel+modOpponent, 1);
+            stadium_control.instance.RefreshScenario();
+            ActualizarLogoLiga();
+            cntBarraSuperior.instance.ActualizaSkillLevel();
+        }
     }
 
 
-    void LateUpdate()
-    {
-        if(m_goCarrera)
-        {
-            OnCarrera(null);
-        }
-        if(m_goDuelo)
-        {
-            OnDuelo(null);
-            ifcVestuario.instance.GoDuelo();
-        }
-    }
-
-   
-	//ADRIAN hago esto void publica
-   // private void OnDuelo (string _name) {
-	public void OnDuelo (string _name) {
+    private void OnDuelo (string _name) {
         ifcBase.activeIface = ifcVestuario.instance;
         Interfaz.ClickFX();
 
@@ -214,7 +166,6 @@ public class ifcMainMenu : ifcBase {
     private void OnCarrera (string _name) {
         ifcCarrera.instance.SetVisible(true);
         ifcBase.activeIface = ifcCarrera.instance;
-        m_goCarrera = false;
         Interfaz.ClickFX();
         Interfaz.instance.CleanPlayers();
 
@@ -288,10 +239,10 @@ public class ifcMainMenu : ifcBase {
         }
     }
 
-	//ADRIAN metodo para actualizar el logo de la liga
-	public void ActualizarLogoLiga()
-	{
-		//ImagenLiga = blabla
+	// metodo para actualizar el logo de la liga
+    public void ActualizarLogoLiga() {
+        int escudo = PlayerPrefs.GetInt("liga", 0);
+        ImagenLiga.texture = Escudos2D[escudo];
 	}
 
 }

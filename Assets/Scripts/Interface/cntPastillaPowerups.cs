@@ -146,8 +146,8 @@ public class cntPastillaPowerups : MonoBehaviour {
             m_txtCantidadesPowerUp[i].text = cantidadPowerup.ToString();
             m_txtCantidadesPowerUpSombra[i].text = m_txtCantidadesPowerUp[i].text;
 
-            m_txtCantidadesPowerUpSombra[i].gameObject.SetActive(cantidadPowerup > 0);
-            m_txtCantidadesPowerUp[i].gameObject.SetActive(cantidadPowerup > 0);
+            m_txtCantidadesPowerUpSombra[i].gameObject.SetActive(false);
+            m_txtCantidadesPowerUp[i].gameObject.SetActive(false);
 
             // comprobar si el boton debe estar habilitado o no
             if (gameMode == GameMode.Shooter) {

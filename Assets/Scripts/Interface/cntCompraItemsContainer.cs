@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Clase para generar un elemento de interfaz contenedor de "cntCompraPowerUps"
@@ -47,6 +48,8 @@ public class cntCompraItemsContainer: MonoBehaviour {
     private btnButton m_btnDcha;
     private cntCompraItem[] m_cntCompraItem;
 
+    private Jugador m_jugador;
+
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
@@ -81,7 +84,7 @@ public class cntCompraItemsContainer: MonoBehaviour {
     /// </summary>
     /// <param name="_tipoItem"></param>
     /// <param name="_posicionOrigen"></param>
-    public void Inicializar(TipoItem _tipoItem, Vector2 _posicionOrigen) {
+    public void Inicializar(Jugador _jugador, TipoItem _tipoItem, Vector2 _posicionOrigen) {
         ObtenerReferencias();
         /*
         // reposicionar los items a comprar
@@ -90,6 +93,9 @@ public class cntCompraItemsContainer: MonoBehaviour {
             m_cntCompraItem[i].transform.localPosition = new Vector3(_posicionOrigen.x + (i * SEPARACION_X_ENTRE_ITEMS), _posicionOrigen.y, 0.0f);
         }
          */
+
+        m_jugador = _jugador;
+        m_numPaginaActual = 0;
 
         // mostrar la pagina
         ShowPagina(m_numPaginaActual, _tipoItem);
@@ -109,23 +115,25 @@ public class cntCompraItemsContainer: MonoBehaviour {
         int numTotalPaginas = 0;
         switch (_tipoItem) {
             case TipoItem.POWER_UP_LANZADOR:
-                numTotalPaginas = 1 + (Mathf.Max(1, PowerupInventory.descriptoresLanzador.Length - 1) / NUM_ITEMS_PAGINA);
+                List<PowerUpDescriptor> descriptoresLanzador = PowerupInventory.descriptoresLanzadorFiltered(m_jugador.powerups);
+                numTotalPaginas = 1 + (Mathf.Max(1, descriptoresLanzador.Count - 1) / NUM_ITEMS_PAGINA);
 
                 // actualizar los elementos del container
                 for (int i = 0; i < NUM_ITEMS_PAGINA; ++i)
-                    if ((_numPagina * NUM_ITEMS_PAGINA) + i < PowerupInventory.descriptoresLanzador.Length)
-                        m_cntCompraItem[i].ShowAsPowerUp(PowerupInventory.descriptoresLanzador[(_numPagina * NUM_ITEMS_PAGINA) + i]);
+                    if ((_numPagina * NUM_ITEMS_PAGINA) + i < descriptoresLanzador.Count)
+                        m_cntCompraItem[i].ShowAsPowerUp(descriptoresLanzador[(_numPagina * NUM_ITEMS_PAGINA) + i]);
                     else
                         m_cntCompraItem[i].ShowAsPowerUp(null);
                 break;
 
             case TipoItem.POWER_UP_PORTERO:
-                numTotalPaginas = 1 + (Mathf.Max(1, PowerupInventory.descriptoresPortero.Length - 1) / NUM_ITEMS_PAGINA);
+                List<PowerUpDescriptor> descriptoresPortero = PowerupInventory.descriptoresPorteroFiltered(m_jugador.powerups);
+                numTotalPaginas = 1 + (Mathf.Max(1, descriptoresPortero.Count - 1) / NUM_ITEMS_PAGINA);
 
                 // actualizar los elementos del container
                 for (int i = 0; i < NUM_ITEMS_PAGINA; ++i)
-                    if ((_numPagina * NUM_ITEMS_PAGINA) + i < PowerupInventory.descriptoresPortero.Length)
-                        m_cntCompraItem[i].ShowAsPowerUp(PowerupInventory.descriptoresPortero[(_numPagina * NUM_ITEMS_PAGINA) + i]);
+                    if ((_numPagina * NUM_ITEMS_PAGINA) + i < descriptoresPortero.Count)
+                        m_cntCompraItem[i].ShowAsPowerUp(descriptoresPortero[(_numPagina * NUM_ITEMS_PAGINA) + i]);
                     else
                         m_cntCompraItem[i].ShowAsPowerUp(null);
                 break;

@@ -384,6 +384,8 @@ public class ifcVestuario : ifcBase {
 
             Interfaz.instance.Thrower += _desplazamiento;
             jugador = InfoJugadores.instance.GetTirador(Interfaz.instance.Thrower);
+            RefreshInfo();
+
             m_tooltipItemDisponible.Show(jugador);
         } else {
             // comprobar si la equipacion de PORTERO seleccionada ha sido ADQUIRIDA
@@ -394,6 +396,8 @@ public class ifcVestuario : ifcBase {
 
             Interfaz.instance.Goalkeeper += _desplazamiento;
             jugador = InfoJugadores.instance.GetPortero(Interfaz.instance.Goalkeeper);
+
+            RefreshInfo();
             m_tooltipItemDisponible.Show(jugador);
         }
 
@@ -571,9 +575,13 @@ public class ifcVestuario : ifcBase {
         m_tooltipItemDisponible.gameObject.SetActive(false);
 
         // grupos de items a comprar
-        m_cntCompraPowerUpsLanzador.Inicializar(cntCompraItemsContainer.TipoItem.POWER_UP_LANZADOR, new Vector2(-0.033f, 0.07f));
-        m_cntCompraPowerUpsPortero.Inicializar(cntCompraItemsContainer.TipoItem.POWER_UP_PORTERO, new Vector2(-0.033f, 0.07f));
-        m_cntCompraEscudos.Inicializar(cntCompraItemsContainer.TipoItem.ESCUDO, new Vector2(-0.033f, -0.03f));
+        Jugador tirador = InfoJugadores.instance.GetTirador(Interfaz.instance.Thrower);
+        m_cntCompraPowerUpsLanzador.Inicializar(tirador, cntCompraItemsContainer.TipoItem.POWER_UP_LANZADOR, new Vector2(-0.033f, 0.07f));
+
+        Jugador portero = InfoJugadores.instance.GetPortero(Interfaz.instance.Goalkeeper);
+        m_cntCompraPowerUpsPortero.Inicializar(portero, cntCompraItemsContainer.TipoItem.POWER_UP_PORTERO, new Vector2(-0.033f, 0.07f));
+
+        m_cntCompraEscudos.Inicializar(/*Jugador*/ null, cntCompraItemsContainer.TipoItem.ESCUDO, new Vector2(-0.033f, -0.03f));
     }
 
 

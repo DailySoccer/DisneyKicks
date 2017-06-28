@@ -1,5 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public struct PowerupUsage
 {
@@ -110,6 +113,35 @@ public class PowerupInventory
     }
     private static PowerUpDescriptor[] m_descriptoresPortero;
 
+    public static List<PowerUpDescriptor> descriptoresLanzadorFiltered(Powerup[] powerups) {
+        List<PowerUpDescriptor> result = new List<PowerUpDescriptor>();
+
+        if (m_descriptoresLanzador == null)
+            InicializarDescriptores();
+
+        if (powerups != null) {
+            foreach(Powerup powerup in powerups) {
+                result.Add( m_descriptoresLanzador[(int)powerup] );
+            }
+        }
+
+        return result;
+    }
+
+    public static List<PowerUpDescriptor> descriptoresPorteroFiltered(Powerup[] powerups) {
+        List<PowerUpDescriptor> result = new List<PowerUpDescriptor>();
+
+        if (m_descriptoresPortero == null)
+            InicializarDescriptores();
+
+        if (powerups != null) {
+            foreach(Powerup powerup in powerups) {
+                result.Add( m_descriptoresPortero[(int)powerup - PowerupService.MAXPOWERUPSTIRADOR] );
+            }
+        }
+
+        return result;
+    }
 
 
     int[] GoalkeeperPowerups;
@@ -132,6 +164,9 @@ public class PowerupInventory
 
     public bool UsePowerup(int _id, GameMode _mode)
     {
+        // XIMO: 28/06/2017: Los powerups están disponibles (hasta que se implementen los cooldown)
+        return true;
+        /*
         if(fakedInfinite) return true;
         int[] inventory = (_mode == GameMode.Shooter) ? ThrowerPowerups : GoalkeeperPowerups;
         if(inventory[_id] <= 0)
@@ -147,6 +182,7 @@ public class PowerupInventory
             inventory[_id]--;
             return true;
         }
+        */
     }
 
 

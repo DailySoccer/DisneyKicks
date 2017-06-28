@@ -271,13 +271,17 @@ public class cntCompraItem: MonoBehaviour {
             // ocultar este control
             SetVisible(false);
 
+            m_txtBoost.gameObject.SetActive(false);
+
             // mostrar en el boton la textura por defecto
             m_btnCompra.GetComponent<GUITexture>().texture = AvataresManager.instance.m_texturaCompraPowerUp;
             m_btnCompra.m_current = AvataresManager.instance.m_texturaCompraPowerUp;
         } else {
             // mostrar este control
-            SetVisible(true);
+            SetVisible(false);
+            m_btnCompra.SetEnabled(true);
 
+            /*
             // actualizar la cantidad de items
             if (PowerupService.ownInventory == null)
                 m_txtCantidad.text = "0";
@@ -291,6 +295,7 @@ public class cntCompraItem: MonoBehaviour {
             // actualizar el resto de textos
             m_txtPrecio.text = "¤ " + _powerUpDescriptor.precioSoft.ToString();
             m_txtPrecioSombra.text = m_txtPrecio.text;
+            */
             m_txtBoost.gameObject.SetActive(false);
 
             // boton compra
@@ -298,10 +303,12 @@ public class cntCompraItem: MonoBehaviour {
             m_btnCompra.GetComponent<GUITexture>().texture = textura;
             m_btnCompra.m_current = textura;
 
+            /*
             m_btnCompra.action = (_name) => {
                 Interfaz.ClickFX();
                 AccionComprarPowerup(_powerUpDescriptor);
             };
+            */
         }
     }
 

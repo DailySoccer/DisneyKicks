@@ -4653,7 +4653,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400198, guid: 78e7c0bd228d8b845ac4b313b167e27d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400088, guid: 78e7c0bd228d8b845ac4b313b167e27d, type: 2}
       propertyPath: m_RootOrder
@@ -4669,7 +4669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400064, guid: 78e7c0bd228d8b845ac4b313b167e27d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400216, guid: 78e7c0bd228d8b845ac4b313b167e27d, type: 2}
       propertyPath: m_RootOrder
@@ -5033,32 +5033,36 @@ MonoBehaviour:
   - {fileID: 100120, guid: e540d50875c7cb5499a5109afbf05be1, type: 2}
   - {fileID: 100000, guid: bf86f6a0bcdec4e468548e0b1d0604ed, type: 2}
   - {fileID: 100120, guid: c3495a6c75cf51f4e9887270fd370f22, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100052, guid: b129ddae78017df4abf13c01534c6bc8, type: 2}
+  - {fileID: 100068, guid: a7823500b2dba0b4a88ef1d3044afdea, type: 2}
+  - {fileID: 100052, guid: 985a6ea3b1be5db409a60bca405ec0b9, type: 2}
+  - {fileID: 100056, guid: fd4be378bee258047b4d4774b45a6994, type: 2}
+  - {fileID: 100064, guid: 2dceb007b9bab7747ae729b0afd86c1c, type: 2}
+  - {fileID: 100056, guid: 5284e6f6988359642b3b38afb0d12184, type: 2}
+  - {fileID: 100086, guid: 358c50e6e2b1bfe40b203c07c5cc81c7, type: 2}
+  - {fileID: 100086, guid: f4724cfd631ac7944b58f29bd7bea57c, type: 2}
+  - {fileID: 100034, guid: 8b50bac430b9d1a48a0580fc2a0e20dc, type: 2}
+  - {fileID: 100048, guid: 6059d73813d11f84b9916d6dc1551071, type: 2}
   - {fileID: 100052, guid: 8942b19331b1c414a9fa755917ab3c74, type: 2}
   - {fileID: 100068, guid: b0d57a805869856469280871d60226a1, type: 2}
   - {fileID: 100052, guid: 75e721eb1febb93439f3b98ec180fdae, type: 2}
-  - {fileID: 0}
+  - {fileID: 100090, guid: 7f21873b860c66246bb110358135c073, type: 2}
   - {fileID: 100068, guid: 05245c51bae395b46af790fc932ebdbf, type: 2}
   - {fileID: 100048, guid: 55d1474f5e46e004eb00efc1f6f5a626, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100088, guid: 6e8de1e7101045945bdd09ce7dd8c484, type: 2}
+  - {fileID: 100118, guid: 379c474870ad6c644b20993d924b8be5, type: 2}
   - {fileID: 100072, guid: f81c2267e9424dd4bad81e540a803fab, type: 2}
-  - {fileID: 0}
+  - {fileID: 100048, guid: d641b1fadacde454d8cc32a104945968, type: 2}
   - {fileID: 100072, guid: 0fd92fa5e487a8a46b8c19b21e1c6a4f, type: 2}
   - {fileID: 100048, guid: 1a91603ccca47be4c8b55d09334cfa28, type: 2}
   - {fileID: 100072, guid: 6872faa1a913f154ea37adaa0027e372, type: 2}
   - {fileID: 100048, guid: 941252511b9d16547a480104f22d9447, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100048, guid: 425e969f93f2f7047b4938d069a08214, type: 2}
+  - {fileID: 100048, guid: 90ae5165652e8754e826b9a8478b2ca9, type: 2}
+  - {fileID: 100048, guid: 61e549891c7b5ec408c317fc6c2dc4f3, type: 2}
+  - {fileID: 100084, guid: 2d22d4c1075acd84995ba6a11ad7c3bb, type: 2}
+  - {fileID: 100036, guid: b61dd3f22e194cb44a4768997598b9c6, type: 2}
+  - {fileID: 100076, guid: 808578d43df269d4fa1635fb98795854, type: 2}
   goalkeeperModel: {fileID: 0}
   throwerModel: {fileID: 0}
   m_posicionInstancioacionLanzador: {x: 0, y: 0, z: 0}

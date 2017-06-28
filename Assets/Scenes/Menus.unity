@@ -1328,6 +1328,49 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7abe8de2d1caa24498e00825dca2b1f3, type: 3}
   - {fileID: 2800000, guid: 8dbd54647a1a6774a83e735cee84f458, type: 3}
   - {fileID: 2800000, guid: d693593f88c5af74ea62e796502b6dde, type: 3}
+  m_materialsLanzador:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: fe74e519cff6640149cc209c0b59a982, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 2ed183d88bbde12418b8957fe88668f6, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 7fc3222c71e384d5ba56bb0f9e525c05, type: 2}
+  - {fileID: 2100000, guid: 16cb56ba1895a4e7a9e4948a38025152, type: 2}
+  - {fileID: 2100000, guid: af73e0c686535894d9042063a9b485d1, type: 2}
+  - {fileID: 2100000, guid: 4578fa64345a3e64c96faadb8d39bb70, type: 2}
+  - {fileID: 2100000, guid: 49dc1546f57e60b4aaf6c33fa74f4786, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 4f1573cbe7a347248a859c811e76bb63, type: 2}
+  - {fileID: 2100000, guid: 0c1f6495ca6d3164796bec93af61bc87, type: 2}
+  - {fileID: 2100000, guid: 2e4f69cd3add5e94693bbdd8cdb229bf, type: 2}
+  - {fileID: 2100000, guid: 3794db49deb4d79488b16315814f0218, type: 2}
+  - {fileID: 2100000, guid: 2855d83bef689b44d82827a6a0223650, type: 2}
+  - {fileID: 2100000, guid: 0664a7142e23aef4f8e4ed35416ba20c, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: e6fd3f24d96014541aa7acbd8c8989a8, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 70566f6f961d2694896cf1df8a7177b4, type: 2}
+  m_materialsPortero:
+  - {fileID: 2100000, guid: b4926d1e8a238fe47b8522726b213206, type: 2}
+  - {fileID: 2100000, guid: b57d218f3c8740948be6b90684acd188, type: 2}
+  - {fileID: 2100000, guid: 7063b938d531d8f41a57aac991549333, type: 2}
+  - {fileID: 2100000, guid: d958aa3267745f048bacc466bf3c5809, type: 2}
+  - {fileID: 2100000, guid: 80f6d01bd34a52b4aa08948e622fb144, type: 2}
+  - {fileID: 2100000, guid: ccb8e656e45b84443882de959009224e, type: 2}
 --- !u!1001 &249766562
 Prefab:
   m_ObjectHideFlags: 0

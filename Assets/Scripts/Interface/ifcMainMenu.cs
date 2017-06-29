@@ -71,6 +71,8 @@ public class ifcMainMenu : ifcBase {
 			new SuperTweener.move (ifcBottomBar.instance.gameObject, 0.25f, new Vector3 (0f, -0.2f, 0.0f), SuperTweener.CubicOut, (_target) => {
 			});
 
+			ifcDuelo.instance.SetVisible(true);
+
 			GeneralSounds_menu.instance.playOneShot(GeneralSounds_menu.instance.confirmClip);
 			Interfaz.ClickFX();
 
@@ -124,14 +126,14 @@ public class ifcMainMenu : ifcBase {
             }
         }
 
-        if(Input.GetKeyUp("+")) {
+        if(Input.GetKeyUp("1")) {
             int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
             Interfaz.MatchResult(Interfaz.SkillLevel, 1, Interfaz.SkillLevel+modOpponent, 0);
             stadium_control.instance.RefreshScenario();
             ActualizarLogoLiga();
             cntBarraSuperior.instance.ActualizaSkillLevel();
         }
-        if(Input.GetKeyUp("-")) {
+        if(Input.GetKeyUp("0")) {
             int modOpponent = Cheats.Instance != null ? Cheats.Instance.OpponentELOMod : 0;
             Interfaz.MatchResult(Interfaz.SkillLevel, 0, Interfaz.SkillLevel+modOpponent, 1);
             stadium_control.instance.RefreshScenario();

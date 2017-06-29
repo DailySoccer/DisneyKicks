@@ -64,13 +64,13 @@ public class LocalizacionManager : MonoBehaviour {
             "medium",
             "low",
             "career",                                       // id = 8       PANTALLA MAIN_MENU
-            "duel",
+            "JUGAR",
             "select mission",                               // id = 10      PANTALLA CARRERA
             "mission",
             "level",
             "go!!",
-            "striker",                                      // id = 14      PANTALLA VESTUARIO
-            "goalie",                                   // id = 15
+            "Lanzador",                                      // id = 14      PANTALLA VESTUARIO
+            "Portero",                                   // id = 15
             "info",
             "powerups",
             "multipliers",

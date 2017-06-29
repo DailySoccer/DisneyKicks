@@ -12,6 +12,9 @@ public class cntInfoJugadorDuelo: ifcBase {
 
     // elementos visuales de este control
     private GUIText m_txtUsuario;
+	private GUIText m_txtUsuarioSombra;
+	private GUIText m_txtSkillLevel;
+	private GUIText m_txtSkillLevelSombra;
     private btnButton m_btnRetar;
     private GameObject m_jugadorEscena;
 
@@ -33,9 +36,7 @@ public class cntInfoJugadorDuelo: ifcBase {
         this.name = _name;
         this.transform.localPosition = _localPosition;
 
-        // guardar referencias a los elementos visuales de este control
-        m_txtUsuario = transform.FindChild("txtUsuario").gameObject.GetComponent<GUIText>();
-        m_btnRetar = transform.FindChild("btnRetar").gameObject.GetComponent<btnButton>();
+       
     }
 
 
@@ -50,7 +51,19 @@ public class cntInfoJugadorDuelo: ifcBase {
         m_usuario = _usuario;
 
         // actualizar textos
-        m_txtUsuario.text = _usuario.alias;
+		// guardar referencias a los elementos visuales de este control
+		m_txtUsuario = transform.FindChild("Usuario/txtUsuario").gameObject.GetComponent<GUIText>();
+		m_txtUsuarioSombra = transform.FindChild("Usuario/txtUsuarioSombra").gameObject.GetComponent<GUIText>();
+
+		m_txtSkillLevel = transform.FindChild("SkillLevel/txtSkillLevel").gameObject.GetComponent<GUIText>();
+		m_txtSkillLevelSombra = transform.FindChild("SkillLevel/txtSkillLevelSombra").gameObject.GetComponent<GUIText>();
+
+		m_btnRetar = transform.FindChild("btnRetar").gameObject.GetComponent<btnButton>();
+
+		m_txtUsuario.text = m_usuario.alias;
+		m_txtUsuarioSombra.text =  m_usuario.alias;
+		m_txtSkillLevel.text = Interfaz.SkillLevel.ToString();
+		m_txtSkillLevelSombra.text = Interfaz.SkillLevel.ToString();
 
         // actualizar collider
         if (_habilitarRetar) {
@@ -104,7 +117,8 @@ public class cntInfoJugadorDuelo: ifcBase {
 
         // instanciar y mostrar el jugador en la escena
         if(m_jugadorEscena != null) GameObject.Destroy(m_jugadorEscena);
-        Vector3 relPosition = new Vector3(transform.position.x, transform.position.y + 0.05f, transform.position.z);
+        Vector3 relPosition = new Vector3(transform.position.x, transform.position.y + 0.05f, transform.position.z -100f);
+		//Vector3 relPosition = new Vector3(-6f, 0f, -7.6f);
         m_jugadorEscena = Interfaz.instance.InstantiatePlayerAtScreenRelative(relPosition, _usuario.initMode, _usuario.DefaultCharacter.idModelo, (_usuario.initMode) ? _usuario.equipacionGoalkeeper : _usuario.equipacionShooter);
 
         // actualizar control

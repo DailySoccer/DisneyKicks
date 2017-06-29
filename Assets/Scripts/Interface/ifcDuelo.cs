@@ -48,10 +48,14 @@ public class ifcDuelo : ifcBase {
     private static ifcDuelo m_instance;
 
     // variables para la instanciacion de prefabs (inicializarlas en la interfaz de Unity)
-    public GameObject prefInfoJugadorDuelo;      // <= prefab para mostrar la informacion de los jugadores disponibles para el duelo
+	public GameObject prefInfoJugadorDuelo00;      // <= prefab para mostrar la informacion del jugador00
+	private cntInfoJugadorDuelo pref00;
+
+	public GameObject prefInfoJugadorDuelo01;      // <= prefab para mostrar la informacion del jugador01
+	private cntInfoJugadorDuelo pref01;
 
     // controles para mostrar los jugadores disponibles para el duelo
-    private cntInfoJugadorDuelo[] m_cntInfoJugadoresDuelo;
+//    private cntInfoJugadorDuelo[] m_cntInfoJugadoresDuelo;
 
     // otros elementos de interfaz
     private GameObject m_imagenVs;
@@ -84,6 +88,12 @@ public class ifcDuelo : ifcBase {
 	//booleana para tiempo de espera en Buscar Rivales
 	private bool m_duelAccepted;
 
+	//Array de imagenes para el nombre del tipo de Liga y el Escudo de cada una
+	public Texture[] ImagenesLiga;
+	private GUITexture ImagenLiga;
+	private GUITexture ImagenEscudoLiga;
+
+
 
     // ------------------------------------------------------------------------------
     // ---  METODOS  ----------------------------------------------------------------
@@ -109,21 +119,28 @@ public class ifcDuelo : ifcBase {
 		
 		//interfaz VS
         m_imagenVs = transform.FindChild("vs").gameObject;
+		m_imagenVs.SetActive (false);
         m_barraProgreso = transform.FindChild("vs/barraProgreso").GetComponent<GUITexture>();
         m_barraProgresoFondo = transform.FindChild("vs/barraProgresoFake").GetComponent<GUITexture>();
+		ImagenLiga = transform.FindChild("vs/NombreLiga").GetComponent<GUITexture>();
+		ImagenEscudoLiga = transform.FindChild("vs/EscudoLiga").GetComponent<GUITexture>();
 
         this.m_backMethod = Back;
 
         // crear los controles para mostrar la informacion de los jugadores disponibles para el duelo
-        if (m_cntInfoJugadoresDuelo == null) {
-            m_cntInfoJugadoresDuelo = new cntInfoJugadorDuelo[NUM_JUGADORES_PAGINA];
-            GameObject go;
-            for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
-                go = (GameObject) GameObject.Instantiate(prefInfoJugadorDuelo);
-                m_cntInfoJugadoresDuelo[i] = go.GetComponent<cntInfoJugadorDuelo>();
-                m_cntInfoJugadoresDuelo[i].Inicializar(this.transform, "infoJugadorDuelo" + i, new Vector3(0.14f + (i * 0.24f), 0.185f, 0.0f));
-            }
-        }
+//        if (m_cntInfoJugadoresDuelo == null) {
+//            m_cntInfoJugadoresDuelo = new cntInfoJugadorDuelo[NUM_JUGADORES_PAGINA];
+//            GameObject go;
+//            for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
+//                go = (GameObject) GameObject.Instantiate(prefInfoJugadorDuelo);
+//                m_cntInfoJugadoresDuelo[i] = go.GetComponent<cntInfoJugadorDuelo>();
+//                m_cntInfoJugadoresDuelo[i].Inicializar(this.transform, "infoJugadorDuelo" + i, new Vector3(0.14f + (i * 0.22f), 0.185f, 0.0f));
+//            }
+//        }
+
+
+
+
 			
         ShowConectando();
   }
@@ -136,10 +153,10 @@ public class ifcDuelo : ifcBase {
         // indicar que la pantalla no esta en modo VS
         m_modoVs = false;
 
-        // mostrar la informacion de todos los jugadores rivales
-        for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
-            m_cntInfoJugadoresDuelo[i].SetVisible(false);
-        }
+//        // mostrar la informacion de todos los jugadores rivales
+//        for (int i = 0; i < m_cntInfoJugadoresDuelo.Length; ++i) {
+//            m_cntInfoJugadoresDuelo[i].SetVisible(false);
+//        }
 
         // ocultar la imagen de vs
         m_imagenVs.SetActive(false);
@@ -174,8 +191,21 @@ public class ifcDuelo : ifcBase {
 	public void DuelAccepted(Usuario _usuarioRival) {
 		
 		m_duelAccepted = true;
+		PantallaBuscandoRival.SetActive (true);
 		OBJBarraBuscandoRival.SetActive (true);
+		m_imagenVs.SetActive(false);
 
+		//Instanciar los prefabs de info del Jugador00(yo)
+		prefInfoJugadorDuelo00 = (GameObject) GameObject.Instantiate(prefInfoJugadorDuelo00);
+		pref00 = prefInfoJugadorDuelo00.GetComponent<cntInfoJugadorDuelo> ();
+		pref00.Inicializar (this.transform, "infoJugadorDuelo00", new Vector3 (0.14f, 0.185f, 0f));
+		ifcBase.Scale (pref00.gameObject);
+
+		//Instanciar los prefabs de info del Jugador01(contrincante)
+		prefInfoJugadorDuelo01 = (GameObject) GameObject.Instantiate(prefInfoJugadorDuelo01);
+		pref01 = prefInfoJugadorDuelo01.GetComponent<cntInfoJugadorDuelo> ();
+		pref01.Inicializar (this.transform, "infoJugadorDuelo01", new Vector3 (0.75f, 0.185f, 0f));
+		ifcBase.Scale (pref01.gameObject);
 	}
 
 
@@ -186,9 +216,10 @@ public class ifcDuelo : ifcBase {
     public void ShowVs(Usuario _usuarioRival) {
 
         // ocultar la informacion de los jugadores (salvo la del primero y el ultimo)
-        for (int i = 1; i < m_cntInfoJugadoresDuelo.Length - 1; ++i) {
-            m_cntInfoJugadoresDuelo[i].SetVisible(false);
-        }
+//        for (int i = 1; i < m_cntInfoJugadoresDuelo.Length - 1; ++i) {
+//            m_cntInfoJugadoresDuelo[i].SetVisible(false);
+//        }
+
 
         // mostrar la info del jugador local y del rival
         Usuario me = new Usuario(Interfaz.m_uname, 0, 0, "");
@@ -201,8 +232,11 @@ public class ifcDuelo : ifcBase {
         me.equipacionShooter = EquipacionManager.instance.GetEquipacionLanzadorSeleccionada();
         me.equipacionGoalkeeper = EquipacionManager.instance.GetEquipacionPorteroSeleccionada();
 
-        m_cntInfoJugadoresDuelo[0].AsignarValores(me, false, true);
-        m_cntInfoJugadoresDuelo[m_cntInfoJugadoresDuelo.Length - 1].AsignarValores(_usuarioRival, false);
+//        m_cntInfoJugadoresDuelo[0].AsignarValores(me, false, true);
+//        m_cntInfoJugadoresDuelo[m_cntInfoJugadoresDuelo.Length - 1].AsignarValores(_usuarioRival, false);
+		pref00.AsignarValores (me, false, true);
+		pref01.AsignarValores (_usuarioRival, false);
+
 
         // mostrar la imagen de vs
         m_imagenVs.SetActive(true);
@@ -211,11 +245,18 @@ public class ifcDuelo : ifcBase {
         m_modoVs = true;
         m_tiempoTranscurridoEnPantallaVs = 0.0f;
 
+		// ocultar la pantalla buscando rival y mostrar info
+		PantallaBuscandoRival.SetActive (false);
+		OBJBarraBuscandoRival.SetActive (false);
+		ImagenLiga.texture = ImagenesLiga [Interfaz.Liga];
+		ImagenEscudoLiga.texture = ifcMainMenu.instance.Escudos2D [PlayerPrefs.GetInt("liga", 0)];
+
+
         // mostrar el jugador secundario del usuario local
         if (m_jugadorSecundarioLocal != null)
             GameObject.Destroy(m_jugadorSecundarioLocal);
 
-        Vector3 posicionJugadorSecundarioLocal = m_cntInfoJugadoresDuelo[0].transform.position;
+		Vector3 posicionJugadorSecundarioLocal = pref00.transform.position;
         posicionJugadorSecundarioLocal.x += 0.14f;
         posicionJugadorSecundarioLocal.y += 0.065f;
         Equipacion equipacionJugadorLocal = ((me.initMode)? (EquipacionManager.instance.GetEquipacionLanzadorSeleccionada()) : (EquipacionManager.instance.GetEquipacionPorteroSeleccionada()));
@@ -225,8 +266,8 @@ public class ifcDuelo : ifcBase {
         if (m_jugadorSecundarioRemoto != null)
             GameObject.Destroy(m_jugadorSecundarioRemoto);
 
-        Vector3 posicionJugadorSecundarioRemoto = m_cntInfoJugadoresDuelo[m_cntInfoJugadoresDuelo.Length - 1].transform.position;
-        posicionJugadorSecundarioRemoto.x -= 0.14f;
+		Vector3 posicionJugadorSecundarioRemoto = pref01.transform.position;
+        posicionJugadorSecundarioRemoto.x += 0.14f;
 		posicionJugadorSecundarioRemoto.y += 0.065f;
         m_jugadorSecundarioRemoto = Interfaz.instance.InstantiatePlayerAtScreenRelative(posicionJugadorSecundarioRemoto, !_usuarioRival.initMode, _usuarioRival.secondaryCharacter.idModelo, (_usuarioRival.initMode)?_usuarioRival.equipacionShooter:_usuarioRival.equipacionGoalkeeper);
     }
@@ -250,17 +291,15 @@ public class ifcDuelo : ifcBase {
 		}
         // si la pantalla esta en modo VS
         else if (m_modoVs) {
-			// ocultar la pantalla buscando rival
-			PantallaBuscandoRival.SetActive (false);
-			OBJBarraBuscandoRival.SetActive (false);
-            m_tiempoTranscurridoEnPantallaVs = Mathf.Min(m_tiempoTranscurridoEnPantallaVs + Time.deltaTime, Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS);
 
-            // actualizar la barra de progreso
-            m_barraProgreso.pixelInset = new Rect(
-                m_barraProgresoFondo.pixelInset.xMin,
-                m_barraProgresoFondo.pixelInset.yMin,
-                m_barraProgresoFondo.pixelInset.width * (m_tiempoTranscurridoEnPantallaVs / Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS),
-                m_barraProgresoFondo.pixelInset.height);
+			
+            m_tiempoTranscurridoEnPantallaVs = Mathf.Min(m_tiempoTranscurridoEnPantallaVs + Time.deltaTime, Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS);
+//            // actualizar la barra de progreso
+//            m_barraProgreso.pixelInset = new Rect(
+//                m_barraProgresoFondo.pixelInset.xMin,
+//                m_barraProgresoFondo.pixelInset.yMin,
+//                m_barraProgresoFondo.pixelInset.width * (m_tiempoTranscurridoEnPantallaVs / Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS),
+//                m_barraProgresoFondo.pixelInset.height);
 
             // comprobar si ya se ha superado el tiempo de espera y pasar a la siguiente pantalla
             if (m_tiempoTranscurridoEnPantallaVs >= Stats.TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS) {
@@ -273,7 +312,6 @@ public class ifcDuelo : ifcBase {
 
     void Back(string _name = "") {
 
-		//ADRIAN metodo para volver atrás desde el menú Duelo, comento lo que había y re-aprovecho lo que me interesa
 //        GeneralSounds_menu.instance.back();
 //
 //
@@ -301,7 +339,6 @@ public class ifcDuelo : ifcBase {
 //        new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
 //        new SuperTweener.move(ifcVestuario.instance.gameObject, 0.25f, new Vector3(0.5f, 0.5f, 0.0f), SuperTweener.CubicOut);
 
-		//ADRIAN esto es lo que me interesa
 		ifcBottomBar.instance.NumPantalla = 2;
 		ifcBottomBar.instance.MostrarEscenaNueva ();
 		new SuperTweener.move(gameObject, 0.25f, new Vector3(1.0f, 0.0f, 0.0f), SuperTweener.CubicOut, (_name2) => { SetVisible(false); });
@@ -313,10 +350,10 @@ public class ifcDuelo : ifcBase {
 		GameplayService.networked = false;
 		Interfaz.instance.Thrower = Interfaz.instance.Thrower;
 		Interfaz.instance.Goalkeeper = Interfaz.instance.Goalkeeper;
-		foreach(cntInfoJugadorDuelo jugador in m_cntInfoJugadoresDuelo)
-		{
-			jugador.SetVisible(false);
-		}
+//		foreach(cntInfoJugadorDuelo jugador in m_cntInfoJugadoresDuelo)
+//		{
+//			jugador.SetVisible(false);
+//		}
     }
 
 

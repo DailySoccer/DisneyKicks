@@ -33,7 +33,7 @@ public class cntBarraSuperior : MonoBehaviour {
     private bool m_modeloPorteroVisibleUltimaPantallaVisitada;
 
     // referencias a los elementos de esta interfaz
-    private btnButton m_btnAvatar;
+   // private btnButton m_btnAvatar;
     private btnButton m_btnMonedaHard;
     private btnButton m_btnMonedaSoft;
     private btnButton m_btnLogros;
@@ -65,8 +65,8 @@ public class cntBarraSuperior : MonoBehaviour {
 
 
     private void GetReferencias() {
-        if (m_btnAvatar == null)
-            m_btnAvatar = transform.FindChild("btnPerfil").GetComponent<btnButton>();
+//        if (m_btnAvatar == null)
+//            m_btnAvatar = transform.FindChild("btnPerfil").GetComponent<btnButton>();
         if (m_btnMonedaHard == null)
             m_btnMonedaHard = transform.FindChild("btnMonedaHard").GetComponent<btnButton>();
         if (m_btnMonedaSoft == null)
@@ -83,9 +83,9 @@ public class cntBarraSuperior : MonoBehaviour {
         GetReferencias();
         
         // boton perfil
-        m_btnAvatar.action = (_name) => {
-            OnPerfil();
-        };
+//        m_btnAvatar.action = (_name) => {
+//            OnPerfil();
+//        };
 
         // boton moneda hard
         m_btnMonedaHard.action = (_name) => {

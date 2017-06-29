@@ -23,10 +23,10 @@ public class Stats {
     public static Vector3 POS_PANTALLA_OCULTA_DCHA = new Vector3(SCREEN_X_RATIO, 0.0f, 0.0f);       // pantalla oculta por la derecha
 
     // tiempo (en SEGUNDOS) que se muestra el mensaje de VS en la pantalla de duelo antes de pasar a jugarlo
-    public const float TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS = 2.0f;
+    public const float TIEMPO_ESPERA_MOSTRAR_PANTALLA_VS = 4.0f;
 
 	// tiempo (en SEGUNDOS) que se muestra la pantalla de BUSCANDO RIVAL
-	public const float TIEMPO_ESPERA_MOSTRAR_PANTALLA_BUSCANDORIVAL = 6.0f;
+	public const float TIEMPO_ESPERA_MOSTRAR_PANTALLA_BUSCANDORIVAL = 4.0f;
 
     // tiempo (en SEGUNDOS) maximo que la alerta de "HAS RECIBIDO UN RETO" permanece abierta si el jugador local no la acepta
     public const float TIEMPO_ESPERA_RIVAL_ACEPTAR_RETO = 10.0f;
